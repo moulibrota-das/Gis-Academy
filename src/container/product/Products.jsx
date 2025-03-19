@@ -3,7 +3,7 @@ import Card from "../../components/card/Card"; // Import the Card component
 
 const Products = () => {
   return (
-    <section className="bg-offWhite min-h-screen flex flex-col items-center px-6 md:px-16 py-20">
+    <section className="bg-custom-gradient-top min-h-screen flex flex-col items-center px-6 md:px-16 py-20">
       {/* Title and Description */}
       <h2 className="text-4xl md:text-5xl font-semibold text-darkGreen text-center">
         Products

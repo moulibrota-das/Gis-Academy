@@ -6,7 +6,7 @@ const images = [introOne, introTwo];
 
 const Introduction = () => {
   return (
-    <div className="min-h-screen bg-offWhite flex items-center justify-center px-8 md:px-24 py-6 md:py-16">
+    <div className="min-h-screen bg-forestGreen flex items-center justify-center px-8 md:px-24 py-6 md:py-16">
       {/* Parent Container (Responsive) */}
       <div className="flex flex-col md:flex-row w-full max-w-6xl items-center">
         {/* Left Section (Images) */}
@@ -37,14 +37,14 @@ const Introduction = () => {
 
         {/* Right Section (Text Content) */}
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left mt-8 md:mt-0 md:pl-12">
-          <h1 className="text-3xl md:text-6xl font-bold text-darkGreen">
+          <h1 className="text-3xl md:text-6xl font-bold text-beige">
             Explore GIS & Mapping
           </h1>
-          <p className="text-lg text-gray-700 mt-4">
+          <p className="text-lg text-beige mt-4">
             Learn how to analyze spatial data, create stunning maps, and solve
             real-world problems using advanced GIS techniques.
           </p>
-          <button className="mt-6 bg-forestGreen text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-deepGreen transition">
+          <button className="mt-6 bg-offWhite text-darkGreen px-6 py-3 rounded-md text-lg font-medium hover:bg-beige transition">
             Get Started
           </button>
         </div>

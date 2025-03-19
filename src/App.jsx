@@ -6,6 +6,7 @@ import Products from "./container/product/Products";
 import NavBar from "./components/navbar/Navbar";
 import Certificate from "./container/certificate/Certificate";
 import Footer from "./components/footer/Footer";
+import ContactUs from "./container/contact/ContactUs";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Services />
         <Products />
         <Certificate />
+        <ContactUs />
         <Footer />
       </main>
     </>
