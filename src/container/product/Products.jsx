@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../../components/card/Card"; // Import the Card component
+import ProductCarousel from "../../components/productCarousel/ProductCarousel";
 
 const Products = () => {
   return (
@@ -16,18 +17,8 @@ const Products = () => {
       </p>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full max-w-4xl">
-        <Card
-          title="GIS Basics"
-          description="Learn the fundamentals of Geographic Information Systems."
-          bgColor="bg-mossGreen"
-        />
-
-        <Card
-          title="Spatial Analysis"
-          description="Learn how to analyze spatial data effectively."
-          bgColor="bg-mossGreen"
-        />
+      <div className="flex justify-center">
+        <ProductCarousel />
       </div>
     </section>
   );
