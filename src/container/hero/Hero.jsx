@@ -38,16 +38,16 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-gray-900 max-w-2xl leading-relaxed"
+          className="text-lg sm:text-xl md:text-md text-gray-900 max-w-2xl leading-relaxed"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         >
           Unlock the power of{" "}
-          <span className="font-semibold text-forestGreen">
-            GIS & Remote Sensing
+          <span className="font-semibold text-forestGreen underline">
+            GIS & Remote Sensing 
           </span>
-          to drive innovation and decision-making. Analyze spatial data, build
+          {" "}to drive innovation and decision-making. Analyze spatial data, build
           interactive maps, and shape the future with cutting-edge geospatial
           technology.
         </motion.p>
