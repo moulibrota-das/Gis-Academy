@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Introduction from "../introduction/Introduction";
 
 const Hero = () => {
   return (
@@ -8,8 +9,14 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(246, 251, 240, 0.8), rgba(163, 177, 138, 0.7)), url('/src/assets/images/white-map.jpg')`,
-          backgroundBlendMode: "overlay",
+          backgroundImage: `linear-gradient(160deg,  /* Adjusted angle */
+            rgba(52, 78, 65, 0.9) 22%, 
+            rgba(88, 129, 87, 0.8) 50%, 
+            rgba(162, 200, 161, 0.7) 71%, 
+            rgba(246, 251, 240, 0.6) 85%), 
+            url('/src/assets/images/map-dotted.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
         initial={{ scale: 1 }}
         animate={{ scale: 1.05 }}
