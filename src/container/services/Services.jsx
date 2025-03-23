@@ -8,7 +8,7 @@ const Services = () => {
   return (
     <motion.section
       className="min-h-screen flex flex-col items-center px-6 md:px-16 py-20 bg-offWhite 
-             bg-[url('/src/assets/images/background.png')] bg-cover bg-center relative overflow-hidden"
+             bg-[url('/src/assets/images/Services.png')] bg-cover bg-center relative overflow-hidden"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -17,7 +17,7 @@ const Services = () => {
       {/* Radial Gradient with Half Round Effect */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[150vw] h-[75%] 
-               bg-[radial-gradient(89.79%_126.27%_at_50%_6.79%,#FAFAFA_55.15%,rgba(250,250,250,0)_78.93%)] 
+               bg-[radial-gradient(89.79%_126.27%_at_50%_6.79%,#f6fbf0_55.15%,rgba(250,250,250,0)_78.93%)] 
                rounded-full pointer-events-none"
       ></div>
       {/* Title and Description */}
