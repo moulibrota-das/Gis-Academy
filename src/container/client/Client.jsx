@@ -33,20 +33,29 @@ const clients = [
 
 const ClientsPage = () => {
   return (
-    <div className="min-h-screen bg-offwhite flex flex-col items-center justify-center px-6 py-20">
+    <div className="min-h-screen bg-offWhite flex flex-col items-center justify-center px-6 py-20">
       {/* Section Title */}
       <motion.h2
-        className="text-4xl font-bold text-mossGreen uppercase text-center mb-10"
+        className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
       >
         Our Clients
       </motion.h2>
 
+      <motion.div
+        className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      ></motion.div>
+
       {/* Client Logos Grid */}
       <motion.div
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl w-full"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl w-full mt-8"
         initial="hidden"
         animate="visible"
         variants={{

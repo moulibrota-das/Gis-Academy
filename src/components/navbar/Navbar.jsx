@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import logoImage from "/src/assets/logo.png";
+import logoImage2 from "/src/assets/logoLight.png";
 
 const navItems = ["Home", "Product", "About", "Contact"];
 
@@ -25,13 +26,17 @@ const NavBar = () => {
     >
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 md:py-4 max-w-7xl">
         {/* Logo */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }} 
-          animate={{ opacity: 1, y: 0 }} 
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="flex items-center"
         >
-          <img src={logoImage} alt="logo" className="w-28 h-12 md:w-36 md:h-12" />
+          <img
+            src={isScrolled ? logoImage : logoImage2}
+            alt="logo"
+            className={`w-28 h-12 md:w-36 md:h-12 rounded-lg`}
+          />
         </motion.div>
 
         {/* Desktop Navigation Links */}
@@ -40,10 +45,18 @@ const NavBar = () => {
             <motion.a
               key={index}
               href={`#${item.toLowerCase()}`}
-              className="text-forestGreen hover:text-mossGreen transition font-medium"
+              className={`${
+                isScrolled
+                  ? "text-forestGreen hover:text-mossGreen"
+                  : "text-offWhite"
+              }  transition font-medium`}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeInOut" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+                ease: "easeInOut",
+              }}
             >
               {item}
             </motion.a>
@@ -69,7 +82,12 @@ const NavBar = () => {
               animate={{ rotate: 180 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </motion.svg>
           ) : (
             <motion.svg
@@ -82,7 +100,12 @@ const NavBar = () => {
               animate={{ rotate: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </motion.svg>
           )}
         </motion.button>
@@ -104,7 +127,10 @@ const NavBar = () => {
           animate={{ x: mobileMenuOpen ? "0%" : "100%" }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <button className="absolute top-3 right-3 text-darkGreen" onClick={() => setMobileMenuOpen(false)}>
+          <button
+            className="absolute top-3 right-3 text-darkGreen"
+            onClick={() => setMobileMenuOpen(false)}
+          >
             ✖
           </button>
           <div className="flex flex-col space-y-4 mt-8">
@@ -116,7 +142,11 @@ const NavBar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1, ease: "easeInOut" }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: "easeInOut",
+                }}
               >
                 {item}
               </motion.a>

@@ -33,7 +33,8 @@ const projects = [
   },
   {
     id: 6,
-    title: "Real-Time Ambient Air Quality & Air Temperature Study (Diwali Festival)",
+    title:
+      "Real-Time Ambient Air Quality & Air Temperature Study (Diwali Festival)",
     client: "Kolkata, West Bengal",
     duration: "2016-2018",
   },
@@ -50,17 +51,26 @@ const ProjectsPage = () => {
     <div className="min-h-screen bg-offwhite flex flex-col items-center justify-center px-6 py-16">
       {/* Section Title */}
       <motion.h2
-        className="text-3xl font-bold text-mossGreen uppercase text-center mb-8"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
       >
         Our Projects
       </motion.h2>
 
+      <motion.div
+        className="w-[200px] h-1 bg-darkGreen my-2 relative z-[1]"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      ></motion.div>
+
       {/* Project List */}
       <motion.ul
-        className="w-full max-w-4xl space-y-4"
+        className="w-full max-w-4xl space-y-4 mt-8"
         initial="hidden"
         animate="visible"
         variants={{
@@ -76,7 +86,9 @@ const ProjectsPage = () => {
             transition={{ duration: 0.2 }}
           >
             <span className="font-medium">{project.title}</span>
-            <span className="text-sm text-gray-600">{project.client} ({project.duration})</span>
+            <span className="text-sm text-gray-600">
+              {project.client} ({project.duration})
+            </span>
           </motion.li>
         ))}
       </motion.ul>
