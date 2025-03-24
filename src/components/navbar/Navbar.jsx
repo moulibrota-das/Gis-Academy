@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import logoImage from "/src/assets/logo.png";
+import logoImage2 from "/src/assets/logoLight.png";
 
 const navItems = ["Home", "Product", "About", "Contact"];
 
@@ -7,7 +9,6 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Handle scroll effect for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -17,59 +18,69 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (mobileMenuOpen && !event.target.closest("#mobileMenu")) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick);
-    return () => document.removeEventListener("click", handleOutsideClick);
-  }, [mobileMenuOpen]);
-
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-offWhite shadow-sm" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-500 ${
+        isScrolled ? "bg-offWhite shadow-md" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between px-2 py-2 md:px-2 md:py-4 max-w-7xl">
+      <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 md:py-4 max-w-7xl">
         {/* Logo */}
-        <div className="flex items-center">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="flex items-center"
+        >
           <img
-            src={logoImage}
+            src={isScrolled ? logoImage : logoImage2}
             alt="logo"
-            className="w-28 h-12 md:w-36 md:h-12"
+            className={`w-28 h-12 md:w-36 md:h-12 rounded-lg`}
           />
-        </div>
+        </motion.div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex gap-x-6">
+        <div className="hidden md:flex gap-x-8">
           {navItems.map((item, index) => (
-            <a
+            <motion.a
               key={index}
               href={`#${item.toLowerCase()}`}
-              className="text-forestGreen hover:text-mossGreen transition font-medium"
+              className={`${
+                isScrolled
+                  ? "text-forestGreen hover:text-mossGreen"
+                  : "text-offWhite"
+              }  transition font-medium`}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+                ease: "easeInOut",
+              }}
             >
               {item}
-            </a>
+            </motion.a>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
-        <button
+        <motion.button
           className="md:hidden text-forestGreen p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           {mobileMenuOpen ? (
-            <svg
+            <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               className="w-6 h-6"
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 180 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
             >
               <path
                 strokeLinecap="round"
@@ -77,14 +88,17 @@ const NavBar = () => {
                 strokeWidth={2}
                 d="M6 18L18 6M6 6l12 12"
               />
-            </svg>
+            </motion.svg>
           ) : (
-            <svg
+            <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               className="w-6 h-6"
+              initial={{ rotate: 180 }}
+              animate={{ rotate: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
             >
               <path
                 strokeLinecap="round"
@@ -92,22 +106,26 @@ const NavBar = () => {
                 strokeWidth={2}
                 d="M4 6h16M4 12h16M4 18h16"
               />
-            </svg>
+            </motion.svg>
           )}
-        </button>
+        </motion.button>
       </nav>
 
       {/* Mobile Menu */}
-      <div
+      <motion.div
         id="mobileMenu"
-        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity ${
-          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        } md:hidden`}
+        className={`fixed inset-0 bg-black bg-opacity-50 md:hidden ${
+          mobileMenuOpen ? "visible" : "invisible"
+        }`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <div
-          className={`absolute top-0 right-0 w-64 h-full bg-offWhite py-6 px-6 transform transition-transform ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        <motion.div
+          className="absolute top-0 right-0 w-64 h-full bg-offWhite py-6 px-6 rounded-l-lg shadow-xl"
+          initial={{ x: "100%" }}
+          animate={{ x: mobileMenuOpen ? "0%" : "100%" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <button
             className="absolute top-3 right-3 text-darkGreen"
@@ -117,18 +135,25 @@ const NavBar = () => {
           </button>
           <div className="flex flex-col space-y-4 mt-8">
             {navItems.map((item, index) => (
-              <a
+              <motion.a
                 key={index}
                 href={`#${item.toLowerCase()}`}
                 className="text-forestGreen hover:text-mossGreen transition py-2 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: "easeInOut",
+                }}
               >
                 {item}
-              </a>
+              </motion.a>
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </header>
   );
 };

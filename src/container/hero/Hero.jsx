@@ -1,68 +1,94 @@
-import React, { useState, useEffect, useRef } from "react";
-import imageOne from "/src/assets/images/image-1.jpg";
-import imageTwo from "/src/assets/images/image-2.jpg";
-import imageThree from "/src/assets/images/image-3.jpg";
-
-// Dummy images
-const images = [imageOne, imageTwo, imageThree];
+import React from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const intervalRef = useRef(null);
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
   return (
-    <div className="relative min-h-screen w-full bg-custom-gradient flex items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 transition-all duration-700 ease-in-out">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto w-full">
-        {/* Left Side - Text Content */}
-        <div className="space-y-6 text-center md:text-left w-full max-w-lg md:max-w-xl lg:max-w-2xl animate-fadeIn">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-darkGreen leading-tight font-heading ">
-            Master GIS & Remote Sensing
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-800 leading-relaxed">
-            Transform data into decisions with our industry-ready courses in
-            Remote Sensing and GIS. <br />
-            <span className="font-semibold text-forestGreen">
-              Be the expert the world needs.
-            </span>
-          </p>
-          <button className="bg-forestGreen text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-deepGreen transition-all duration-300 transform hover:scale-105">
-            Explore Courses
-          </button>
+    <motion.div className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden">
+      
+      <motion.div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          background: `linear-gradient(175deg,  
+            rgba(52, 78, 65, 1) 22%, 
+            rgba(88, 129, 87, 1) 50%, 
+            rgba(162, 200, 161, 1) 71%, 
+            rgba(246, 251, 240, 1) 85%)`,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
 
-          {/* Pagination Dots */}
-          <div className="flex justify-center md:justify-start space-x-3 pt-6">
-            {images.map((_, index) => (
-              <span
-                key={index}
-                className={`w-4 h-4 rounded-full transition-all duration-300 transform ${
-                  currentImage === index
-                    ? "bg-mossGreen scale-110 shadow-md"
-                    : "bg-offWhite"
-                } cursor-pointer`}
-                onClick={() => setCurrentImage(index)}
-              ></span>
-            ))}
-          </div>
-        </div>
+      <motion.div
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `url('/src/assets/images/map-dotted.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          mixBlendMode: "darken",
+        }}
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.05 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+      />
 
-        {/* Right Side - Auto-Sliding Image with Animation */}
-        <div className="w-full h-64 sm:h-80 md:h-[30rem] lg:h-[34rem] bg-gray-300 rounded-[40px] overflow-hidden shadow-xl relative animate-slideIn">
-          <img
-            src={images[currentImage]}
-            alt="GIS Course"
-            className="w-full h-full object-cover transition-opacity duration-700 ease-in-out"
-          />
+      {/* Content Section */}
+      <motion.div
+        className="relative w-full max-w-6xl mx-auto text-center flex flex-col items-center space-y-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <motion.h1
+          className="text-3xl sm:text-2xl md:text-5xl font-bold text-white leading-tight"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        >
+          Mapping the Future of Geospatial Intelligence
+        </motion.h1>
+
+        <motion.p
+          className="text-sm sm:text-xl md:text-sm text-white max-w-2xl leading-relaxed"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+        >
+          Unlock the power of{" "}
+          <span className="font-semibold text-white underline">
+            GIS & Remote Sensing
+          </span>{" "}
+          to drive innovation and decision-making. Analyze spatial data, build
+          interactive maps, and shape the future with cutting-edge geospatial
+          technology.
+        </motion.p>
+
+        <div className="flex space-x-4">
+          <motion.button
+            className="bg-forestGreen text-white px-6 py-2 rounded-lg text-md font-semibold shadow-md hover:bg-deepGreen transition-all duration-300 transform hover:scale-105"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+          >
+            Learn More
+          </motion.button>
+
+          <motion.button
+            className="bg-white text-forestGreen border-2 border-white px-6 py-2 rounded-lg text-md font-semibold shadow-md transition-all duration-300 transform hover:scale-105"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+          >
+            Contact Us
+          </motion.button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
