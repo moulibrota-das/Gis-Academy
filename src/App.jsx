@@ -6,6 +6,10 @@ import Products from "./container/product/Products";
 import NavBar from "./components/navbar/Navbar";
 import Certificate from "./container/certificate/Certificate";
 import Footer from "./components/footer/Footer";
+import ContactUs from "./container/contact/ContactUs";
+import ProprietorInfo from "./container/ProprietorInfo/ProprietorInfo";
+import Client from "./container/Client/Client";
+import ProjectsPage from "./container/project/project";
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
         <Services />
         <Products />
         <Certificate />
+        <Client />
+        <ProjectsPage />
+        <ProprietorInfo />
+        <ContactUs />
         <Footer />
       </main>
     </>
