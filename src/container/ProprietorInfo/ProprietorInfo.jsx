@@ -12,7 +12,7 @@ const wordVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
-const ProprietorMessage = () => {
+const ProprietorInfo = () => {
   const description =
     "A visionary leader specializing in Remote Sensing and Geographic Information System (GIS) projects, while also conducting comprehensive training programs.";
 
@@ -80,7 +80,8 @@ const ProprietorMessage = () => {
           viewport={{ once: false }}
         >
           <h3 className="text-2xl font-semibold text-white">
-            Message From <span className="underline">Pankaj Chakraborty</span> – The Proprietor
+            Message From <span className="underline">Pankaj Chakraborty</span> –
+            The Proprietor
           </h3>
 
           <p className="text-gray-200 mt-4 leading-relaxed">
@@ -110,14 +111,15 @@ const ProprietorMessage = () => {
             Water Investigation Directorate (SWID), etc.
             <br />
             <br />
-            Then, 21ST CENTURY GIS ACADEMY got Encouraged by the University of Calcutta, 21ST CENTURY GIS ACADEMY
-            has also developed easy and affordable educational GIS software for
-            Colleges and Universities. The "21stCenturyGIS" suite offers a Basic
-            version for Schools, a Professional version for Colleges &
-            Universities, and a Premium version for Professional Organizations,
-            covering an extensive range of topics, including Remote Sensing, GIS
-            Mapping & Analysis, Terrain Modeling, Morphometric Analysis, Network
-            Analysis, and Sub-Surface Mapping.
+            Then, 21ST CENTURY GIS ACADEMY got Encouraged by the University of
+            Calcutta, 21ST CENTURY GIS ACADEMY has also developed easy and
+            affordable educational GIS software for Colleges and Universities.
+            The "21stCenturyGIS" suite offers a Basic version for Schools, a
+            Professional version for Colleges & Universities, and a Premium
+            version for Professional Organizations, covering an extensive range
+            of topics, including Remote Sensing, GIS Mapping & Analysis, Terrain
+            Modeling, Morphometric Analysis, Network Analysis, and Sub-Surface
+            Mapping.
           </p>
         </motion.div>
       </motion.div>
@@ -125,4 +127,4 @@ const ProprietorMessage = () => {
   );
 };
 
-export default ProprietorMessage;
+export default ProprietorInfo;

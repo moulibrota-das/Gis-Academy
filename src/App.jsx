@@ -8,8 +8,8 @@ import Certificate from "./container/certificate/Certificate";
 import Footer from "./components/footer/Footer";
 import ContactUs from "./container/contact/ContactUs";
 import ProprietorInfo from "./container/ProprietorInfo/ProprietorInfo";
-import Client from "./container/Client/Client";
-import ProjectsPage from "./container/project/project";
+import Client from "./container/client/ClientsPage";
+import ProjectsPage from "./container/project/ProjectsPage";
 
 function App() {
   return (
