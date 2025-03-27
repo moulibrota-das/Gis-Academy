@@ -17,7 +17,7 @@ const ProprietorInfo = () => {
     "A visionary leader specializing in Remote Sensing and Geographic Information System (GIS) projects, while also conducting comprehensive training programs.";
 
   return (
-    <div className="min-h-screen  flex flex-col items-center px-6 py-16 mt-10">
+    <div className="min-h-screen  flex flex-col items-center px-6 py-16 mt-10" id="about">
       {/* Section Title */}
       <motion.h2
         className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
