@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import proprietorImg from "/src/assets/images/proprietor.png";
+import proprietorImg from "/src/assets/images/pankaj_chakraborty.jpeg";
 
 // Animation variants for staggered text effect
 const sentenceVariant = {
@@ -17,6 +17,26 @@ const ProprietorInfo = () => {
     "A visionary leader specializing in Remote Sensing and Geographic Information System (GIS) projects, while also conducting comprehensive training programs.";
 
   return (
+    <div className="min-h-screen  flex flex-col items-center px-6 py-16 mt-10">
+      {/* Section Title */}
+      <motion.h2
+        className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      >
+        Words from Our Proprietor
+      </motion.h2>
+
+      <motion.div
+        className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      ></motion.div>
+
     <div className="min-h-screen bg-offWhite flex items-center justify-center px-6 md:px-16 py-10 md:py-20">
       <motion.div
         className="max-w-5xl w-full bg-mossGreen text-white rounded-2xl shadow-xl p-8 md:p-12"
@@ -52,7 +72,7 @@ const ProprietorInfo = () => {
 
             {/* Animated Description (Fix Spacing) */}
             <motion.p
-              className="text-gray-200 mt-4 leading-relaxed"
+              className="text-white mt-4 leading-relaxed"
               variants={sentenceVariant}
               initial="hidden"
               whileInView="visible"
@@ -124,6 +144,7 @@ const ProprietorInfo = () => {
         </motion.div>
       </motion.div>
     </div>
+  </div>
   );
 };
 

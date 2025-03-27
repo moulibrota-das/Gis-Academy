@@ -30,7 +30,7 @@ const Hero = () => {
         initial={{ scale: 1 }}
         animate={{ scale: 1.05 }}
         transition={{
-          duration: 6,
+          duration: 2.5,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut",
@@ -64,7 +64,7 @@ const Hero = () => {
             GIS & Remote Sensing
           </span>{" "}
           to drive innovation and decision-making. Analyze spatial data, build
-          interactive maps, and shape the future with cutting-edge geospatial
+          interactive maps, and shape the future in the era of cutting-edge geospatial
           technology.
         </motion.p>
 
