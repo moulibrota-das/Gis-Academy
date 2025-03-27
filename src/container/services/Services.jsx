@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -70,6 +70,9 @@ const services = [
 const Services = () => {
     const scrollContainerRef = useRef(null);
     const cardRefs = useRef([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalData, setModalData] = useState({ title: '', images: [], description: '' });
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const scrollLeft = () => {
         if (scrollContainerRef.current && cardRefs.current.length > 0) {
@@ -97,30 +100,50 @@ const Services = () => {
         }
     }, []);
 
+    const openModal = (service, imageIndex = 0) => {
+        setModalData(service);
+        setCurrentImageIndex(imageIndex); // Initialize the image index
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
+    const handleNextImage = () => {
+        setCurrentImageIndex(prevIndex => (prevIndex + 1) % modalData.images.length);
+    };
+
+    const handlePreviousImage = () => {
+        setCurrentImageIndex(prevIndex =>
+            prevIndex === 0 ? modalData.images.length - 1 : prevIndex - 1
+        );
+    };
+
     return (
         <section className="min-h-screen bg-offWhite p-0 relative">
             <div className="m-12 sm:m-12 lg:m-16">
-              <div className="flex flex-col items-center mb-8">
-                <motion.h2
-                  className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: false }}
-                >
-                  Our Services
-                </motion.h2>
+                <div className="flex flex-col items-center mb-8">
+                    <motion.h2
+                        className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: false }}
+                    >
+                        Our Services
+                    </motion.h2>
 
-                <motion.div
-                  className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: false }}
-                ></motion.div>
-              </div>
+                    <motion.div
+                        className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: false }}
+                    ></motion.div>
+                </div>
                 <div className="">
-                    
+
                     {/* Left Button - Fully to the Left */}
                     <motion.button
                         onClick={scrollLeft}
@@ -141,7 +164,8 @@ const Services = () => {
                                 <article
                                     key={index}
                                     ref={(el) => (cardRefs.current[index] = React.createRef(el))}
-                                    className="bg-white rounded-xl shadow-md flex-shrink-0 w-80 sm:w-96 flex flex-col"
+                                    className="bg-white rounded-xl shadow-md flex-shrink-0 w-80 sm:w-96 flex flex-col cursor-pointer"
+                                    onClick={() => openModal(service)} // Open modal on card click
                                 >
                                     <div className="h-64 relative p-4">
                                         <Swiper
@@ -171,8 +195,14 @@ const Services = () => {
                                         <p className="mb-4 flex-grow">
                                             {service.description}
                                         </p>
-                                        <button className="px-5 py-2 bg-white text-mossGreen rounded-lg hover:bg-gray-100 transition-colors">
-                                            Learn More
+                                        <button
+                                            className="px-5 py-2 bg-white text-mossGreen rounded-lg hover:bg-gray-100 transition-colors"
+                                            onClick={(e) => {
+                                                e.stopPropagation(); // Prevent card click when button is clicked.
+                                                openModal(service);
+                                            }}
+                                        >
+                                            Expand View
                                         </button>
                                     </div>
                                 </article>
@@ -192,6 +222,58 @@ const Services = () => {
                     </motion.button>
 
                 </div>
+            </div>
+
+            {/* Modal for displaying images and text */}
+            <div
+                className={`${modalOpen ? 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50' : 'hidden'}`}
+                aria-hidden={!modalOpen} // Add aria-hidden for accessibility
+            >
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-offWhite text-black shadow-2xl rounded-xl max-w-[700px] lg:max-w-[800px] w-full"
+                >
+                    <div className="p-6 bg-mossGreen text-white rounded-t-xl mb-4">
+                        <h2 className="text-2xl font-semibold text-white">{modalData.title}</h2>
+                        <p className="text-white mt-2">{modalData.description}</p>
+                    </div>
+                    <div className="relative w-full">
+                        {modalData.images.length > 1 && (
+                            <>
+                                <button
+                                    onClick={handlePreviousImage}
+                                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/20 text-white hover:bg-black/40 z-10 rounded-full p-2"
+                                >
+                                    <IoIosArrowBack className="h-6 w-6" />
+                                </button>
+                                <button
+                                    onClick={handleNextImage}
+                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/20 text-white hover:bg-black/40 z-10 rounded-full p-2"
+                                >
+                                    <IoIosArrowForward className="h-6 w-6" />
+                                </button>
+                            </>
+                        )}
+
+                        <img
+                            src={modalData.images[currentImageIndex]}
+                            alt={`${modalData.title} - ${currentImageIndex + 1}`}
+                            className="w-full rounded-t-xl max-h-[400px] object-contain"
+                        />
+                    </div>
+
+                    <div className="mt-6 p-6 flex justify-end">
+                        <button
+                            onClick={closeModal}
+                            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2 rounded-md"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
