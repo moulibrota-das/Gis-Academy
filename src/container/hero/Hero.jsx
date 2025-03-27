@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import mapDotted from "/src/assets/images/map-dotted.png";
 
 const Hero = () => {
   return (
     <motion.div className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden">
-      
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{
@@ -22,7 +22,7 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-          backgroundImage: `url('/src/assets/images/map-dotted.png')`,
+          backgroundImage: `url(${mapDotted})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           mixBlendMode: "darken",
