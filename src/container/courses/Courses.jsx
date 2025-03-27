@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const CourseCards = () => {
+const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
@@ -32,11 +32,26 @@ const CourseCards = () => {
 
   return (
     <div className="min-h-screen bg-mossGreen p-10 flex flex-col items-center">
-      <h1 className="text-4xl font-extrabold text-white text-center mb-8">
-        Explore Our Courses
-      </h1>
+      {/* Section Title */}
+      <motion.h2
+        className="text-4xl md:text-5xl font-semibold text-white text-center relative z-[1]"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      >
+        Courses
+      </motion.h2>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
+      <motion.div
+        className="w-[100px] h-1 bg-white my-2 relative z-[1]"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      ></motion.div>
+
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mt-8">
         {courses.map((course, index) => (
           <motion.div
             key={index}
@@ -45,7 +60,7 @@ const CourseCards = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div>
-              <h2 className="text-2xl font-bold text-white">{course.courseName}</h2>
+              <h2 className="text-xl font-bold text-white font-serif bold">{course.courseName}</h2>
               {(course.durationMonths > 0 || course.durationHours > 0) && (
                 <p className="text-white mt-2 underline">
                   <strong>Duration:</strong>{" "}
@@ -108,13 +123,14 @@ const CourseCards = () => {
                 ✕
               </button>
               <h2 className="text-3xl font-bold">{selectedCourse.courseName}</h2>
-              <p className="mt-2">
-                <strong>Duration:</strong>{" "}
-                {selectedCourse.durationMonths
-                  ? `${selectedCourse.durationMonths} Months`
-                  : `${selectedCourse.durationHours} Hours`}
-              </p>
-
+              {(selectedCourse.durationMonths > 0 || selectedCourse.durationHours > 0) && (
+                <p className="mt-2">
+                  <strong>Duration:</strong>{" "}
+                  {selectedCourse.durationMonths
+                    ? `${selectedCourse.durationMonths} Months`
+                    : `${selectedCourse.durationHours} Hours`}
+                </p>
+              )}
               {selectedCourse.topics && (
                 <div className="mt-4">
                   <h3 className=" font-semibold text-lg">Topics Covered:</h3>
@@ -150,4 +166,4 @@ const CourseCards = () => {
   );
 };
 
-export default CourseCards;
+export default Courses;

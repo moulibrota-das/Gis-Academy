@@ -1,7 +1,7 @@
 import "./App.css";
 import Introduction from "./container/introduction/Introduction";
 import Hero from "./container/hero/Hero";
-import Services from "./container/services/Services";
+import Courses from "./container/courses/Courses";
 import Products from "./container/product/Products";
 import NavBar from "./components/navbar/Navbar";
 import Certificate from "./container/certificate/Certificate";
@@ -18,7 +18,7 @@ function App() {
         <NavBar />
         <Hero />
         <Introduction />
-        <Services />
+        <Courses />
         <Products />
         <Certificate />
         <Client />
