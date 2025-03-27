@@ -45,10 +45,22 @@ const Certificate = () => {
       description: "Description for the sixth certificate.",
       bgColor: "bg-offWhite",
     },
+    {
+      id: 7,
+      title: "Certificate Six",
+      description: "Description for the sixth certificate.",
+      bgColor: "bg-offWhite",
+    },
+    {
+      id: 8,
+      title: "Certificate Six",
+      description: "Description for the sixth certificate.",
+      bgColor: "bg-offWhite",
+    },
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center px-6 md:px-16 py-20 bg-darkGreen">
+    <section className="min-h-screen flex flex-col items-center px-4 md:px-16 py-20 bg-darkGreen">
       {/* Title */}
       <h2 className="text-4xl md:text-5xl font-semibold text-white text-center">
         Certificates
@@ -56,8 +68,8 @@ const Certificate = () => {
       <div className="w-32 h-[2px] bg-white my-3"></div>
 
       {/* Swiper Carousel */}
-      <div className="w-full max-w-5xl mt-10">
-        <Swiper
+      <div className="w-full max-w-5xl mt-10 gap-4 grid grid-cols-4">
+        {/* <Swiper
           slidesPerView={1}
           spaceBetween={20}
           breakpoints={{
@@ -75,22 +87,22 @@ const Certificate = () => {
           navigation
           modules={[Pagination, Navigation]}
           className="mySwiper"
-        >
+        > */}
           {certificates.map((certificate, index) => (
             <SwiperSlide key={certificate.id} className="flex justify-center">
               <Card
                 title={certificate.title}
                 description={certificate.description}
                 bgColor={certificate.bgColor}
+                width={"88"}
+                height={"72"}
                 className={`transition-transform duration-300 ${
-                  index === 0
-                    ? "h-72 w-60"
-                    : `h-${72 + index * 10} w-${60 + index * 5}`
+                  `h-${72 + index * 10} w-${60 + index * 5}`
                 }`}
               />
             </SwiperSlide>
           ))}
-        </Swiper>
+        {/* </Swiper> */}
       </div>
     </section>
   );
