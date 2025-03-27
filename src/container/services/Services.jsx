@@ -31,7 +31,7 @@ const CourseCards = () => {
   }, [selectedCourse]);
 
   return (
-    <div className="min-h-screen bg-mossGreen p-10 flex flex-col items-center">
+    <div className="min-h-screen bg-mossGreen p-10 flex flex-col items-center" id="courses">
       <h1 className="text-4xl font-extrabold text-white text-center mb-8">
         Explore Our Courses
       </h1>
