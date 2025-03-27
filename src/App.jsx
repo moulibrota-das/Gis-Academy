@@ -10,7 +10,7 @@ import ContactUs from "./container/contact/ContactUs";
 import ProprietorInfo from "./container/ProprietorInfo/ProprietorInfo";
 import Client from "./container/client/ClientsPage";
 import ProjectsPage from "./container/project/ProjectsPage";
-
+import Services from "./container/services/Services";
 function App() {
   return (
     <>
@@ -20,6 +20,7 @@ function App() {
         <Introduction />
         <Courses />
         <Products />
+        <Services />
         <Certificate />
         <Client />
         <ProjectsPage />
