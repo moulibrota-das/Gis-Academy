@@ -1,0 +1,270 @@
+{
+  "courses": [
+    {
+      "courseName": "Certificate Course on Calcutta University Under Graduate Syllabus (5th Semester)",
+      "courseType": "Certificate",
+      "durationHours": 0,
+      "topics": [
+        "Practical only (15 Hours)",
+        "Theory & Practical (21 Hours)",
+        "3 Practical Hours before Semester Examination"
+      ]
+    },
+    {
+      "courseName": "Internship on GIS & Remote Sensing",
+      "courseType": "Internship",
+      "durationHours": 60,
+      "topics": [
+        "Introduction to Geographical Information System",
+        "GIS Data type – Spatial (Raster & Vector), Attribute and Spectral",
+        "Georeferencing of Cadastral Map and Digitisation of features (Point, Line & Polygon)",
+        "Attribute data handling and Joining data from Excel",
+        "Thematic Map preparation (Pie, Bar diagram with Choropleth mapping)",
+        "Layout preparation with Graticule, Scale bar, North Arrow, Legend with proper heading and export as image, pdf etc",
+        "Buffer, Overlay",
+        "Satellite Image Classification – Supervised & Unsupervised, Spectral Signature Plot",
+        "Project – Techniques & Report Preparation"
+      ]
+    },
+    {
+      "courseName": "Foundation on GIS & Remote Sensing",
+      "courseType": "Certificate",
+      "durationMonths": 3,
+      "topics": {
+        "Geographic Information System": {
+          "durationMonths": 1.5,
+          "software": "QGIS 3.10",
+          "topics": [
+            "GIS Applications and Implementations",
+            "Raster & Vector Data",
+            "Georeferencing of Raster Data / Cadastral Map",
+            "Digitisation in Point, Line and Polygon",
+            "Attribute Table and Foreign Data Table Handling",
+            "Interaction with Google Earth Pro"
+          ]
+        },
+        "Remote Sensing": {
+          "durationMonths": 1.5,
+          "topics": [
+            "Electro Magnetic Radiation Principles",
+            "Energy Interaction with Atmosphere & Earth Surface",
+            "Remote Sensing Technology – Satellites, Orbits, Sensors & Resolutions",
+            "Components of Remote Sensing Technology",
+            "Advantages & Limitations of Remote Sensing",
+            "Satellite Image Interpretation & Enhancement",
+            "Image Classification – Unsupervised & Supervised",
+            "Spectral Plot & Spatial Signature"
+          ]
+        }
+      }
+    },
+    {
+      "courseName": "Professional on GIS & Remote Sensing",
+      "courseType": "Certificate",
+      "durationMonths": 6,
+      "topics": {
+        "Geographic Information System": {
+          "durationMonths": 1,
+          "software": "QGIS 3.10",
+          "topics": [
+            "GIS Applications and Implementations",
+            "Raster & Vector Data",
+            "Georeferencing of Raster Data / Cadastral Map",
+            "Digitization in Point, Line and Polygon",
+            "Attribute Table and Foreign Data Table Handling",
+            "Interaction with Google Earth Pro"
+          ]
+        },
+        "Remote Sensing": {
+          "durationMonths": 1,
+          "software": "QGIS 3.10",
+          "topics": [
+            "Electro Magnetic Radiation Principles",
+            "Energy Interaction with Atmosphere & Earth Surface",
+            "Remote Sensing Technology – Satellites, Orbits, Sensors & Resolutions",
+            "Components of Remote Sensing Technology",
+            "Advantages & Limitations of Remote Sensing",
+            "Satellite Image Interpretation & Enhancement",
+            "Image Classification – Unsupervised & Supervised",
+            "Spectral Plot & Spatial Signature"
+          ]
+        },
+        "Advance Geographic Information System": {
+          "durationMonths": 1.5,
+          "software": "ArcGIS 10.4",
+          "topics": [
+            "Expert Level Mapping",
+            "Expert Level Data Management",
+            "Digital Elevation Model with DSM & DTM",
+            "Contour, Slope, Aspect & Hillshade Mapping",
+            "Drainage Extraction from DEM and Density Analysis",
+            "Stream Ordering",
+            "Watershed Delineation",
+            "Automatic Digitization of Cadastral Map",
+            "3D Mapping using ArcScene"
+          ]
+        },
+        "Advance Remote Sensing": {
+          "durationMonths": 1.5,
+          "software": "ArcGIS 10.4",
+          "topics": [
+            "Satellite Image Interpretation & Enhancement",
+            "Image Profile Graph",
+            "Image Mosaic",
+            "Image Classification – Unsupervised & Supervised",
+            "Indices like - NDVI, NDWI, NDBI etc.",
+            "Extraction of Land Surface Temperature & Urban Heat Island"
+          ]
+        },
+        "Project on GIS & Remote Sensing": {
+          "durationMonths": 1,
+          "topics": [
+            "Primary & Secondary Data Collection",
+            "Preparation of Maps, Graphs & Table",
+            "Project Report"
+          ]
+        }
+      }
+    },
+    {
+      "courseName": "Advance Study on HEC-RAS software",
+      "courseType": "Certificate",
+      "durationMonths": 2,
+      "topics": [
+        "Flow / Sediment Transport Model",
+        "Flood Risk Assessment",
+        "Urban Flood Modeling",
+        "Embankment Breaching Study",
+        "Dam and Reservoir Study",
+        "Effects of Hydraulic Construction Analysis, 1D and 2D River Model"
+      ]
+    },
+    {
+      "courseName": "Advance Study on HEC-HMS software",
+      "courseType": "Certificate",
+      "durationMonths": 1,
+      "topics": [
+        "Flood analysis",
+        "Rainfall - Runoff Analysis",
+        "Water availability study through Climatic impact and Soil erosion"
+      ]
+    },
+    {
+      "courseName": "Integrated Machine Learning Analysis on Hydrodynamic Study",
+      "courseType": "Certificate",
+      "durationMonths": 3,
+      "topics": [
+        "Future formation and utilizing different aspect of Machine Learning",
+        "Hydrodynamic analysis of catchment through SWAT",
+        "SWAT-CUP simulation by using predictive data"
+      ]
+    },
+    {
+      "courseName": "Statistical Approach using Excel, SPSS, Origin & R software",
+      "courseType": "Certificate",
+      "durationMonths": 4
+    },
+    {
+      "courseName": "Research Methodology",
+      "courseType": "Certificate",
+      "durationMonths": 1,
+      "topics": [
+        "Bibliometric Analysis through Vos Viewer and R",
+        "Qualitative data analysis and Modeling through NVIVO"
+      ]
+    },
+    {
+      "courseName": "Python programming on Statistical Technique and Spatial Mapping",
+      "courseType": "Certificate",
+      "durationMonths": 6
+    },
+    {
+      "courseName": "Diploma in GIS and Remote Sensing",
+      "courseType": "Diploma",
+      "durationMonths": 12,
+      "topics": {
+        "Basic GIS": {
+          "durationMonths": 1.5,
+          "software": "QGIS 3.10",
+          "topics": [
+            "GIS Applications and Implementations",
+            "Raster & Vector Data",
+            "Georeferencing of Raster Data/Cadastral Map",
+            "Digitization in Point, Line and Polygon",
+            "Attribute Table and Foreign Data Table Handling",
+            "Interaction with Google Earth Pro"
+          ]
+        },
+        "Remote Sensing": {
+          "durationMonths": 1.5,
+          "software": "QGIS 3.10",
+          "topics": [
+            "Electro Magnetic Radiation Principles",
+            "Energy Interaction with Atmosphere & Earth Surface",
+            "Remote Sensing Technology – Satellites, Orbits, Sensors & Resolutions",
+            "Components of Remote Sensing Technology",
+            "Advantages & Limitations of Remote Sensing",
+            "Satellite Image Interpretation & Enhancement",
+            "Image Classification – Unsupervised & Supervised",
+            "Spectral Plot & Spatial Signature"
+          ]
+        },
+        "Advance GIS": {
+          "durationMonths": 1.5,
+          "software": "ArcGIS 10.4",
+          "topics": [
+            "Expert Level Mapping",
+            "Expert Level Data Management",
+            "Digital Elevation Model with DSM & DTM",
+            "Contour, Slope, Aspect & Hillshade Mapping",
+            "Drainage Extraction from DEM and Density Analysis",
+            "Stream Ordering",
+            "Watershed Delineation",
+            "Automatic Digitization of Cadastral Map",
+            "3D Mapping using ArcScene"
+          ]
+        },
+        "Advance Remote Sensing": {
+          "durationMonths": 1.5,
+          "software": "ArcGIS 10.4",
+          "topics": [
+            "Satellite Image Interpretation & Enhancement",
+            "Image Profile Graph",
+            "Image Mosaic",
+            "Image Classification – Unsupervised & Supervised",
+            "Indices - NDVI, NDWI, NDBI etc.",
+            "Extraction of Land Surface Temperature & Urban Heat Island"
+          ]
+        },
+        "Advance study on HEC-RAS Software": {
+          "durationMonths": 2,
+          "topics": [
+            "Flow / Sediment Transport Model",
+            "Flood Risk Assessment",
+            "Urban Flood Modeling",
+            "Embankment Breaching Study",
+            "Dam and Reservoir Study",
+            "Effects of Hydraulic Construction Analysis, 1D and 2D River Model"
+          ]
+        },
+        "Advance study on HEC-HMS Software": {
+          "durationMonths": 1,
+          "topics": [
+            "Flood Analysis",
+            "Rainfall - Runoff Analysis",
+            "Water availability study through Climatic Impact and Soil Erosion"
+          ]
+        },
+        "Project on GIS & Remote Sensing": {
+          "durationMonths": 3,
+          "topics": [
+            "Collection of Primary & Secondary Data",
+            "Preparation of Maps, Graphs & Excel Table",
+            "Project Report Writing",
+            "PowerPoint Presentation of Project"
+          ]
+        }
+      }
+    }
+  ]
+}
