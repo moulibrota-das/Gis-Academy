@@ -10,7 +10,7 @@ import img7 from "/src/assets/product/Brochure_page-0007.jpg";
 import img8 from "/src/assets/product/Brochure_page-0008.jpg";
 
 const product = {
-  name: "21st Century GIS (Premium)",
+  name: "21stCenturyGIS(Premium)",
   description: "Remote Sensing and Geographic Information System (GIS) Software",
   images: [img1, img2, img3, img4, img5, img6, img7, img8], // Array of images
 };
@@ -58,8 +58,7 @@ const ProductCarousel = () => {
 
           {/* Right Section with Info */}
           <div className="w-full md:w-1/2 pl-6 border-l-2 border-green-500">
-            <h2 className="text-3xl font-extrabold text-offWhite drop-shadow-lg leading-tight">
-              {product.name}
+            <h2 className="text-4xl font-bold text-offWhite drop-shadow-md tracking-wide">              {product.name}
             </h2>
             <p className="text-offWhite my-4 leading-relaxed text-md">
               {product.description}

@@ -38,7 +38,7 @@ const Products = () => {
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: false }}
       >
-        Our GIS software integrates geographic data to improve decision-making in urban planning, transportation, and environmental monitoring. Paired with remote sensing technology, it enables real-time data collection from satellites, optimizing applications in agriculture, disaster management, and environmental analysis.
+        Our GIS software - 21st Century GIS (premium version) integrates geographic data to improve decision-making in urban planning, transportation, and environmental monitoring. Paired with remote sensing technology, it enables real-time data collection from satellites, optimizing applications in agriculture, disaster management, and environmental analysis.
       </motion.p>
 
       {/* Cards Section */}

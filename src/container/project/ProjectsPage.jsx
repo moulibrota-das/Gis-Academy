@@ -48,7 +48,7 @@ const projects = [
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen bg-offwhite flex flex-col items-center justify-center px-6 py-16">
+    <div className="min-h-screen  flex flex-col items-center px-6 py-16">
       {/* Section Title */}
       <motion.h2
         className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
@@ -61,7 +61,15 @@ const ProjectsPage = () => {
       </motion.h2>
 
       <motion.div
-        className="w-[200px] h-1 bg-darkGreen my-2 relative z-[1]"
+        className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      ></motion.div>
+
+      <motion.div
+        className="w-[200px] h-1 bg-green-500 my-4"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -70,25 +78,27 @@ const ProjectsPage = () => {
 
       {/* Project List */}
       <motion.ul
-        className="w-full max-w-4xl space-y-4 mt-8"
+        className="w-full max-w-4xl space-y-6 mt-10"
         initial="hidden"
         animate="visible"
         variants={{
           hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+          visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
         }}
       >
         {projects.map((project) => (
           <motion.li
             key={project.id}
-            className="bg-white p-4 rounded-lg shadow-md flex flex-col md:flex-row md:justify-between items-start md:items-center text-gray-800"
+            className="bg-mossGreen p-3 rounded-xl shadow-lg transition-all duration-300
+                       hover:shadow-green-400/50 hover:-translate-y-1"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="font-medium">{project.title}</span>
-            <span className="text-sm text-gray-600">
-              {project.client} ({project.duration})
-            </span>
+            <h3 className="font-semibold text-xl text-offWhite">{project.title}</h3>
+            <p className="text-gray-100 text-sm mt-2">
+              {project.client} 
+              <span className="text-gray-100"> ({project.duration})</span>
+            </p>
           </motion.li>
         ))}
       </motion.ul>
