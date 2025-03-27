@@ -48,7 +48,7 @@ const projects = [
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen  flex flex-col items-center px-6 py-16">
+    <div className="min-h-screen  flex flex-col items-center px-6 py-16" id="projects">
       {/* Section Title */}
       <motion.h2
         className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"

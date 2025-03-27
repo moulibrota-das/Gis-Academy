@@ -4,7 +4,7 @@ import mapDotted from "/src/assets/images/map-dotted.png";
 
 const Hero = () => {
   return (
-    <motion.div className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden">
+    <motion.div className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden" id="home">
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{

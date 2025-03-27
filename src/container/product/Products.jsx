@@ -4,7 +4,7 @@ import ProductCarousel from "../../components/productCarousel/ProductCarousel";
 
 const Products = () => {
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2" id="products">
     <ProductCarousel/>
     <motion.section
       className="bg-custom-gradient-top min-h-screen flex flex-col items-center px-6 md:px-16 py-20"
