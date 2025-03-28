@@ -19,6 +19,15 @@ import pdf6 from "../../assets/documents/professional_tax_certificate.pdf";
 import pdf7 from "../../assets/documents/resume.pdf";
 import pdf8 from "../../assets/documents/udyam_certificate.pdf";
 
+import img1 from "../../assets/images/Documents/21stcentury_gis_brochure.jpg";
+import img2 from "../../assets/images/Documents/company_profile.jpg";
+import img3 from "../../assets/images/Documents/gst.jpg";
+import img4 from "../../assets/images/Documents/iso_certificate.jpg";
+import img5 from "../../assets/images/Documents/kmc_trade_licence.jpg";
+import img6 from "../../assets/images/Documents/professional_tax_certificate.jpg";
+import img7 from "../../assets/images/Documents/resume.jpg";
+import img8 from "../../assets/images/Documents/udyam_certificate.jpg";
+
 // Configure PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -58,41 +67,49 @@ const document_details = [
     title: "GIS Training Manual",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf1,
+    imgUrl: img1,
   },
   {
     title: "Company Brochure",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf2,
+    imgUrl: img2,
   },
   {
     title: "GIS Training Manual",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf3,
+    imgUrl: img3,
   },
   {
     title: "Company Brochure",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf4,
+    imgUrl: img4,
   },
   {
     title: "GIS Training Manual",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf5,
+    imgUrl: img5,
   },
   {
     title: "Company Brochure",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf6,
+    imgUrl: img6,
   },
   {
     title: "GIS Training Manual",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf7,
+    imgUrl: img7,
   },
   {
     title: "Company Brochure",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf8,
+    imgUrl: img8,
   },
 ];
 
