@@ -2,21 +2,20 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <section className="min-h-screen w-full bg-offWhite flex items-center justify-center px-6 " id="contact">
+    <section
+      className="min-h-screen w-full bg-offWhite flex items-center justify-center px-6 "
+      id="contact"
+    >
       <div className="flex flex-col md:flex-row w-full max-w-7xl">
         {/* Left Section - Contact Info */}
         <div className="flex-1">
-        <iframe
-              className="h-full w-full  rounded-md border-2  shadow-lg"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509092!2d144.9537353153217!3d-37.81720997975148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df1f4cfcb%3A0x2c0a2a4b3123a4b!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1613987579867!5m2!1sen!2sus"
-              allowFullScreen="true"
-              // loading="lazy"
-              title="Google Map"
-            ></iframe>
+          <iframe
+            className="h-full w-full rounded-md border-2 shadow-lg"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.965650243995!2d88.37930227528942!3d22.464784137294057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271156a4d7b17%3A0x2d4f6c93d70c3c4d!2s404%2C%20Baghajatin%20Pl%2C%20Kolkata%2C%20West%20Bengal%20700086!5e0!3m2!1sen!2sin!4v1711590604572!5m2!1sen!2sin"
+            allowFullScreen="true"
+            title="Google Map - 404, Baghajatin Place, Kolkata"
+          ></iframe>
         </div>
-        
-
-        
 
         {/* Right Section - Contact Form */}
         <div className="flex-1">
@@ -97,7 +96,6 @@ const ContactUs = () => {
             </form>
           </div>
         </div>
-        
       </div>
     </section>
   );
