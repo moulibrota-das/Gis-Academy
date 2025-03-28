@@ -10,10 +10,10 @@ import img7 from "/src/assets/product/Brochure_page-0007.jpg";
 import img8 from "/src/assets/product/Brochure_page-0008.jpg";
 
 const product = {
-  name: "21stCenturyGIS(Premium)",
+  name: "21st Century GIS (Premium)",
   description:
     "Remote Sensing and Geographic Information System (GIS) Software",
-  images: [img1, img2, img3, img4, img5, img6, img7, img8], // Array of images
+  images: [img1, img2, img3, img4, img5, img6, img7, img8],
 };
 
 const ProductCarousel = () => {
@@ -32,8 +32,8 @@ const ProductCarousel = () => {
   }, [currentIndex]);
 
   return (
-    <div className="bg-mossGreen flex justify-center items-center h-[95%]">
-      <div className="w-[90%] md:w-[80%] h-[95%] bg-white rounded-lg flex items-center justify-center shadow-lg">
+    <div className="bg-mossGreen flex justify-center items-center h-[95%] p-4 md:p-0 md:rounded-tr-3xl md:rounded-br-3xl">
+      <div className="w-[90%] md:w-[80%] h-[95%] rounded-lg flex justify-center items-center">
         <img
           src={product.images[currentIndex]}
           alt={`Product ${currentIndex + 1}`}

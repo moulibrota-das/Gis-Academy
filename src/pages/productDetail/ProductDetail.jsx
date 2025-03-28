@@ -30,83 +30,122 @@ const ProductDetail = () => {
       image: img1,
     },
     {
-      name: "Smart Terrain Analyzer",
-      title: "Analyze Terrains with AI",
+      name: "The Premium Software For Remote Sensing",
+      title: "Remote Sensing & Image Analysis",
       description:
-        "Smart Terrain Analyzer uses AI algorithms to analyze elevation, slope, and terrain features for construction and environmental planning.",
+        "21st CenturyGIS simplies image processing and interpretation, while maintaining integrity of geo-spatial data.",
       topics: [
-        "Elevation Modeling",
-        "3D Terrain Visualization",
-        "AI-based Analysis",
+        "Processing: Pixel Profile, Band Combination, Spectral Profile, Spectral Plot, Inquire Cursor, Opacity, Swipe, Pixel Chart & Histogram Manipulation.",
+        "Preparation: Projection, Pan Merge, Mosaic, Subset, Resize & False Colour Composite.",
       ],
       image: img2,
     },
     {
-      name: "GeoPredict AI",
-      title: "Predict Future Trends",
-      description:
-        "GeoPredict AI uses machine learning to predict geographic patterns and urban growth for sustainable city planning.",
-      topics: [
-        "Urban Growth Prediction",
-        "Disaster Management",
-        "Climate Change Analysis",
+      name: "GIS, Terrain Analysis & Sub-Surface Mapping",
+      title: "Remote Sensing & Image Analysis",
+      enhancement: [
+        "Spatial Filter",
+        "Contrast, Brightness",
+        "Colour Transformation",
+        "Intensity-Hue-Saturation",
       ],
+      classification:
+        "Unsupervised & Supervised, Signature Editor, Attribute Manager, Accuracy Assessment and Class Refinement with the help of ancillary data.",
+      interpretation: [
+        "Ratio Vegetation Index",
+        "Normalized Differential Vegetation Index",
+        "Soil-Adjusted Vegetation Index",
+        "Transformed Vegetation Index",
+        "Iron Oxide, Clay Minerals, Mineral Composite, Hydrothermal Composite",
+        "Change Detection",
+      ],
+
       image: img3,
     },
     {
-      name: "MapSync Cloud",
-      title: "Collaborative Mapping Platform",
+      name: "The Premium Software For Remote Sensing",
+      title: "GIS Mapping & Analysis",
       description:
-        "MapSync Cloud enables teams to collaborate on maps in real-time, supporting field data collection and synchronization.",
+        "21st CenturyGIS creates map and analyze data in an easy way, understanding geographical relationshiops and developing decision support.",
       topics: [
-        "Real-time Collaboration",
-        "Data Synchronization",
-        "Field Survey Support",
+        "Faster digitization tool for high productivity",
+        "Geo-referencing of Raster & Vector",
+        "Vector editing, Clip and Boolean operations",
+        "Input or Import attribute data & Photograph in table for Query & Statistics",
+        "Thematic Map: Choropleth, Chorochromatic, Unique Value, Dot Density, Sphere, Circle, Square, Triangle Diagram",
+        "Preparation of Composite & Stacked Bar, Pie Chart and embedding on map",
+        "Graphical & Statistical Analysis",
+        "Rezoning & Zone Statistics",
+        "Vector Analysis: Buffer, Overlay",
       ],
       image: img4,
     },
     {
-      name: "GeoRemote Pro",
-      title: "Remote Sensing Data Analysis",
-      description:
-        "GeoRemote Pro is designed for analyzing remote sensing imagery to extract actionable insights.",
+      name: "GIS, Terrain Analysis & Sub-Surface Mapping",
+      title: "GIS Mapping & Analysis",
       topics: [
-        "Satellite Image Processing",
-        "Land Use Monitoring",
-        "Vegetation Analysis",
+        "Network Analysis: Shortest Path, Closest Facility, Dynamic Segmentation",
+        "Feature Density Analysis",
+        "Morphometric Analysis: Relative Relief, Dissection Index, Ruggedness Index",
+        "Geo-coding of Tables",
+        "Plotting of GPS Waypoints & Track lines",
+        "Overlaying maps on Google Earth for comparison and updating",
+        "Single & Multiple map Layout with Scale bar, Legend, North Arrow, Graticule",
+        "Export map in BMP, JPG, PNG, TIF & WMF format controlling size and resolution",
+        "Print Preview & direct Print",
       ],
       image: img5,
     },
     {
-      name: "Spatial Insight 360",
-      title: "Comprehensive Spatial Analytics",
-      description:
-        "Spatial Insight 360 offers in-depth spatial data analysis with AI-driven insights for strategic planning.",
-      topics: [
-        "Spatial AI Modeling",
-        "Geostatistical Analysis",
-        "Predictive Insights",
+      name: "GIS, Terrain Analysis & Sub-Surface Mapping",
+      title: "Remote Sensing & Image Analysis",
+      enhancement: [
+        "Spatial Filter",
+        "Contrast, Brightness",
+        "Colour Transformation",
+        "Intensity-Hue-Saturation",
+      ],
+      classification:
+        "Unsupervised & Supervised, Signature Editor, Attribute Manager, Accuracy Assessment and Class Refinement with the help of ancillary data.",
+      interpretation: [
+        "Ratio Vegetation Index",
+        "Normalized Differential Vegetation Index",
+        "Soil-Adjusted Vegetation Index",
+        "Transformed Vegetation Index",
+        "Iron Oxide, Clay Minerals, Mineral Composite, Hydrothermal Composite",
+        "Change Detection",
       ],
       image: img6,
     },
     {
-      name: "GeoDrone Mapper",
-      title: "Drone Mapping Solution",
+      name: "GIS, Terrain Analysis & Sub-Surface Mapping",
+      title: "Sub-Surface Mapping",
       description:
-        "GeoDrone Mapper is a drone-based mapping solution for capturing high-resolution geospatial data.",
-      topics: ["Aerial Surveys", "3D Mapping", "Real-time Data Acquisition"],
+        "21st CenturyGIS software allows you to visualize, interpret and represent your sub-surface bore hole data.",
+      topics: [
+        "Litholog Plotting based on RL and Coarseness value",
+        "Different types of Correlation Diagrams",
+        "Vertical & Horizontal Scale",
+        "Geological section Diagram with Scale",
+        "Creation of Pattern and colour for Litho Units",
+        "Geological Fence & Panel Diagram",
+        "Fence & Section Label",
+        "Geological Symbols",
+      ],
       image: img7,
     },
     {
-      name: "EarthSense Monitor",
-      title: "Environmental Monitoring System",
-      description:
-        "EarthSense Monitor provides real-time environmental monitoring using satellite data and IoT sensors.",
-      topics: [
-        "Air Quality Monitoring",
-        "Climate Tracking",
-        "Natural Disaster Alerts",
-      ],
+      name: "21st Century GIS (Premium)",
+      technicalSupport:
+        "Expert supports are provided to assist customers in successfully achieving their GIS goals.",
+      academyInfo:
+        "Offers a wide variety of instructor-led courses to keep GIS knowledge and skills up-to-date.",
+      contactInfo: {
+        address: "404, Baghajatin Place, Kolkata – 700086, West Bengal",
+        mobile: "+91 9830379812 / 8617230347",
+        email: ["21stcentgis@gmail.com", "pchakraborty_99@yahoo.com"],
+        website: "www.21stcentgis.org",
+      },
       image: img8,
     },
   ];
@@ -186,21 +225,115 @@ const ProductDetail = () => {
               <h2 className="text-3xl font-semibold text-darkGreen mb-2">
                 {product.name}
               </h2>
-              <h3 className="text-xl font-medium text-gray-600 mb-4">
-                {product.title}
-              </h3>
-              <p className="text-gray-700 text-lg mb-6">
-                {product.description}
-              </p>
+              {product.title && (
+                <>
+                  <h3 className="text-xl font-medium text-gray-600 mb-4">
+                    {product.title}
+                  </h3>
+                </>
+              )}
+              {product.description && (
+                <>
+                  <p className="text-gray-700 text-lg mb-6">
+                    {product.description}
+                  </p>
+                </>
+              )}
 
-              <h4 className="text-lg font-semibold text-darkGreen mb-2">
-                Key Topics:
-              </h4>
-              <ul className="list-disc list-inside text-gray-700">
-                {product.topics.map((topic, idx) => (
-                  <li key={idx}>{topic}</li>
-                ))}
-              </ul>
+              {product.enhancement && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2">
+                    Enhancement
+                  </h4>
+                  <ul className="text-gray-700">
+                    {product.interpretation.map((item, index) => (
+                      <li key={index}>• {item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {product.technicalSupport && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                    Technical Support
+                  </h4>
+                  <p className="text-gray-700">{product.technicalSupport}</p>
+                </>
+              )}
+              {product.academyInfo && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                    GIS Academy
+                  </h4>
+                  <p className="text-gray-700">{product.academyInfo}</p>
+                </>
+              )}
+              {product.contactInfo && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                    Contact Info
+                  </h4>
+                  <p className="text-gray-700">
+                    Address: {product.contactInfo.address}
+                  </p>
+                  <p className="text-gray-700">
+                    Mobile: {product.contactInfo.mobile}
+                  </p>
+                  <p className="text-gray-700">
+                    Email: {product.contactInfo.email.join(", ")}
+                  </p>
+                  <p className="text-gray-700">
+                    Website:{" "}
+                    <a
+                      href={`https://${product.contactInfo.website}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {product.contactInfo.website}
+                    </a>
+                  </p>
+                </>
+              )}
+
+              {/* Conditional Classification Section */}
+              {product.classification && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                    Classification
+                  </h4>
+                  <p className="text-gray-700">{product.classification}</p>
+                </>
+              )}
+
+              {product.interpretation && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                    Interpretation
+                  </h4>
+                  <ul className="text-gray-700">
+                    {product.interpretation.map((item, index) => (
+                      <li key={index}>• {item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {/* Key Topics Section */}
+              {product.topics && (
+                <>
+                  <h4 className="text-lg font-semibold text-darkGreen mb-2">
+                    Key Topics:
+                  </h4>
+                  <ul className="list-disc list-outside text-gray-700 pl-5">
+                    {product.topics.map((topic, idx) => (
+                      <li key={idx} className="break-words">
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </div>
         ))}
