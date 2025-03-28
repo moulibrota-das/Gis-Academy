@@ -25,7 +25,7 @@ import thesis3 from '/src/assets/images/Thesis/Thesis3.png';
 
 import graph1 from '/src/assets/images/Graphs/graph1.png';
 import graph2 from '/src/assets/images/Graphs/graph2.png';
-import graph3 from '/src/assets/images/Graphs/graph3.png';
+import graph3 from '/src/assets/images/Graphs/Graph3.png';
 import graph4 from '/src/assets/images/Graphs/graph4.png';
 import graph5 from '/src/assets/images/Graphs/graph5.png';
 import graph6 from '/src/assets/images/Graphs/graph6.png';
