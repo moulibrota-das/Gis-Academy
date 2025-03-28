@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FaHome, FaProductHunt, FaInfoCircle, FaEnvelope, 
-  FaBars, FaTimes 
+import {
+  FaHome,
+  FaProductHunt,
+  FaInfoCircle,
+  FaEnvelope,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
 const navItems = [
-  { name: "Home", icon: <FaHome />, link: "#home" },
-  { name: "Product", icon: <FaProductHunt />, link: "#product" },
-  { name: "About", icon: <FaInfoCircle />, link: "#about" },
-  { name: "Contact", icon: <FaEnvelope />, link: "#contact" },
+  { name: "Home", icon: <FaHome />, link: "/" },
+  { name: "Product", icon: <FaProductHunt />, link: "/product" },
+  { name: "About", icon: <FaInfoCircle />, link: "/about" },
+  { name: "Contact", icon: <FaEnvelope />, link: "/contact" },
 ];
 
 const NavBar = () => {
@@ -19,15 +25,18 @@ const NavBar = () => {
   return (
     <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/50 backdrop-blur-md shadow-md transition-all">
       <nav className="container mx-auto flex items-center justify-between px-6 py-3.5 max-w-7xl">
-        
         {/* Logo Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }} 
-          animate={{ opacity: 1, y: 0 }} 
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center gap-3"
         >
-          <img src={logoImage} alt="logo" className="w-10 h-10 rounded-lg object-contain" />
+          <img
+            src={logoImage}
+            alt="logo"
+            className="w-10 h-10 rounded-lg object-contain"
+          />
           <div className="text-darkGreen font-bold text-xl tracking-wide">
             21st Century <span className="text-mossGreen">GIS Academy</span>
           </div>
@@ -36,16 +45,23 @@ const NavBar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-x-8">
           {navItems.map((item, index) => (
-            <motion.a
+            <motion.div
               key={index}
-              href={item.link}
-              className="flex items-center gap-2 text-darkGreen hover:text-mossGreen transition font-medium"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
             >
-              {item.icon} {item.name}
-            </motion.a>
+              <Link
+                to={item.link}
+                className="flex items-center gap-2 text-darkGreen hover:text-mossGreen transition font-medium"
+              >
+                {item.icon} {item.name}
+              </Link>
+            </motion.div>
           ))}
         </div>
 
@@ -69,13 +85,13 @@ const NavBar = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="fixed inset-0 bg-black/50 backdrop-blur-md z-40"
-              onClick={() => setMobileMenuOpen(false)} // Closes when clicking outside
+              onClick={() => setMobileMenuOpen(false)}
             />
 
             {/* Sliding Half-Screen Menu */}
             <motion.div
               initial={{ x: "100%" }}
-              animate={{ x: "60%" }}  // Covers 40% of the screen
+              animate={{ x: "60%" }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="fixed top-0 right-0 w-2/5 h-full bg-white z-50 shadow-lg flex flex-col p-8"
@@ -91,17 +107,24 @@ const NavBar = () => {
               {/* Mobile Nav Items */}
               <div className="mt-16 space-y-6">
                 {navItems.map((item, index) => (
-                  <motion.a
+                  <motion.div
                     key={index}
-                    href={item.link}
-                    className="flex items-center gap-3 text-darkGreen hover:text-mossGreen text-xl font-semibold"
-                    onClick={() => setMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1, ease: "easeOut" }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1,
+                      ease: "easeOut",
+                    }}
                   >
-                    {item.icon} {item.name}
-                  </motion.a>
+                    <Link
+                      to={item.link}
+                      className="flex items-center gap-3 text-darkGreen hover:text-mossGreen text-xl font-semibold"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.icon} {item.name}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
