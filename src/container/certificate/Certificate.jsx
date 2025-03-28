@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 import {
   PDFViewer,
   Document,
@@ -10,6 +12,12 @@ import {
 import * as pdfjs from "pdfjs-dist";
 import pdf1 from "../../assets/documents/21stcentury_gis_brochure.pdf";
 import pdf2 from "../../assets/documents/company_profile.pdf";
+import pdf3 from "../../assets/documents/gst.pdf";
+import pdf4 from "../../assets/documents/iso_certificate.pdf";
+import pdf5 from "../../assets/documents/kmc_trade_licence.pdf";
+import pdf6 from "../../assets/documents/professional_tax_certificate.pdf";
+import pdf7 from "../../assets/documents/resume.pdf";
+import pdf8 from "../../assets/documents/udyam_certificate.pdf";
 
 // Configure PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -56,6 +64,36 @@ const document_details = [
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf2,
   },
+  {
+    title: "GIS Training Manual",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: pdf3,
+  },
+  {
+    title: "Company Brochure",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: pdf4,
+  },
+  {
+    title: "GIS Training Manual",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: pdf5,
+  },
+  {
+    title: "Company Brochure",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: pdf6,
+  },
+  {
+    title: "GIS Training Manual",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: pdf7,
+  },
+  {
+    title: "Company Brochure",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: pdf8,
+  },
 ];
 
 export default function Certificate() {
@@ -101,18 +139,31 @@ export default function Certificate() {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Document</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="flex flex-col items-center mb-8">
+        <motion.h2
+          className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
+          Documents
+        </motion.h2>
+
+        <motion.div
+          className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false }}
+        ></motion.div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {document_details.map((doc, index) => (
           <div
             key={index}
             className="p-4 border rounded-lg shadow-md flex flex-col items-center text-center"
           >
-            <img
-              src={thumbnails[doc.title]}
-              alt={`Thumbnail of ${doc.title}`}
-              className="w-32 h-40 object-cover mb-4"
-            />
             <h3 className="text-lg font-semibold mt-2">{doc.title}</h3>
             <p className="text-gray-600 text-sm mb-4">{doc.description}</p>
             <button
