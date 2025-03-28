@@ -19,9 +19,9 @@ import map9 from '/src/assets/images/Maps/map9.png';
 import map10 from '/src/assets/images/Maps/map10.png';
 import map11 from '/src/assets/images/Maps/map11.png';
 
-import thesis1 from '/src/assets/images/Thesis/thesis1.png';
-import thesis2 from '/src/assets/images/Thesis/thesis2.png';
-import thesis3 from '/src/assets/images/Thesis/thesis3.png';
+import thesis1 from '/src/assets/images/Thesis/Thesis1.png';
+import thesis2 from '/src/assets/images/Thesis/Thesis2.png';
+import thesis3 from '/src/assets/images/Thesis/Thesis3.png';
 
 import graph1 from '/src/assets/images/Graphs/graph1.png';
 import graph2 from '/src/assets/images/Graphs/graph2.png';
