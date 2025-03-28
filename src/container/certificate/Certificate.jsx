@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import resume from "../../../public/assets/documents/resume.pdf";
+import { motion } from 'framer-motion';
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -8,6 +9,36 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const document_details = [
+  {
+    title: "GIS Training Manual",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: "/assets/documents/gis_training_manual.pdf",
+  },
+  {
+    title: "Company Brochure",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: "https://www.fsa.usda.gov/Internet/FSA_File/tech_assist.pdf",
+  },
+  {
+    title: "GIS Training Manual",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: "/assets/documents/gis_training_manual.pdf",
+  },
+  {
+    title: "Company Brochure",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: "https://www.fsa.usda.gov/Internet/FSA_File/tech_assist.pdf",
+  },
+  {
+    title: "GIS Training Manual",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: "/assets/documents/gis_training_manual.pdf",
+  },
+  {
+    title: "Company Brochure",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: "https://www.fsa.usda.gov/Internet/FSA_File/tech_assist.pdf",
+  },
   {
     title: "GIS Training Manual",
     description: "A comprehensive guide to GIS mapping techniques.",
@@ -30,13 +61,31 @@ export default function Certificate() {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Document</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="flex flex-col items-center mb-8">
+                    <motion.h2
+                        className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: false }}
+                    >
+                        Documents
+                    </motion.h2>
+
+                    <motion.div
+                        className="w-[100px] h-1 bg-darkGreen my-2 relative z-[1]"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: false }}
+                    ></motion.div>
+                </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {document_details.map((doc, index) => (
           <div key={index} className="p-4 border rounded-lg shadow-md flex flex-col items-center text-center">
             <div className="w-32 h-40 overflow-hidden border rounded shadow">
               <Document
-                file={resume}
+                file={doc.pdfUrl}
                 onLoadSuccess={onDocumentLoadSuccess}>
               
                 <Page pageNumber={1} width={128} />
@@ -46,7 +95,7 @@ export default function Certificate() {
             <p className="text-gray-600 text-sm mb-4">{doc.description}</p>
             <button 
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              onClick={() => setSelectedPdf(resume)}
+              onClick={() => setSelectedPdf(doc.pdfUrl)}
             >
               View PDF
             </button>
