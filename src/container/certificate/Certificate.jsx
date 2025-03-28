@@ -9,7 +9,6 @@ import {
   View,
   StyleSheet,
 } from "@react-pdf/renderer";
-import * as pdfjs from "pdfjs-dist";
 import pdf1 from "../../assets/documents/21stcentury_gis_brochure.pdf";
 import pdf2 from "../../assets/documents/company_profile.pdf";
 import pdf3 from "../../assets/documents/gst.pdf";
@@ -27,12 +26,6 @@ import img5 from "../../assets/images/Documents/kmc_trade_licence.jpg";
 import img6 from "../../assets/images/Documents/professional_tax_certificate.jpg";
 import img7 from "../../assets/images/Documents/resume.jpg";
 import img8 from "../../assets/images/Documents/udyam_certificate.jpg";
-
-// Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
 
 // PDF Document Component
 const MyDocument = () => (
@@ -116,38 +109,6 @@ const document_details = [
 export default function Certificate() {
   const [selectedPdf, setSelectedPdf] = useState(null);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
-  const [thumbnails, setThumbnails] = useState({});
-
-  useEffect(() => {
-    const generateThumbnails = async () => {
-      const thumbnailsObj = {};
-      for (const doc of document_details) {
-        try {
-          const pdf = await pdfjs.getDocument(doc.pdfUrl).promise;
-          const page = await pdf.getPage(1);
-
-          const viewport = page.getViewport({ scale: 1.5 });
-          const canvas = document.createElement("canvas");
-          const context = canvas.getContext("2d");
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport,
-          };
-
-          await page.render(renderContext).promise;
-          thumbnailsObj[doc.title] = canvas.toDataURL("image/png");
-        } catch (error) {
-          console.error(`Error generating thumbnail for ${doc.title}`, error);
-        }
-      }
-      setThumbnails(thumbnailsObj);
-    };
-
-    generateThumbnails();
-  }, []);
 
   const handleViewPdf = (pdfUrl) => {
     setSelectedPdf(pdfUrl);
