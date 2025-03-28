@@ -8,19 +8,22 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
 const navItems = [
   { name: "Home", icon: <FaHome />, link: "/" },
-  { name: "Product", icon: <FaProductHunt />, link: "/product" },
-  { name: "About", icon: <FaInfoCircle />, link: "/about" },
-  { name: "Contact", icon: <FaEnvelope />, link: "/contact" },
+  { name: "Courses", icon: <FaHome />, link: "#courses" },
+  { name: "Product", icon: <FaProductHunt />, link: "#products" },
+  { name: "Projects", icon: <FaProductHunt />, link: "#projects" },
+  { name: "About", icon: <FaInfoCircle />, link: "#about" },
+  { name: "Contact", icon: <FaEnvelope />, link: "#contact" },
 ];
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/50 backdrop-blur-md shadow-md transition-all">
@@ -30,7 +33,14 @@ const NavBar = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            const targetSection = document.querySelector("#home");
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           <img
             src={logoImage}
@@ -55,12 +65,28 @@ const NavBar = () => {
                 ease: "easeOut",
               }}
             >
-              <Link
-                to={item.link}
-                className="flex items-center gap-2 text-darkGreen hover:text-mossGreen transition font-medium"
-              >
-                {item.icon} {item.name}
-              </Link>
+              {item.link.startsWith("#") ? (
+                <a
+                  href={item.link}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetSection = document.querySelector(item.link);
+                    if (targetSection) {
+                      targetSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="text-darkGreen hover:text-mossGreen"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  to={item.link}
+                  className="text-darkGreen hover:text-mossGreen"
+                >
+                  {item.name}
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>

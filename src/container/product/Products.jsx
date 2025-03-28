@@ -15,26 +15,32 @@ const Products = () => {
     navigate("/product-detail");
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-      {/* Left Section - Product Carousel */}
+    <div className="grid grid-cols-2">
       <ProductCarousel />
-
-      {/* Right Section - Product Info */}
       <motion.section
-        className="flex flex-col ml-12 h-[500px] py-10 px-6 md:px-16 border-l-4 border-darkGreen mt-28"
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        className="bg-custom-gradient-top min-h-screen flex flex-col items-center px-6 md:px-16 py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: false }}
       >
+        {/* Title and Description */}
         <motion.h2
-          className="text-4xl md:text-5xl font-semibold text-darkGreen"
+          className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false }}
         >
           Products
         </motion.h2>
+
+        <motion.div
+          className="w-52 h-1 bg-darkGreen my-2"
+          initial={{ width: 0 }}
+          animate={{ width: "13rem" }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+        ></motion.div>
 
         <motion.p
           className="text-gray-700 mt-6 text-lg leading-relaxed max-w-xl"
