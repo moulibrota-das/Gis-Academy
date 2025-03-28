@@ -1,7 +1,7 @@
 import "./App.css";
 import Introduction from "./container/introduction/Introduction";
 import Hero from "./container/hero/Hero";
-import Services from "./container/services/Services";
+import Courses from "./container/courses/Courses";
 import Products from "./container/product/Products";
 import NavBar from "./components/navbar/Navbar";
 import Certificate from "./container/certificate/Certificate";
@@ -10,7 +10,7 @@ import ContactUs from "./container/contact/ContactUs";
 import ProprietorInfo from "./container/ProprietorInfo/ProprietorInfo";
 import Client from "./container/client/ClientsPage";
 import ProjectsPage from "./container/project/ProjectsPage";
-
+import Services from "./container/services/Services";
 function App() {
   return (
     <>
@@ -18,8 +18,9 @@ function App() {
         <NavBar />
         <Hero />
         <Introduction />
-        <Services />
+        <Courses />
         <Products />
+        <Services />
         <Certificate />
         <Client />
         <ProjectsPage />

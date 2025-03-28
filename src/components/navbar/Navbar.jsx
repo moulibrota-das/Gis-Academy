@@ -8,7 +8,9 @@ import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
 const navItems = [
   { name: "Home", icon: <FaHome />, link: "#home" },
-  { name: "Product", icon: <FaProductHunt />, link: "#product" },
+  { name: "Courses", icon: <FaHome />, link: "#courses" },
+  { name: "Product", icon: <FaProductHunt />, link: "#products" },
+  { name: "Projects", icon: <FaProductHunt />, link: "#projects" },
   { name: "About", icon: <FaInfoCircle />, link: "#about" },
   { name: "Contact", icon: <FaEnvelope />, link: "#contact" },
 ];
@@ -25,7 +27,14 @@ const NavBar = () => {
           initial={{ opacity: 0, y: -10 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            const targetSection = document.querySelector("#home");
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           <img src={logoImage} alt="logo" className="w-10 h-10 rounded-lg object-contain" />
           <div className="text-darkGreen font-bold text-xl tracking-wide">
@@ -43,8 +52,16 @@ const NavBar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              onClick={(e) => {
+      e.preventDefault(); // Prevent default anchor behavior
+      const targetSection = document.querySelector(item.link);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
             >
-              {item.icon} {item.name}
+              {/* {item.icon} */}
+              {item.name}
             </motion.a>
           ))}
         </div>
