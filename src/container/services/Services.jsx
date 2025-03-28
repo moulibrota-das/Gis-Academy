@@ -11,17 +11,17 @@ import map1 from '/src/assets/images/Maps/map1.png';
 import map2 from '/src/assets/images/Maps/map2.png';
 import map3 from '/src/assets/images/Maps/map3.png';
 import map4 from '/src/assets/images/Maps/map4.png';
-import map5 from '/src/assets/images/Maps/map5.png';
-import map6 from '/src/assets/images/Maps/map6.png';
+import map5 from '/src/assets/images/Maps/map5.PNG';
+import map6 from '/src/assets/images/Maps/map6.PNG';
 import map7 from '/src/assets/images/Maps/map7.png';
 import map8 from '/src/assets/images/Maps/map8.png';
 import map9 from '/src/assets/images/Maps/map9.png';
 import map10 from '/src/assets/images/Maps/map10.png';
 import map11 from '/src/assets/images/Maps/map11.png';
 
-import thesis1 from '/src/assets/images/Thesis/thesis1.png';
-import thesis2 from '/src/assets/images/Thesis/thesis2.png';
-import thesis3 from '/src/assets/images/Thesis/thesis3.png';
+import thesis1 from '/src/assets/images/Thesis/Thesis1.png';
+import thesis2 from '/src/assets/images/Thesis/Thesis2.png';
+import thesis3 from '/src/assets/images/Thesis/Thesis3.png';
 
 import graph1 from '/src/assets/images/Graphs/graph1.png';
 import graph2 from '/src/assets/images/Graphs/graph2.png';
