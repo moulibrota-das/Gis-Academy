@@ -4,7 +4,10 @@ import mapDotted from "/src/assets/images/map-dotted.png";
 
 const Hero = () => {
   return (
-    <motion.div className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden" id="home">
+    <motion.div
+      className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden"
+      id="home"
+    >
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{
@@ -45,7 +48,7 @@ const Hero = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-3xl sm:text-2xl md:text-5xl font-bold text-white leading-tight"
+          className="text-3xl sm:text-2xl md:text-4xl font-bold text-white leading-tight"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
@@ -64,8 +67,8 @@ const Hero = () => {
             GIS & Remote Sensing
           </span>{" "}
           to drive innovation and decision-making. Analyze spatial data, build
-          interactive maps, and shape the future in the era of cutting-edge geospatial
-          technology.
+          interactive maps, and shape the future in the era of cutting-edge
+          geospatial technology.
         </motion.p>
 
         <div className="flex space-x-4">

@@ -69,37 +69,37 @@ const document_details = [
     imgUrl: img2,
   },
   {
-    title: "GIS Training Manual",
+    title: "GST",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf3,
     imgUrl: img3,
   },
   {
-    title: "Company Brochure",
+    title: "ISO Certificate",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf4,
     imgUrl: img4,
   },
   {
-    title: "GIS Training Manual",
+    title: "KMC Trade Licence",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf5,
     imgUrl: img5,
   },
   {
-    title: "Company Brochure",
+    title: "Professional Tax Certificate",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf6,
     imgUrl: img6,
   },
   {
-    title: "GIS Training Manual",
+    title: "Resume",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf7,
     imgUrl: img7,
   },
   {
-    title: "Company Brochure",
+    title: "Udyam Certificate",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf8,
     imgUrl: img8,
@@ -136,26 +136,38 @@ export default function Certificate() {
           viewport={{ once: false }}
         ></motion.div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {document_details.map((doc, index) => (
           <div
             key={index}
-            className="p-4 border rounded-lg shadow-md flex flex-col items-center text-center"
+            className="relative h-[400px] rounded-md shadow-lg overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
-            <h3 className="text-lg font-semibold mt-2">{doc.title}</h3>
-            <p className="text-gray-600 text-sm mb-4">{doc.description}</p>
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              onClick={() => handleViewPdf(doc.pdfUrl)}
+            {/* Background Image with Dark Overlay */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${doc.imgUrl})`,
+              }}
             >
-              View PDF
-            </button>
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-2"
-              onClick={() => setShowPdfViewer(true)}
-            >
-              Generate PDF
-            </button>
+              <div className="absolute inset-0 bg-black bg-opacity-55 group-hover:bg-opacity-60 transition-all duration-300" />
+            </div>
+
+            {/* Content Section */}
+            <div className="relative p-5 h-full flex flex-col justify-between items-center text-center">
+              {/* Title with Hover Effect */}
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-mossGreen transition-colors duration-300">
+                {doc.title}
+              </h3>
+
+              {/* Button Section */}
+              <button
+                className="bg-offWhite text-darkGreen px-4 py-1 rounded-md hover:bg-beige transition-colors duration-300"
+                onClick={() => handleViewPdf(doc.pdfUrl)}
+              >
+                View Document
+              </button>
+            </div>
           </div>
         ))}
       </div>

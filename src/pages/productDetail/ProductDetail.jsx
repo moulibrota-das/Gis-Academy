@@ -191,7 +191,7 @@ const ProductDetail = () => {
   return (
     <>
       <div className="min-h-screen p-10 bg-offWhite mt-16">
-        <h1 className="text-5xl font-bold text-darkGreen text-center mb-16">
+        <h1 className="text-4xl font-bold text-darkGreen text-center mb-16">
           Product Details
         </h1>
 

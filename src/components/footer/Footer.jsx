@@ -1,102 +1,68 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-forestGreen  text-off-white py-16 font-body">
+    <footer className="bg-deepGreen text-white py-8">
       <div className="container mx-auto px-6 lg:px-20">
-        {/* Footer Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-xl font-semibold uppercase text-white font-heading mb-6">
-              Contact Us
-            </h2>
-            <p className="text-gray-300 text-sm md:text-base mb-2">
-              1234 Street Name, City, Country
-            </p>
-            <p className="text-gray-300 text-sm md:text-base mb-2">
-              Email:
-              <a
-                href="mailto:contact@example.com"
-                className="text-green-400 hover:text-green-300"
-              >
-                {" "}
-                contact@example.com
-              </a>
-            </p>
-            <p className="text-gray-300 text-sm md:text-base">
-              Phone:
-              <a
-                href="tel:+1234567890"
-                className="text-green-400 hover:text-green-300"
-              >
-                {" "}
-                +123 456 7890
-              </a>
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h2 className="text-xl font-semibold uppercase text-white font-heading mb-6">
-              Quick Links
-            </h2>
-            <ul className="space-y-3">
-              {["Home", "About", "Services", "Contact"].map((link, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:text-green-400 transition duration-300"
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter Section */}
-          <div>
-            <h2 className="text-xl font-semibold uppercase text-white font-heading mb-6">
-              Subscribe
-            </h2>
-            <p className="text-gray-300 text-sm md:text-base mb-4">
-              Stay updated with our latest news and updates.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-l-lg border-none text-gray-800 focus:outline-none"
-              />
-              <button className="bg-green-600 hover:bg-green-500 px-5 py-3 rounded-r-lg text-white font-semibold">
-                Subscribe
-              </button>
-            </div>
-          </div>
+        {/* Contact Details */}
+        <div className="text-center mb-8">
+          <p className="text-gray-300 text-sm md:text-base">
+            404, Baghajatin Rd, Vidyasagar Colony, Ganguly Bagan, Kolkata, West
+            Bengal 700086
+          </p>
+          <p className="text-gray-300 text-sm md:text-base mt-2">
+            <a
+              href="mailto:info@21stcenturygis.com"
+              className="text-green-400 hover:text-green-300"
+            >
+              info@21stcenturygis.com
+            </a>
+          </p>
+          <p className="text-gray-300 text-sm md:text-base mt-2">
+            <a
+              href="tel:+911234567890"
+              className="text-green-400 hover:text-green-300"
+            >
+              +91 12345 67890
+            </a>
+          </p>
         </div>
 
         {/* Social Media Icons */}
-        <div className="mt-12 flex justify-center space-x-6">
-          {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin].map(
+        <div className="flex justify-center space-x-6 mb-8">
+          {[FaTwitter, FaInstagram, FaFacebook, FaLinkedin].map(
             (Icon, index) => (
               <a
-                key={index}
                 href="#"
-                className="text-white hover:text-green-400 transition duration-300 transform hover:scale-110"
+                key={index}
+                className="text-white text-xl hover:text-gray-400 transition-colors"
               >
-                <Icon size={28} />
+                <Icon />
               </a>
             )
           )}
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 mt-12"></div>
+        <hr className="border-gray-700 mb-8" />
 
-        {/* Copyright */}
-        <div className="text-center mt-6 text-gray-200 text-sm md:text-base">
-          © 1998 21st Century GIS Academy. All rights reserved.
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+          {/* Copyright */}
+          <p>Copyright © 1998 21st Century GIS Academy. All Rights Reserved</p>
+
+          {/* Policy Links */}
+          <div className="flex space-x-8 mt-4 md:mt-0">
+            <a href="#" className="hover:text-gray-300">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              Terms of Use
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              Cookie Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>

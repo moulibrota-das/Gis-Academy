@@ -79,7 +79,7 @@ const ContactUs = () => {
               </div>
 
               {/* Submit Button */}
-              <button className="w-full bg-forestGreen text-white py-3 rounded-lg mt-4 hover:bg-blue-700 transition">
+              <button className="w-full bg-forestGreen text-white py-3 rounded-lg mt-4 hover:bg-mossGreen transition">
                 Submit
               </button>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaHome,
@@ -23,9 +23,36 @@ const navItems = [
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect for navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (mobileMenuOpen && !event.target.closest("#mobileMenu")) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/50 backdrop-blur-md shadow-md transition-all">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 w-full ${
+        isScrolled ? "bg-white/50 backdrop-blur-md shadow-md" : "bg-transparent"
+      } transition-all`}
+    >
       <nav className="container mx-auto flex items-center justify-between px-6 py-3.5 max-w-7xl">
         {/* Logo Section */}
         <motion.div
@@ -46,8 +73,18 @@ const NavBar = () => {
             alt="logo"
             className="w-10 h-10 rounded-lg object-contain"
           />
-          <div className="text-darkGreen font-bold text-xl tracking-wide">
-            21st Century <span className="text-mossGreen">GIS Academy</span>
+          <div
+            className={`${
+              isScrolled ? "text-deepGreen" : "text-offWhite"
+            } font-bold text-[13px] tracking-wide text-start leading-tight`}
+            style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              fontOpticalSizing: "auto",
+              fontStyle: "normal",
+            }}
+          >
+            <span className="block">21ST CENTURY</span>
+            <span className="block">GIS ACADEMY</span>
           </div>
         </motion.div>
 
@@ -74,14 +111,32 @@ const NavBar = () => {
                       targetSection.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="text-darkGreen hover:text-mossGreen"
+                  className={`${
+                    isScrolled
+                      ? "text-deepGreen hover:text-mossGreen"
+                      : "text-offWhite hover:text-beige"
+                  }`}
+                  style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontOpticalSizing: "auto",
+                    fontStyle: "normal",
+                  }}
                 >
                   {item.name}
                 </a>
               ) : (
                 <Link
                   to={item.link}
-                  className="text-darkGreen hover:text-mossGreen"
+                  className={`${
+                    isScrolled
+                      ? "text-darkGreen hover:text-mossGreen"
+                      : "text-offWhite hover:text-beige"
+                  }`}
+                  style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontOpticalSizing: "auto",
+                    fontStyle: "normal",
+                  }}
                 >
                   {item.name}
                 </Link>

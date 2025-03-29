@@ -34,7 +34,7 @@ const Courses = () => {
     <div className="min-h-screen bg-mossGreen p-10 flex flex-col items-center">
       {/* Section Title */}
       <motion.h2
-        className="text-4xl md:text-5xl font-semibold text-white text-center relative z-[1]"
+        className="text-4xl md:text-4xl font-semibold text-white text-center relative z-[1]"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -60,7 +60,9 @@ const Courses = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div>
-              <h2 className="text-xl font-bold text-white font-serif bold">{course.courseName}</h2>
+              <h2 className="text-xl font-bold text-white font-serif bold">
+                {course.courseName}
+              </h2>
               {(course.durationMonths > 0 || course.durationHours > 0) && (
                 <p className="text-white mt-2 underline">
                   <strong>Duration:</strong>{" "}
@@ -87,7 +89,9 @@ const Courses = () => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div>
-            <h2 className="text-2xl font-bold text-white">Contact Us for More</h2>
+            <h2 className="text-2xl font-bold text-white">
+              Contact Us for More
+            </h2>
             <p className="text-gray-300 mt-2">
               Interested in learning more? Get in touch!
             </p>
@@ -95,7 +99,7 @@ const Courses = () => {
           <motion.button
             className="bg-forestGreen text-white px-6 py-2 rounded-lg text-md font-semibold shadow-md hover:bg-deepGreen transition-all duration-300 transform hover:scale-105 mt-4"
             whileHover={{ scale: 1.05 }}
-            onClick={() => window.location.href = '/contact'} // Replace '/contact' with your contact page URL
+            onClick={() => (window.location.href = "/contact")} // Replace '/contact' with your contact page URL
           >
             Contact
           </motion.button>
@@ -122,8 +126,11 @@ const Courses = () => {
               >
                 ✕
               </button>
-              <h2 className="text-3xl font-bold">{selectedCourse.courseName}</h2>
-              {(selectedCourse.durationMonths > 0 || selectedCourse.durationHours > 0) && (
+              <h2 className="text-3xl font-bold">
+                {selectedCourse.courseName}
+              </h2>
+              {(selectedCourse.durationMonths > 0 ||
+                selectedCourse.durationHours > 0) && (
                 <p className="mt-2">
                   <strong>Duration:</strong>{" "}
                   {selectedCourse.durationMonths
@@ -138,15 +145,20 @@ const Courses = () => {
                     {Array.isArray(selectedCourse.topics)
                       ? selectedCourse.topics.map((topic, i) => (
                           <li key={i} className="mt-1 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-forestGreen rounded-full"></span> {topic}
+                            <span className="w-2 h-2 bg-forestGreen rounded-full"></span>{" "}
+                            {topic}
                           </li>
                         ))
-                      : Object.entries(selectedCourse.topics).map(([key, value], i) => (
-                          <li key={i} className="mt-2">
-                            <strong className="text-oliveGreen">{key}:</strong>{" "}
-                            {value.topics.join(", ")}
-                          </li>
-                        ))}
+                      : Object.entries(selectedCourse.topics).map(
+                          ([key, value], i) => (
+                            <li key={i} className="mt-2">
+                              <strong className="text-oliveGreen">
+                                {key}:
+                              </strong>{" "}
+                              {value.topics.join(", ")}
+                            </li>
+                          )
+                        )}
                   </ul>
                 </div>
               )}
