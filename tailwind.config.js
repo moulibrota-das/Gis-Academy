@@ -17,6 +17,8 @@ export default {
       fontFamily: {
         heading: ["var(--font-heading)"],
         body: ["var(--font-body)"],
+        montserrat: ["Montserrat", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
       },
       aspectRatio: {
         "4/3": "4/3",

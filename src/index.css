@@ -1,18 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Radley&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html,
+  /* html,
   body {
     width: 100dvw;
     min-height: 100dvh;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-  }
+  } */
 
   body {
     background-color: var(--color-off-white);
