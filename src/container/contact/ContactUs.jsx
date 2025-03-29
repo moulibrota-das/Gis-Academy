@@ -3,10 +3,10 @@ import React from "react";
 const ContactUs = () => {
   return (
     <section
-      className="min-h-screen w-full bg-offWhite flex items-center justify-center px-6 "
+      className="min-h-[800px] container mx-auto bg-offWhite flex items-center justify-center px-6 "
       id="contact"
     >
-      <div className="flex flex-col md:flex-row w-full max-w-7xl">
+      <div className="flex flex-col md:flex-row w-full">
         {/* Left Section - Contact Info */}
         <div className="flex-1">
           <iframe
@@ -19,7 +19,7 @@ const ContactUs = () => {
 
         {/* Right Section - Contact Form */}
         <div className="flex-1">
-          <div className=" rounded-xl p-6 md:p-10">
+          <div className=" rounded-xl pt-6 md:p-10">
             <h2 className="text-3xl font-semibold text-darkGreen mb-2">
               Get in Touch
             </h2>

@@ -36,10 +36,10 @@ const ClientsPage = () => {
   const [selectedClient, setSelectedClient] = useState(null);
 
   return (
-    <div className="min-h-screen bg-offWhite flex flex-col items-center justify-center px-6 py-20">
+    <div className="container mx-auto min-h-[560px] md:pt-16 md:pb-16 bg-offWhite flex flex-col items-center px-6">
       {/* Section Title */}
       <motion.h2
-        className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
+        className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -111,7 +111,9 @@ const ClientsPage = () => {
                 alt={selectedClient.name}
                 className="w-full object-contain"
               />
-              <p className="mt-4 text-center font-semibold">{selectedClient.name}</p>
+              <p className="mt-4 text-center font-semibold">
+                {selectedClient.name}
+              </p>
             </motion.div>
           </motion.div>
         )}

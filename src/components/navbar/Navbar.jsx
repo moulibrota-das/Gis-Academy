@@ -15,7 +15,8 @@ import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 const navItems = [
   { name: "Home", icon: <FaHome />, link: "/" },
   { name: "Courses", icon: <FaHome />, link: "#courses" },
-  { name: "Product", icon: <FaProductHunt />, link: "#products" },
+  { name: "Products", icon: <FaProductHunt />, link: "#products" },
+  { name: "Services", icon: <FaEnvelope />, link: "#services" },
   { name: "Projects", icon: <FaProductHunt />, link: "#projects" },
   { name: "About", icon: <FaInfoCircle />, link: "#about" },
   { name: "Contact", icon: <FaEnvelope />, link: "#contact" },
@@ -26,7 +27,7 @@ const NavBar = () => {
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/50 backdrop-blur-md shadow-md transition-all">
-      <nav className="container mx-auto flex items-center justify-between px-6 py-3.5 max-w-7xl">
+      <nav className=" container mx-auto flex items-center justify-between px-6 py-3.5 ">
         {/* Logo Section */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}

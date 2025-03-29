@@ -22,7 +22,7 @@ import Services from "./container/services/Services";
 function App() {
   return (
     <Router>
-      <main className="relative min-h-screen w-screen overflow-x-hidden">
+      <main className=" min-h-screen ">
         <NavBar />
         <Routes>
           <Route
@@ -33,6 +33,7 @@ function App() {
                 <Introduction />
                 <Products />
                 <Services />
+                <Courses />
                 <Certificate />
                 <Client />
                 <ProjectsPage />
