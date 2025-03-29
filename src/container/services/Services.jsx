@@ -171,9 +171,9 @@ const Services = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-10 top-1/3 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
+            className="absolute left-2 top-1/3 bg-sky-500 bg-opacity-70 hover:bg-sky-600 transition-colors p-3 rounded-full shadow-md z-10"
           >
-            <IoIosArrowBack className="h-6 w-6 text-darkGreen" />
+            <IoIosArrowBack className="h-6 w-6 text-white" />
           </motion.button>
 
           <div className="flex justify-center">
@@ -209,11 +209,11 @@ const Services = () => {
                       ))}
                     </Swiper>
                   </div>
-                  <div className="p-6 flex flex-col flex-grow bg-mossGreen text-white rounded-b-xl min-h-[200px]">
+                  <div className="p-6 flex flex-col flex-grow bg-mossGreen text-white rounded-b-xl min-h-[250px]">
                     <h3 className="text-xl font-semibold mb-3">
                       {service.title}
                     </h3>
-                    <p className="mb-4 ">{service.description}</p>
+                    <p className="mb-4 flex-grow">{service.description}</p>
                     <button
                       className="px-5 py-2 bg-white text-mossGreen rounded-lg hover:bg-gray-100 transition-colors"
                       onClick={(e) => {
@@ -235,9 +235,9 @@ const Services = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-10 top-1/3 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
+            className="absolute right-2 top-1/3 bg-sky-500 bg-opacity-70 hover:bg-sky-600 transition-colors p-3 rounded-full shadow-md z-10"
           >
-            <IoIosArrowForward className="h-6 w-6 text-darkGreen" />
+            <IoIosArrowForward className="h-6 w-6 text-white" />
           </motion.button>
         </div>
       </div>

@@ -116,7 +116,7 @@ export default function Certificate() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-6 md:pt-16 md:pb-16 flex flex-col justify-center min-h-[800px] ">
       <div className="flex flex-col items-center mb-8">
         <motion.h2
           className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"

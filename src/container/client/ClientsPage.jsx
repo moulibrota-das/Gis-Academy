@@ -36,7 +36,7 @@ const ClientsPage = () => {
   const [selectedClient, setSelectedClient] = useState(null);
 
   return (
-    <div className=" bg-offWhite flex flex-col items-center justify-center px-6 py-12">
+    <div className="container mx-auto min-h-[560px] md:pt-16 md:pb-16 bg-offWhite flex flex-col items-center px-6">
       {/* Section Title */}
       <motion.h2
         className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"

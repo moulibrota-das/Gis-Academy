@@ -31,10 +31,13 @@ const Courses = () => {
   }, [selectedCourse]);
 
   return (
-    <div className="min-h-screen bg-mossGreen p-10 flex flex-col items-center">
+    <div
+      className="min-h-[800px] container mx-auto bg-mossGreen px-6 py-16 flex flex-col items-center"
+      id="courses"
+    >
       {/* Section Title */}
       <motion.h2
-        className="text-4xl md:text-4xl font-semibold text-white text-center relative z-[1]"
+        className="text-4xl md:text-5xl font-semibold text-white text-center relative z-[1]"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -55,7 +58,7 @@ const Courses = () => {
         {courses.map((course, index) => (
           <motion.div
             key={index}
-            className="relative bg-white/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 flex flex-col justify-between"
+            className="relative bg-offWhite backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 flex flex-col justify-between"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
@@ -64,7 +67,7 @@ const Courses = () => {
                 {course.courseName}
               </h2>
               {(course.durationMonths > 0 || course.durationHours > 0) && (
-                <p className="text-white mt-2 underline">
+                <p className="text-grey-300 mt-2 underline">
                   <strong>Duration:</strong>{" "}
                   {course.durationMonths
                     ? `${course.durationMonths} Months`

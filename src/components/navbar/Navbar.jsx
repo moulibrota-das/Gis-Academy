@@ -15,7 +15,8 @@ import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 const navItems = [
   { name: "Home", icon: <FaHome />, link: "/" },
   { name: "Courses", icon: <FaHome />, link: "#courses" },
-  { name: "Product", icon: <FaProductHunt />, link: "#products" },
+  { name: "Products", icon: <FaProductHunt />, link: "#products" },
+  { name: "Services", icon: <FaEnvelope />, link: "#services" },
   { name: "Projects", icon: <FaProductHunt />, link: "#projects" },
   { name: "About", icon: <FaInfoCircle />, link: "#about" },
   { name: "Contact", icon: <FaEnvelope />, link: "#contact" },

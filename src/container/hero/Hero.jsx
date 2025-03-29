@@ -5,7 +5,7 @@ import mapDotted from "/src/assets/images/map-dotted.png";
 const Hero = () => {
   return (
     <motion.div
-      className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-20 pt-12 md:pt-0 overflow-hidden"
+      className=" relative min-h-screen md:max-h-[1280px] flex flex-col items-center justify-center px-6 sm:px-12  pt-12 md:pt-0 overflow-hidden"
       id="home"
     >
       <motion.div
@@ -34,8 +34,8 @@ const Hero = () => {
         animate={{ scale: 1.05 }}
         transition={{
           duration: 2.5,
-          repeat: Infinity,
-          repeatType: "reverse",
+          // repeat: Infinity,
+          // repeatType: "reverse",
           ease: "easeInOut",
         }}
       />
@@ -77,6 +77,13 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
+            onClick={(e) => {
+              e.preventDefault(); // Prevent default behavior
+              const targetSection = document.querySelector("#contact"); // Replace with the target section's ID
+              if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
             Learn More
           </motion.button>

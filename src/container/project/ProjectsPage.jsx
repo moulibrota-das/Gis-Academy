@@ -48,7 +48,10 @@ const projects = [
 
 const ProjectsPage = () => {
   return (
-    <div className=" flex flex-col items-center px-6 py-12" id="projects">
+    <div
+      className="min-h-[800px] container mx-auto flex flex-col items-center justify-center px-6 py-16"
+      id="projects"
+    >
       {/* Section Title */}
       <motion.h2
         className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
@@ -68,13 +71,13 @@ const ProjectsPage = () => {
         viewport={{ once: false }}
       ></motion.div>
 
-      <motion.div
+      {/* <motion.div
         className="w-[200px] h-1 bg-green-500 my-4"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false }}
-      ></motion.div>
+      ></motion.div> */}
 
       {/* Project List */}
       <motion.ul

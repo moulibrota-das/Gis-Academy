@@ -36,7 +36,7 @@ function App() {
 
   return (
     <Router>
-      <main className="relative min-h-screen w-screen overflow-x-hidden">
+      <main className=" min-h-screen ">
         <NavBar />
         <Routes>
           <Route
@@ -46,6 +46,8 @@ function App() {
                 <Hero />
                 <Introduction />
                 <Products />
+                <Services />
+                <Courses />
                 <Certificate />
                 <Courses />
                 <Services />
