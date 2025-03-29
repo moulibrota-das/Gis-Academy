@@ -207,7 +207,7 @@ const ProductDetail = () => {
               <motion.img
                 src={product.image}
                 alt={product.name}
-                className="w-[80%] h-[650px] rounded-lg shadow-lg mx-auto"
+                className="w-[80%] rounded-lg shadow-lg mx-auto"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setSelectedProduct(product)}

@@ -185,7 +185,7 @@ const Services = () => {
                 <article
                   key={index}
                   ref={(el) => (cardRefs.current[index] = React.createRef(el))}
-                  className="bg-white rounded-xl shadow-md flex-shrink-0 w-80 flex flex-col cursor-pointer"
+                  className="bg-white rounded-xl shadow-md flex-shrink-0 w-72 flex flex-col cursor-pointer"
                   onClick={() => openModal(service)} // Open modal on card click
                 >
                   <div className="h-64 relative p-4">
