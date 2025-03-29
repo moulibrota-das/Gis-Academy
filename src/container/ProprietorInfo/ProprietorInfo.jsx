@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import proprietorImg from "/src/assets/images/pankaj_chakraborty.jpeg";
 
@@ -15,6 +16,34 @@ const wordVariant = {
 const ProprietorInfo = () => {
   const description =
     "A visionary leader specializing in Remote Sensing and Geographic Information System (GIS) projects, while also conducting comprehensive training programs.";
+  const fullMessage = `21ST CENTURY GIS ACADEMY, Kolkata was established in the year 1998 as a Remote Sensing and GIS Training institute to develop industry-ready GIS Professionals. It’s my sole observation during the last 27 years that students belonging to middle-class or lower-middle-class backgrounds are often left with no option to build their professional careers in the field of Remote Sensing & GIS due to unaffordable course fee structures. Our academy provides them with the opportunity to build their careers in this field with low-cost course fees along with high-quality teaching techniques. With hands-on training, both practical and theoretical, our students secure positions in the industry with handsome salaries, making our Academy proud.
+    <br /><br />
+    21ST CENTURY GIS ACADEMY also has another wing dedicated to providing GIS Solutions to various Government Departments. Numerous projects from the Geological Survey of India, State Water Investigation Directorate - West Bengal, Kolkata Municipal Development Authority, Department of Mines & Geology – Jharkhand, etc., have been undertaken and successfully completed. As part of these solutions, several customized software tools have been developed, such as Graphic Litholog Plotting & Correlation Diagram for GSI and Welllog & Tubewell Structure Plotting for the State Water Investigation Directorate (SWID), etc.
+    <br /><br />
+    Then, 21ST CENTURY GIS ACADEMY, encouraged by the University of Calcutta, has also developed easy and affordable educational GIS software for Colleges and Universities. The "21stCenturyGIS" suite offers a Basic version for Schools, a Professional version for Colleges & Universities, and a Premium version for Professional Organizations, covering an extensive range of topics, including Remote Sensing, GIS Mapping & Analysis, Terrain Modeling, Morphometric Analysis, Network Analysis, and Sub-Surface Mapping.`;
+  const [showFullMessage, setShowFullMessage] = useState(false);
+  const isMobile = window.innerWidth <= 768;
+
+  const shortMessage = fullMessage.split("<br /><br />")[0];
+
+  const renderMessage = (message) => {
+    return message.split("<br /><br />").map((paragraph, index) => (
+      <p key={index} className="leading-relaxed text-justify mb-4">
+        {paragraph}
+      </p>
+    ));
+  };
+
+  const toggleMessage = () => {
+    setShowFullMessage(!showFullMessage);
+  };
+
+  const handleShowLess = () => {
+    setShowFullMessage(false);
+    if (window.location.hash !== "#about") {
+      window.location.hash = "#about";
+    }
+  };
 
   return (
     <div
@@ -109,42 +138,31 @@ const ProprietorInfo = () => {
             </h3>
 
             {/* Justified Text for Clean Alignment */}
-            <p className="text-gray-200 mt-4 leading-relaxed text-justify">
-              21ST CENTURY GIS ACADEMY, Kolkata was established in the year 1998
-              as a Remote Sensing and GIS Training institute to develop
-              industry-ready GIS Professionals. It’s my sole observation during
-              the last 27 years that students belonging to middle-class or
-              lower-middle-class backgrounds are often left with no option to
-              build their professional careers in the field of Remote Sensing &
-              GIS due to unaffordable course fee structures. Our academy
-              provides them with the opportunity to build their careers in this
-              field with low-cost course fees along with high-quality teaching
-              techniques. With hands-on training, both practical and
-              theoretical, our students secure positions in the industry with
-              handsome salaries, making our Academy proud.
-              <br />
-              <br />
-              21ST CENTURY GIS ACADEMY also has another wing dedicated to
-              providing GIS Solutions to various Government Departments.
-              Numerous projects from the Geological Survey of India, State Water
-              Investigation Directorate - West Bengal, Kolkata Municipal
-              Development Authority, Department of Mines & Geology – Jharkhand,
-              etc., have been undertaken and successfully completed. As part of
-              these solutions, several customized software tools have been
-              developed, such as Graphic Litholog Plotting & Correlation Diagram
-              for GSI and Welllog & Tubewell Structure Plotting for the State
-              Water Investigation Directorate (SWID), etc.
-              <br />
-              <br />
-              Then, 21ST CENTURY GIS ACADEMY, encouraged by the University of
-              Calcutta, has also developed easy and affordable educational GIS
-              software for Colleges and Universities. The "21stCenturyGIS" suite
-              offers a Basic version for Schools, a Professional version for
-              Colleges & Universities, and a Premium version for Professional
-              Organizations, covering an extensive range of topics, including
-              Remote Sensing, GIS Mapping & Analysis, Terrain Modeling,
-              Morphometric Analysis, Network Analysis, and Sub-Surface Mapping.
-            </p>
+            <div className="text-gray-200 mt-4">
+              {isMobile && !showFullMessage
+                ? renderMessage(shortMessage)
+                : renderMessage(fullMessage)}
+            </div>
+
+            {isMobile && (
+              <div className="mt-4 flex justify-center">
+                {showFullMessage ? (
+                  <button
+                    className="text-lightGreen underline"
+                    onClick={handleShowLess}
+                  >
+                    Show Less
+                  </button>
+                ) : (
+                  <button
+                    className="text-lightGreen underline"
+                    onClick={toggleMessage}
+                  >
+                    Show More
+                  </button>
+                )}
+              </div>
+            )}
           </motion.div>
         </motion.div>
       </div>
