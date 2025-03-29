@@ -69,9 +69,9 @@ const Introduction = () => {
 
       {/* Right Section (Text Content with Scroll Motion) */}
       <motion.div
-        className="w-full md:w-1/2 flex flex-col justify-center items-center  "
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        className="w-full md:w-1/2 flex flex-col justify-center items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: false }}
       >
