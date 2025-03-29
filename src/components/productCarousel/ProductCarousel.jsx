@@ -10,7 +10,7 @@ import img7 from "/src/assets/product/Brochure_page-0007.jpg";
 import img8 from "/src/assets/product/Brochure_page-0008.jpg";
 
 const product = {
-  name: "21st Century GIS (Premium)",
+  name: "21stCenturyGIS (Premium)",
   description:
     "Remote Sensing and Geographic Information System (GIS) Software",
   images: [img1, img2, img3, img4, img5, img6, img7, img8],

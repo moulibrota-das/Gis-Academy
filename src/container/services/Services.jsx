@@ -143,11 +143,11 @@ const Services = () => {
   };
 
   return (
-    <section className="min-h-screen bg-offWhite p-0 relative">
+    <section className="min-h-[700px] container mx-auto bg-offWhite py-4 relative">
       <div className="m-12 sm:m-12 lg:m-16">
         <div className="flex flex-col items-center mb-8">
           <motion.h2
-            className="text-4xl md:text-5xl font-semibold text-darkGreen text-center relative z-[1]"
+            className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

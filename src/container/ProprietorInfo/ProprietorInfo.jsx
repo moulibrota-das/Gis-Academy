@@ -71,7 +71,7 @@ const ProprietorInfo = () => {
                 Pankaj Chakraborty
               </h2>
               <p className="text-lightGray text-lg mt-2">
-                Proprietor, 21st Century GIS Academy
+                Proprietor, 21ST CENTURY GIS ACADEMY
               </p>
 
               {/* Animated Description (Fix Spacing) */}

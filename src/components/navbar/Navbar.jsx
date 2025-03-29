@@ -54,7 +54,7 @@ const NavBar = () => {
         isScrolled ? "bg-white/50 backdrop-blur-md shadow-md" : "bg-transparent"
       } transition-all`}
     >
-      <nav className="container mx-auto flex items-center justify-between px-6 py-3.5 max-w-7xl">
+      <nav className="container mx-auto flex items-center justify-between px-6 py-3.5">
         {/* Logo Section */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}

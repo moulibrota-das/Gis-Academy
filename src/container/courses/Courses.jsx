@@ -63,7 +63,7 @@ const Courses = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div>
-              <h2 className="text-xl font-bold text-white font-serif bold">
+              <h2 className="text-lg font-bold text-darkGreen font-serif bold">
                 {course.courseName}
               </h2>
               {(course.durationMonths > 0 || course.durationHours > 0) && (

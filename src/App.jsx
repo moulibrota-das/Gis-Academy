@@ -49,8 +49,7 @@ function App() {
                 <Services />
                 <Courses />
                 <Certificate />
-                <Courses />
-                <Services />
+
                 <Client />
                 <ProjectsPage />
                 <ProprietorInfo />

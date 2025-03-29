@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCarousel from "../../components/productCarousel/ProductCarousel";
 
 const product = {
-  name: "21st Century GIS (Premium)",
+  name: "21stCenturyGIS (Premium)",
   description:
     "Remote Sensing and Geographic Information System (GIS) Software",
 };
@@ -50,13 +50,13 @@ const Products = () => {
 
         {/* Description */}
         <motion.p
-          className="text-beige text-justify mt-6 text-lg md:text-lg leading-relaxed max-w-lg text-center"
+          className="text-beige text-justify mt-6 text-lg md:text-lg leading-relaxed max-w-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          Our GIS software - 21st Century GIS (Premium) integrates geographic
-          data to improve decision-making in urban planning, transportation, and
+          Our GIS software - 21stCenturyGIS (Premium) integrates geographic data
+          to improve decision-making in urban planning, transportation, and
           environmental monitoring. Paired with remote sensing technology, it
           enables real-time data collection from satellites, optimizing
           applications in agriculture, disaster management, and environmental
@@ -64,10 +64,10 @@ const Products = () => {
         </motion.p>
 
         {/* Product Name & Description */}
-        <div className="mt-8 text-left">
-          <h3 className="text-2xl md:text-3xl font-bold text-white">
+        <div className="mt-8 max-w-[32rem] md:w-[32rem]">
+          <p className="text-2xl md:text-3xl  font-bold text-justify text-white">
             {product.name}
-          </h3>
+          </p>
           <p className="text-gray-300 mt-2">{product.description}</p>
         </div>
 

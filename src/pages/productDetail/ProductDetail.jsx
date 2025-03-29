@@ -18,7 +18,7 @@ const ProductDetail = () => {
 
   const productDetails = [
     {
-      name: "21st Century GIS (Premium)",
+      name: "21stCenturyGIS (Premium)",
       title: "Advanced GIS Software for Decision-Making",
       description:
         "An advanced GIS software that integrates remote sensing and geospatial data analysis for improved decision-making.",
@@ -135,7 +135,7 @@ const ProductDetail = () => {
       image: img7,
     },
     {
-      name: "21st Century GIS (Premium)",
+      name: "21stCenturyGIS (Premium)",
       technicalSupport:
         "Expert supports are provided to assist customers in successfully achieving their GIS goals.",
       academyInfo:
