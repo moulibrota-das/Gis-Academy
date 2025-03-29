@@ -147,7 +147,7 @@ const Services = () => {
       <div className="m-12 sm:m-12 lg:m-16">
         <div className="flex flex-col items-center mb-8">
           <motion.h2
-            className="text-4xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
+            className="text-3xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -171,7 +171,7 @@ const Services = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-9 top-1/3 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
+            className="absolute left-9 top-1/2 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
           >
             <IoIosArrowBack className="h-6 w-6 text-darkGreen" />
           </motion.button>
@@ -185,7 +185,7 @@ const Services = () => {
                 <article
                   key={index}
                   ref={(el) => (cardRefs.current[index] = React.createRef(el))}
-                  className="bg-white rounded-xl shadow-md flex-shrink-0 w-80 sm:w-96 flex flex-col cursor-pointer"
+                  className="bg-white rounded-xl shadow-md flex-shrink-0 w-80 flex flex-col cursor-pointer"
                   onClick={() => openModal(service)} // Open modal on card click
                 >
                   <div className="h-64 relative p-4">
@@ -213,7 +213,7 @@ const Services = () => {
                     <h3 className="text-xl font-semibold mb-3">
                       {service.title}
                     </h3>
-                    <p className="mb-4">{service.description}</p>
+                    <p className="mb-4 text-sm">{service.description}</p>
                     <button
                       className="px-5 py-2 bg-white text-mossGreen rounded-lg hover:bg-gray-100 transition-colors"
                       onClick={(e) => {
@@ -235,7 +235,7 @@ const Services = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-9 top-1/3 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
+            className="absolute right-9 top-1/2 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
           >
             <IoIosArrowForward className="h-6 w-6 text-darkGreen" />
           </motion.button>
@@ -256,7 +256,7 @@ const Services = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
-          className="bg-offWhite text-black shadow-2xl rounded-xl max-w-[700px] lg:max-w-[800px] w-full"
+          className="bg-offWhite text-black shadow-2xl rounded-xl max-w-[700px] lg:max-w-[800px] mx-6"
         >
           <div className="p-6 bg-mossGreen text-white rounded-t-xl mb-4">
             <h2 className="text-2xl font-semibold text-white">
@@ -292,7 +292,7 @@ const Services = () => {
           <div className="mt-6 p-6 flex justify-end">
             <button
               onClick={closeModal}
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-2 rounded-md"
+              className="bg-mossGreen text-offWhite hover:bg-gray-300 hover:text-gray-800 px-5 py-2 rounded-md"
             >
               Close
             </button>

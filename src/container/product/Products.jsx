@@ -18,7 +18,7 @@ const Products = () => {
 
   return (
     <div
-      className="flex flex-col-reverse bg-mossGreen  items-center md:grid md:grid-cols-2 container mx-auto min-h-[800px]"
+      className="flex flex-col-reverse bg-mossGreen rounded-xl items-center md:grid md:grid-cols-2 container mx-auto min-h-[800px]"
       id="products"
     >
       {/* Product Carousel Section */}
