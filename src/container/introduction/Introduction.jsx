@@ -1,14 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import introOne from "/src/assets/images/intro-1.png";
-import introTwo from "/src/assets/images/intro-2.png";
-import introThree from "/src/assets/images/intro-3.jpg";
+import introOne from "/src/assets/images/Maps/map5.PNG";
+import introTwo from "/src/assets/images/Maps/map9.png";
+
+import introThree from "/src/assets/images/Maps/map8.png";
 
 const images = [introOne, introTwo, introThree];
 
 const Introduction = () => {
   return (
-    <div className="container mx-auto min-h-[800px]  bg-offWhite flex flex-col gap-10 md:gap-0 md:flex-row items-center justify-between px-8  py-6 mb-6 md:py-0">
+    <div
+      className="container mx-auto min-h-[800px]  bg-offWhite flex flex-col gap-10 md:gap-0 md:flex-row items-center justify-between px-8  py-6 mb-6 md:py-0"
+      id="introduction"
+    >
       {/* Parent Container */}
       {/* <div className="flex flex-col md:flex-row w-full  items-center justify-between gap-12 md:gap-24"> */}
       {/* Left Section (Images with Scroll Motion) */}
@@ -84,10 +88,7 @@ const Introduction = () => {
           </p>
 
           <p className="text-lg text-justify text-gray-700 mt-4 leading-relaxed max-w-lg">
-            Our innovative software, like{" "}
-            <span className="font-semibold text-deepGreen">People's GIS</span>,
-            has revolutionized the industry, making spatial data accessible and
-            actionable.
+          Our innovative software <strong>21stCenturyGIS</strong> has revolutionized the industry, making spatial data accessible and actionable.
           </p>
 
           <p className="text-lg text-justify text-gray-700 mt-4 leading-relaxed max-w-lg">

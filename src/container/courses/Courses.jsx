@@ -66,7 +66,7 @@ const Courses = () => {
 
   return (
     <div
-      className="min-h-[800px] container mx-auto bg-mossGreen rounded-xl px-6 py-16 flex flex-col items-center"
+      className="min-h-[800px] container mx-auto bg-mossGreen rounded-xl px-6 pt-16 pb-8 flex flex-col items-center"
       id="courses"
     >
       {/* Section Title */}
@@ -144,6 +144,7 @@ const Courses = () => {
           </motion.div>
         )}
       </div>
+      
 
       {courses.length > 3 && isMobile && (
         <div className="mt-8">
@@ -234,6 +235,10 @@ const Courses = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <div className="text-sm text-gray-300 mt-8 italic text-left w-full">
+
+      *Theory and Practical classes for all courses are twice in a week and 1½ hours per day
+      </div>
     </div>
   );
 };

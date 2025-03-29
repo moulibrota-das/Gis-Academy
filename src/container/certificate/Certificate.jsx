@@ -57,22 +57,22 @@ const styles = StyleSheet.create({
 // PDF Data
 const document_details = [
   {
-    title: "GIS Training Manual",
+    title: "GIS Software Brochure",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf1,
     imgUrl: img1,
   },
   {
-    title: "Company Brochure",
+    title: "Company Profile",
     description: "Learn more about our GIS services and offerings.",
     pdfUrl: pdf2,
     imgUrl: img2,
   },
   {
-    title: "GST",
-    description: "A comprehensive guide to GIS mapping techniques.",
-    pdfUrl: pdf3,
-    imgUrl: img3,
+    title: "Udyam Certificate",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: pdf8,
+    imgUrl: img8,
   },
   {
     title: "ISO Certificate",
@@ -81,10 +81,10 @@ const document_details = [
     imgUrl: img4,
   },
   {
-    title: "KMC Trade Licence",
+    title: "GST",
     description: "A comprehensive guide to GIS mapping techniques.",
-    pdfUrl: pdf5,
-    imgUrl: img5,
+    pdfUrl: pdf3,
+    imgUrl: img3,
   },
   {
     title: "Professional Tax Certificate",
@@ -92,17 +92,19 @@ const document_details = [
     pdfUrl: pdf6,
     imgUrl: img6,
   },
+
+  {
+    title: "KMC Trade Licence",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: pdf5,
+    imgUrl: img5,
+  },
+
   {
     title: "Resume",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf7,
     imgUrl: img7,
-  },
-  {
-    title: "Udyam Certificate",
-    description: "Learn more about our GIS services and offerings.",
-    pdfUrl: pdf8,
-    imgUrl: img8,
   },
 ];
 

@@ -3,7 +3,7 @@ import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-deepGreen text-white py-8">
-      <div className="container mx-auto px-6 lg:px-20">
+      <div className="container mx-auto px-6 ">
         {/* Contact Details */}
         <div className="text-center mb-8">
           <p className="text-gray-300 text-sm md:text-base">
@@ -30,14 +30,17 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <div className="flex justify-center space-x-6 mb-8">
-          {[FaTwitter, FaInstagram, FaFacebook, FaLinkedin].map(
-            (Icon, index) => (
+          {[{"icon": FaTwitter, "url": "#"}, {"icon": FaInstagram, "url":"#"}, {"icon":FaFacebook,"url": "facebook.com/21stcenturygisacademy/"}, {"icon":FaLinkedin, "url": "linkedIn.com/in/pankajchakraborty/"}].map(
+            (item, index) => (
               <a
-                href="#"
+
+                target="_blank" rel="noopener noreferrer"
+              href={item.url.startsWith('http') ? item.url : `https://${item.url}`}
+
                 key={index}
                 className="text-white text-xl hover:text-gray-400 transition-colors"
               >
-                <Icon />
+                <item.icon />
               </a>
             )
           )}

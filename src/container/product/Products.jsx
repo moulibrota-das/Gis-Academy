@@ -55,12 +55,12 @@ const Products = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          Our GIS software - 21stCenturyGIS (Premium) integrates geographic data
-          to improve decision-making in urban planning, transportation, and
-          environmental monitoring. Paired with remote sensing technology, it
-          enables real-time data collection from satellites, optimizing
-          applications in agriculture, disaster management, and environmental
-          analysis.
+          Our GIS software - 21stCenturyGIS (Premium version) integrates
+          geographic data to improve decision-making in Urban Planning,
+          Transportation, and Environment Monitoring. Paired with Remote Sensing
+          Technology, it enables real-time data collection from satellites,
+          optimizing applications in Agriculture, Disaster Management, and
+          Environmental Analysis.
         </motion.p>
 
         {/* Product Name & Description */}

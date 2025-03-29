@@ -79,7 +79,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
             onClick={(e) => {
               e.preventDefault(); // Prevent default behavior
-              const targetSection = document.querySelector("#contact"); // Replace with the target section's ID
+              const targetSection = document.querySelector("#introduction"); // Replace with the target section's ID
               if (targetSection) {
                 targetSection.scrollIntoView({ behavior: "smooth" });
               }
@@ -93,6 +93,13 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+            onClick={(e) => {
+              e.preventDefault(); // Prevent default behavior
+              const targetSection = document.querySelector("#contact"); // Replace with the target section's ID
+              if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
             Contact Us
           </motion.button>
