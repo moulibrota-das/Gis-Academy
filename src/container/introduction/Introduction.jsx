@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import introOne from "/src/assets/images/intro-1.png";
 import introTwo from "/src/assets/images/intro-2.png";
+import introThree from "/src/assets/images/intro-3.jpg";
 
-const images = [introOne, introTwo];
+const images = [introOne, introTwo, introThree];
 
 const Introduction = () => {
   return (
@@ -40,7 +41,7 @@ const Introduction = () => {
             transition={{ duration: 1, delay: 0.3 }}
           >
             <img
-              src={images[0]}
+              src={images[1]}
               alt="GIS Analysis"
               className="w-full h-full object-cover"
             />
@@ -54,7 +55,7 @@ const Introduction = () => {
             transition={{ duration: 1, delay: 0.5 }}
           >
             <img
-              src={images[1]}
+              src={images[2]}
               alt="Spatial Data Mapping"
               className="w-full h-full object-cover"
             />
