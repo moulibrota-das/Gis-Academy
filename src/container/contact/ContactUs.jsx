@@ -3,7 +3,7 @@ import React from "react";
 const ContactUs = () => {
   return (
     <section
-      className="min-h-[800px] container mx-auto bg-offWhite flex items-center justify-center px-6 "
+      className="min-h-[800px] container mx-auto bg-offWhite flex items-center justify-center px-6 mb-6"
       id="contact"
     >
       <div className="flex flex-col md:flex-row w-full">

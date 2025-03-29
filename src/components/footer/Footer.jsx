@@ -12,10 +12,10 @@ const Footer = () => {
           </p>
           <p className="text-gray-300 text-sm md:text-base mt-2">
             <a
-              href="mailto:info@21stcenturygis.com"
+              href="mailto:pchakraborty_99@yahoo.com"
               className="text-green-400 hover:text-green-300"
             >
-              info@21stcenturygis.com
+             pchakraborty_99@yahoo.com
             </a>
           </p>
           <p className="text-gray-300 text-sm md:text-base mt-2">
@@ -23,7 +23,7 @@ const Footer = () => {
               href="tel:+911234567890"
               className="text-green-400 hover:text-green-300"
             >
-              +91 12345 67890
+              ‭+91 9830379812‬, ‭+91 8617230347‬
             </a>
           </p>
         </div>
