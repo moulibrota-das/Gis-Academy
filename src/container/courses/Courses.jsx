@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [visibleCourses, setVisibleCourses] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     fetch("/courses.json")
@@ -11,6 +14,26 @@ const Courses = () => {
       .then((data) => setCourses(data.courses))
       .catch((err) => console.error("Error fetching courses:", err));
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile && !showAll) {
+      setVisibleCourses(courses.slice(0, 3));
+    } else {
+      setVisibleCourses(courses);
+    }
+  }, [courses, showAll, isMobile]);
 
   useEffect(() => {
     const html = document.documentElement;
@@ -29,6 +52,17 @@ const Courses = () => {
       body.style.overflow = "";
     };
   }, [selectedCourse]);
+
+  const handleLoadMore = () => {
+    setShowAll(true);
+  };
+
+  const handleShowLess = () => {
+    setShowAll(false);
+    if (window.location.hash !== "#courses") {
+      window.location.hash = "#courses";
+    }
+  };
 
   return (
     <div
@@ -55,7 +89,7 @@ const Courses = () => {
       ></motion.div>
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mt-8">
-        {courses.map((course, index) => (
+        {visibleCourses.map((course, index) => (
           <motion.div
             key={index}
             className="relative bg-offWhite backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 flex flex-col justify-between"
@@ -86,28 +120,51 @@ const Courses = () => {
         ))}
 
         {/* Contact Us Card */}
-        <motion.div
-          className="relative bg-white/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 flex flex-col justify-between"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <div>
-            <h2 className="text-2xl font-bold text-white">
-              Contact Us for More
-            </h2>
-            <p className="text-gray-300 mt-2">
-              Interested in learning more? Get in touch!
-            </p>
-          </div>
-          <motion.button
-            className="bg-forestGreen text-white px-6 py-2 rounded-lg text-md font-semibold shadow-md hover:bg-deepGreen transition-all duration-300 transform hover:scale-105 mt-4"
+        {(!isMobile || showAll) && (
+          <motion.div
+            className="relative bg-white/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 flex flex-col justify-between"
             whileHover={{ scale: 1.05 }}
-            onClick={() => (window.location.href = "/contact")} // Replace '/contact' with your contact page URL
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            Contact
-          </motion.button>
-        </motion.div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">
+                Contact Us for More
+              </h2>
+              <p className="text-gray-300 mt-2">
+                Interested in learning more? Get in touch!
+              </p>
+            </div>
+            <motion.button
+              className="bg-forestGreen text-white px-6 py-2 rounded-lg text-md font-semibold shadow-md hover:bg-deepGreen transition-all duration-300 transform hover:scale-105 mt-4"
+              whileHover={{ scale: 1.05 }}
+              onClick={() => (window.location.href = "/contact")}
+            >
+              Contact
+            </motion.button>
+          </motion.div>
+        )}
       </div>
+
+      {courses.length > 3 && isMobile && (
+        <div className="mt-8">
+          {!showAll && (
+            <button
+              className="px-6 py-2 bg-forestGreen text-white rounded-lg font-semibold hover:bg-deepGreen transition-all"
+              onClick={handleLoadMore}
+            >
+              Load More
+            </button>
+          )}
+          {showAll && (
+            <button
+              className="px-6 py-2 bg-forestGreen text-white rounded-lg font-semibold hover:bg-deepGreen transition-all"
+              onClick={handleShowLess}
+            >
+              Show Less
+            </button>
+          )}
+        </div>
+      )}
 
       <AnimatePresence>
         {selectedCourse && (

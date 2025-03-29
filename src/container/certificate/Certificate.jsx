@@ -143,26 +143,27 @@ export default function Certificate() {
             key={index}
             className="relative h-[400px] rounded-md shadow-lg overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
-            {/* Background Image with Dark Overlay */}
+            {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url(${doc.imgUrl})`,
               }}
-            >
-              <div className="absolute inset-0 bg-black bg-opacity-55 group-hover:bg-opacity-60 transition-all duration-300" />
-            </div>
+            />
 
-            {/* Content Section */}
-            <div className="relative p-5 h-full flex flex-col justify-between items-center text-center">
-              {/* Title with Hover Effect */}
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-mossGreen transition-colors duration-300">
+            {/* Gradient Overlay for the Bottom 30% */}
+            <div className="absolute bottom-0 w-full h-[25%] bg-black/60" />
+
+            {/* Document Name and Button Section */}
+            <div className="absolute bottom-0 w-full p-5 text-center">
+              {/* Document Name */}
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 {doc.title}
               </h3>
 
-              {/* Button Section */}
+              {/* View Document Button */}
               <button
-                className="bg-offWhite text-darkGreen px-4 py-1 rounded-md hover:bg-beige transition-colors duration-300"
+                className="bg-white text-darkGreen px-3 py-1 rounded-full text-[11px] font-semibold hover:bg-mossGreen hover:text-white transition-colors duration-300"
                 onClick={() => handleViewPdf(doc.pdfUrl)}
               >
                 View Document

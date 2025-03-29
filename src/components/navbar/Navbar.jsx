@@ -7,6 +7,9 @@ import {
   FaEnvelope,
   FaBars,
   FaTimes,
+  FaBook,
+  FaProjectDiagram,
+  FaTools,
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,10 +17,10 @@ import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
 const navItems = [
   { name: "Home", icon: <FaHome />, link: "/" },
-  { name: "Courses", icon: <FaHome />, link: "#courses" },
+  { name: "Courses", icon: <FaBook />, link: "#courses" },
   { name: "Products", icon: <FaProductHunt />, link: "#products" },
-  { name: "Services", icon: <FaEnvelope />, link: "#services" },
-  { name: "Projects", icon: <FaProductHunt />, link: "#projects" },
+  { name: "Services", icon: <FaTools />, link: "#services" },
+  { name: "Projects", icon: <FaProjectDiagram />, link: "#projects" },
   { name: "About", icon: <FaInfoCircle />, link: "#about" },
   { name: "Contact", icon: <FaEnvelope />, link: "#contact" },
 ];
@@ -25,6 +28,8 @@ const navItems = [
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const navigate = useNavigate();
 
   // Handle scroll effect for navbar background
   useEffect(() => {
@@ -39,7 +44,11 @@ const NavBar = () => {
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      if (mobileMenuOpen && !event.target.closest("#mobileMenu")) {
+      if (
+        mobileMenuOpen &&
+        !event.target.closest("#mobileMenu") &&
+        !event.target.closest("#hamburgerBtn")
+      ) {
         setMobileMenuOpen(false);
       }
     };
@@ -47,6 +56,21 @@ const NavBar = () => {
     document.addEventListener("click", handleOutsideClick);
     return () => document.removeEventListener("click", handleOutsideClick);
   }, [mobileMenuOpen]);
+
+  // Smooth scroll for hash links
+  const handleSmoothScroll = (e, link) => {
+    if (link.startsWith("#")) {
+      e.preventDefault();
+      const targetSection = document.querySelector(link);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+      setMobileMenuOpen(false);
+    } else {
+      navigate(link);
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <header
@@ -61,13 +85,6 @@ const NavBar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center gap-3 cursor-pointer"
-          onClick={(e) => {
-            e.preventDefault(); // Prevent default anchor behavior
-            const targetSection = document.querySelector("#home");
-            if (targetSection) {
-              targetSection.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
         >
           <img
             src={logoImage}
@@ -78,11 +95,6 @@ const NavBar = () => {
             className={`${
               isScrolled ? "text-deepGreen" : "text-offWhite"
             } font-bold text-[13px] tracking-wide text-start leading-tight`}
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontOpticalSizing: "auto",
-              fontStyle: "normal",
-            }}
           >
             <span className="block">21ST CENTURY</span>
             <span className="block">GIS ACADEMY</span>
@@ -102,114 +114,62 @@ const NavBar = () => {
                 ease: "easeOut",
               }}
             >
-              {item.link.startsWith("#") ? (
-                <a
-                  href={item.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const targetSection = document.querySelector(item.link);
-                    if (targetSection) {
-                      targetSection.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                  className={`${
-                    isScrolled
-                      ? "text-deepGreen hover:text-mossGreen"
-                      : "text-offWhite hover:text-beige"
-                  }`}
-                  style={{
-                    fontFamily: "'Bebas Neue', sans-serif",
-                    fontOpticalSizing: "auto",
-                    fontStyle: "normal",
-                  }}
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  to={item.link}
-                  className={`${
-                    isScrolled
-                      ? "text-darkGreen hover:text-mossGreen"
-                      : "text-offWhite hover:text-beige"
-                  }`}
-                  style={{
-                    fontFamily: "'Bebas Neue', sans-serif",
-                    fontOpticalSizing: "auto",
-                    fontStyle: "normal",
-                  }}
-                >
-                  {item.name}
-                </Link>
-              )}
+              <a
+                href={item.link}
+                onClick={(e) => handleSmoothScroll(e, item.link)}
+                className={`${
+                  isScrolled
+                    ? "text-deepGreen hover:text-mossGreen"
+                    : "text-offWhite hover:text-beige"
+                }`}
+              >
+                {item.name}
+              </a>
             </motion.div>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button
+          id="hamburgerBtn"
           className="md:hidden text-darkGreen text-2xl"
-          onClick={() => setMobileMenuOpen(true)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setMobileMenuOpen((prev) => !prev);
+          }}
+          aria-label="Toggle menu"
         >
-          <FaBars />
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <>
-            {/* Dark Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-md z-40"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-
-            {/* Sliding Half-Screen Menu */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: "60%" }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed top-0 right-0 w-2/5 h-full bg-white z-50 shadow-lg flex flex-col p-8"
-            >
-              {/* Close Button */}
-              <button
-                className="absolute top-5 right-5 text-3xl text-darkGreen"
-                onClick={() => setMobileMenuOpen(false)}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-full right-0 w-full mx-auto bg-offWhite shadow-md p-6 md:hidden"
+          >
+            {navItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <FaTimes />
-              </button>
-
-              {/* Mobile Nav Items */}
-              <div className="mt-16 space-y-6">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: index * 0.1,
-                      ease: "easeOut",
-                    }}
-                  >
-                    <Link
-                      to={item.link}
-                      className="flex items-center gap-3 text-darkGreen hover:text-mossGreen text-xl font-semibold"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.icon} {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </>
+                <a
+                  href={item.link}
+                  onClick={(e) => handleSmoothScroll(e, item.link)}
+                  className="flex items-center gap-3 text-darkGreen hover:text-mossGreen text-xl font-semibold py-2"
+                >
+                  {item.icon} {item.name}
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
