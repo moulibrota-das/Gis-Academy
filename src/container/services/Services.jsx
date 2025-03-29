@@ -143,7 +143,7 @@ const Services = () => {
   };
 
   return (
-    <section className="min-h-[700px] container mx-auto bg-offWhite py-4 relative">
+    <section className="min-h-[700px] container mx-auto bg-offWhite py-4 relative" id="services">
       <div className="m-12 sm:m-12 lg:m-16">
         <div className="flex flex-col items-center mb-8">
           <motion.h2

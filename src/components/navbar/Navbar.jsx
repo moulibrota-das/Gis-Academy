@@ -11,7 +11,7 @@ import {
   FaProjectDiagram,
   FaTools,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
@@ -85,6 +85,8 @@ const NavBar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center gap-3 cursor-pointer"
+          href="/"
+          onClick={(e) => handleSmoothScroll(e, "#home")}
         >
           <img
             src={logoImage}

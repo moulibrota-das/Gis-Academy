@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
           {/* Copyright */}
-          <p>Copyright © 1998 21ST CENTURY GIS ACADEMY. All Rights Reserved</p>
+          <p>Copyright © 1998<span className="italic"> 21ST CENTURY GIS ACADEMY. All Rights Reserved </span></p>
 
           {/* Policy Links */}
           <div className="flex space-x-8 mt-4 md:mt-0">

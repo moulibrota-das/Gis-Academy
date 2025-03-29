@@ -33,7 +33,7 @@ const ProductDetail = () => {
       name: "The Premium Software For Remote Sensing",
       title: "Remote Sensing & Image Analysis",
       description:
-        "21st CenturyGIS simplies image processing and interpretation, while maintaining integrity of geo-spatial data.",
+        "21stCenturyGIS simplies image processing and interpretation, while maintaining integrity of geo-spatial data.",
       topics: [
         "Processing: Pixel Profile, Band Combination, Spectral Profile, Spectral Plot, Inquire Cursor, Opacity, Swipe, Pixel Chart & Histogram Manipulation.",
         "Preparation: Projection, Pan Merge, Mosaic, Subset, Resize & False Colour Composite.",
@@ -66,7 +66,7 @@ const ProductDetail = () => {
       name: "The Premium Software For Remote Sensing",
       title: "GIS Mapping & Analysis",
       description:
-        "21st CenturyGIS creates map and analyze data in an easy way, understanding geographical relationshiops and developing decision support.",
+        "21stCenturyGIS creates map and analyze data in an easy way, understanding geographical relationshiops and developing decision support.",
       topics: [
         "Faster digitization tool for high productivity",
         "Geo-referencing of Raster & Vector",
@@ -121,7 +121,7 @@ const ProductDetail = () => {
       name: "GIS, Terrain Analysis & Sub-Surface Mapping",
       title: "Sub-Surface Mapping",
       description:
-        "21st CenturyGIS software allows you to visualize, interpret and represent your sub-surface bore hole data.",
+        "21stCenturyGIS software allows you to visualize, interpret and represent your sub-surface bore hole data.",
       topics: [
         "Litholog Plotting based on RL and Coarseness value",
         "Different types of Correlation Diagrams",
@@ -144,7 +144,7 @@ const ProductDetail = () => {
         address: "404, Baghajatin Place, Kolkata – 700086, West Bengal",
         mobile: "+91 9830379812 / 8617230347",
         email: ["21stcentgis@gmail.com", "pchakraborty_99@yahoo.com"],
-        website: "www.21stcentgis.org",
+        website: "www.21stcenturygis.org",
       },
       image: img8,
     },
@@ -222,7 +222,7 @@ const ProductDetail = () => {
                   : "ml-16 border-r-4 border-darkGreen pr-8"
               }`}
             >
-              <h2 className="text-3xl font-semibold text-darkGreen mb-2">
+              <h2 className="text-3xl font-montserrat font-semibold text-darkGreen mb-2">
                 {product.name}
               </h2>
               {product.title && (
