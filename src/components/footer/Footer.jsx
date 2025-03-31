@@ -7,15 +7,21 @@ const Footer = () => {
         {/* Contact Details */}
         <div className="text-center mb-8">
           <p className="text-gray-300 text-sm md:text-base">
-            404, Baghajatin Rd, Vidyasagar Colony, Ganguly Bagan, Kolkata, West
-            Bengal 700086
+          404, Baghajatin Place, Kolkata – 700086, West Bengal
           </p>
-          <p className="text-gray-300 text-sm md:text-base mt-2">
+          <p className="text-gray-300 text-sm md:text-base mt-2 flex gap-2 justify-center">
+            <a
+              href="mailto:21stcentgis@gmail.com"
+              className="text-green-400 hover:text-green-300"
+            >
+              21stcentgis@gmail.com,
+            </a>
+
             <a
               href="mailto:pchakraborty_99@yahoo.com"
               className="text-green-400 hover:text-green-300"
             >
-             pchakraborty_99@yahoo.com
+              pchakraborty_99@yahoo.com
             </a>
           </p>
           <p className="text-gray-300 text-sm md:text-base mt-2">
@@ -30,20 +36,24 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <div className="flex justify-center space-x-6 mb-8">
-          {[{"icon": FaTwitter, "url": "#"}, {"icon": FaInstagram, "url":"#"}, {"icon":FaFacebook,"url": "facebook.com/21stcenturygisacademy/"}, {"icon":FaLinkedin, "url": "linkedIn.com/in/pankajchakraborty/"}].map(
-            (item, index) => (
-              <a
-
-                target="_blank" rel="noopener noreferrer"
-              href={item.url.startsWith('http') ? item.url : `https://${item.url}`}
-
-                key={index}
-                className="text-white text-xl hover:text-gray-400 transition-colors"
-              >
-                <item.icon />
-              </a>
-            )
-          )}
+          {[
+            { icon: FaTwitter, url: "x.com/21stcenturygis" },
+            { icon: FaInstagram, url: "instagram.com/21stcenturygis/" },
+            { icon: FaFacebook, url: "facebook.com/21stcenturygisacademy/" },
+            { icon: FaLinkedin, url: "linkedIn.com/in/pankajchakraborty/" },
+          ].map((item, index) => (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={
+                item.url.startsWith("http") ? item.url : `https://${item.url}`
+              }
+              key={index}
+              className="text-white text-xl hover:text-gray-400 transition-colors"
+            >
+              <item.icon />
+            </a>
+          ))}
         </div>
 
         {/* Divider */}
@@ -52,7 +62,13 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
           {/* Copyright */}
-          <p>Copyright © 1998<span className="italic"> 21ST CENTURY GIS ACADEMY. All Rights Reserved </span></p>
+          <p>
+            Copyright © 1998
+            <span className="italic">
+              {" "}
+              21ST CENTURY GIS ACADEMY. All Rights Reserved{" "}
+            </span>
+          </p>
 
           {/* Policy Links */}
           <div className="flex space-x-8 mt-4 md:mt-0">
