@@ -1,11 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRef, useState } from "react";
+import intlTelInput from "intl-tel-input";
+import "intl-tel-input/build/css/intlTelInput.css";
 import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const form = useRef();
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const input = document.querySelector("#mobile_code");
+    const iti = intlTelInput(input, {
+      initialCountry: "in",
+      separateDialCode: true,
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      customContainer: "w-full",
+      customPlaceholder: function (
+        selectedCountryPlaceholder,
+        selectedCountryData
+      ) {
+        return "Phone Number";
+      },
+      containerClass: "w-full",
+      inputClass: "w-full",
+    });
+
+    // Add custom styles to ensure proper width
+    const style = document.createElement("style");
+    style.textContent = `
+      .iti {
+        width: 100%;
+      }
+      .iti__flag-container {
+        z-index: 10;
+      }
+      .iti__selected-flag {
+        padding: 0 6px 0 8px;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Clean up on unmount
+    return () => {
+      if (iti) {
+        iti.destroy();
+      }
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -110,19 +155,14 @@ const ContactUs = () => {
                 />
               </div>
 
-              <div className="mt-4">
-                <div className="flex">
-                  <select className="border border-gray-300 rounded-l-lg p-3 text-gray-700">
-                    <option value="+91">+91</option>
-                  </select>
-                  <input
-                    name="phone"
-                    id="phone"
-                    type="text"
-                    placeholder="Phone number"
-                    className="flex-1 border border-gray-300 rounded-r-lg p-3 text-gray-700"
-                  />
-                </div>
+              <div className="mt-4 relative w-full">
+                <input
+                  type="tel"
+                  id="mobile_code"
+                  className="w-full border p-3 border-gray-300 rounded-lg text-gray-700 pl-[90px]"
+                  placeholder="Phone Number"
+                  name="phone"
+                />
               </div>
 
               <div className="mt-4">
