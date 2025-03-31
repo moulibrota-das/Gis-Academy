@@ -95,7 +95,7 @@ const ProjectsPage = () => {
 
       {/* Project List */}
       <motion.ul
-        className="w-full max-w-4xl space-y-6 mt-10"
+        className="w-full max-w-5xl space-y-6 mt-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -115,7 +115,7 @@ const ProjectsPage = () => {
               {project.title}
             </h3>
 
-            <p className="text-gray-300 text-sm mt-2" dangerouslySetInnerHTML={{ __html: project.description }}></p>
+            <p className="text-gray-300 text-sm mt-2 text-justify" dangerouslySetInnerHTML={{ __html: project.description }}></p>
             <p className="text-gray-100 text-sm mt-2">
               {project.client}
               <span className="text-gray-100"> ({project.duration})</span>

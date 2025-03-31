@@ -211,17 +211,17 @@ const Courses = () => {
               {selectedCourse.topics && (
                 <div className="mt-4">
                   <h3 className=" font-semibold text-lg">Topics Covered:</h3>
-                  <ul className="mt-2 text-sm">
+                  <ul className="mt-2 text-sm text-justify">
                     {Array.isArray(selectedCourse.topics)
                       ? selectedCourse.topics.map((topic, i) => (
-                          <li key={i} className="mt-1 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-forestGreen rounded-full"></span>{" "}
+                          <li key={i} className="mt-1 list-disc items-center gap-2 text-justify">
+                            {/* <span className="w-1 h-1 bg-forestGreen rounded-full"></span>{" "} */}
                             {topic}
                           </li>
                         ))
                       : Object.entries(selectedCourse.topics).map(
                           ([key, value], i) => (
-                            <li key={i} className="mt-2">
+                            <li key={i} className="mt-2 text-justify">
                               <strong className="text-oliveGreen">
                                 {key}:
                               </strong>{" "}
