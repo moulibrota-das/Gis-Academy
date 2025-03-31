@@ -256,12 +256,12 @@ const ProductDetail = () => {
                       {product.name}
                     </h2>
                     {product.title && (
-                      <h3 className="text-2xl font-medium text-offWhite mb-6">
+                      <h3 className="text-lg md:text-2xl font-medium text-offWhite mb-6">
                         {product.title}
                       </h3>
                     )}
                     {product.description && (
-                      <p className="text-offWhite text-lg mb-6">
+                      <p className="text-offWhite text-md md:text-lg mb-6">
                         {product.description}
                       </p>
                     )}
