@@ -119,12 +119,12 @@ const Services = () => {
   }, []);
 
   const openModal = (service, imageIndex = 0) => {
-    const isMobile = window.innerWidth < 640; // sm breakpoint
-    if (isMobile) {
-      // For mobile, open the first image in a new tab
-      window.open(service.images[0], "_blank");
-      return;
-    }
+    // const isMobile = window.innerWidth < 640; // sm breakpoint
+    // if (isMobile) {
+    //   // For mobile, open the first image in a new tab
+    //   window.open(service.images[0], "_blank");
+    //   return;
+    // }
     // For desktop, show modal
     setModalData(service);
     setCurrentImageIndex(imageIndex);
@@ -132,12 +132,12 @@ const Services = () => {
   };
 
   const handleCardClick = (service, e) => {
-    const isMobile = window.innerWidth < 640; // sm breakpoint
-    if (isMobile) {
-      // For mobile, open the first image in a new tab
-      window.open(service.images[0], "_blank");
-      return;
-    }
+    // const isMobile = window.innerWidth < 640; // sm breakpoint
+    // if (isMobile) {
+    //   // For mobile, open the first image in a new tab
+    //   window.open(service.images[0], "_blank");
+    //   return;
+    // }
     // For desktop, show modal
     openModal(service);
   };
@@ -275,13 +275,13 @@ const Services = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
-          className="bg-offWhite text-black shadow-2xl rounded-xl max-w-[700px] lg:max-w-[800px] mx-6"
+          className="bg-offWhite text-black shadow-2xl rounded-xl  max-w-[700px] lg:max-w-[800px] mx-6"
         >
           <div className="p-6 bg-mossGreen text-white rounded-t-xl mb-4">
             <h2 className="text-2xl font-semibold text-white">
               {modalData.title}
             </h2>
-            <p className="text-white mt-2">{modalData.description}</p>
+            <p className="text-white mt-2 text-left">{modalData.description}</p>
           </div>
           <div className="relative w-full">
             {modalData.images.length > 1 && (

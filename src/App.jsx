@@ -69,7 +69,7 @@ function App() {
     bg-gradient-to-br from-forestGreen to-mossGreen text-white shadow-xl 
     hover:scale-110 hover:shadow-2xl hover:from-mossGreen hover:to-lightGreen
     transition-transform duration-500 backdrop-blur-md bg-opacity-80 
-    animate-bounce hover:animate-none z-50"
+    animate-bounce hover:animate-none z-49"
             aria-label="Back to Top"
           >
             <FaArrowUp size={24} />
