@@ -111,9 +111,6 @@ const ClientsPage = () => {
                 alt={selectedClient.name}
                 className="w-full object-contain"
               />
-              <p className="mt-4 text-center font-semibold">
-                {selectedClient.name}
-              </p>
             </motion.div>
           </motion.div>
         )}
