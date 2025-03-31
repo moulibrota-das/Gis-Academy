@@ -46,7 +46,7 @@ const projects = [
     title:
       "Real-Time Ambient Air Quality & Air Temperature Study (Diwali Festival)",
     description:
-      "Diwali Festival is the festival of lights &amp; crackers of different colours, observed in all over India. During this season from 2016 to 2018, the real time ambient air quality as well as air temperature data have been captured within the Kolkata city. Based on those data, different analyses undertaken to find out the quantities of pollutants like PM 10 and PM 2.5 , CO2 etc. present in the environment and sudden hike in air temperature during the diwali.",
+      "Diwali Festival is the festival of lights & crackers of different colours, observed in all over India. During this season from 2016 to 2018, the real time ambient air quality as well as air temperature data have been captured within the Kolkata city. Based on those data, different analyses undertaken to find out the quantities of pollutants like PM<sub>10</sub> and PM<sub>2.5</sub> , CO<sub>2</sub> etc. present in the environment and sudden hike in air temperature during the diwali.",
     client: "Kolkata, West Bengal",
     duration: "2016-2018",
   },
@@ -54,7 +54,7 @@ const projects = [
     id: 7,
     title: "Study of Road Traffic Congestion in Greater Mumbai",
     description:
-      "Greater Mumbai, Maharashtra consist of 24 wards, prepared temporal LULC change for the year 2000 & 2019, to find out the cause of traffic congestions from the Spatio-Social Dimension and by the Gee-Spatial Appraisal & Solutions. Different problematic aspects of Greater Mumbai had appeared and accordingly solutions given.",
+      "Greater Mumbai, Maharashtra consist of 24 wards, prepared temporal LULC change for the year 2000 & 2019, to find out the cause of traffic congestions from the Spatio-Social Dimension and by the Geo-Spatial Appraisal & Solutions. Different problematic aspects of Greater Mumbai had appeared and accordingly solutions given.",
     client: "Spatio-Social Dimension & Geo-Spatial Appraisal",
     duration: "2020-2021",
   },
@@ -115,7 +115,7 @@ const ProjectsPage = () => {
               {project.title}
             </h3>
 
-            <p className="text-gray-300 text-sm mt-2">{project.description}</p>
+            <p className="text-gray-300 text-sm mt-2" dangerouslySetInnerHTML={{ __html: project.description }}></p>
             <p className="text-gray-100 text-sm mt-2">
               {project.client}
               <span className="text-gray-100"> ({project.duration})</span>
