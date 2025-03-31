@@ -32,7 +32,7 @@ const Products = () => {
       >
         {/* Title with Animation */}
         <motion.h2
-          className="text-4xl md:text-4xl font-bold text-white text-center"
+          className="text-4xl md:text-4xl font-bold text-white text-center mt-28"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -50,7 +50,7 @@ const Products = () => {
 
         {/* Description */}
         <motion.p
-          className="text-beige text-justify mt-6 text-lg md:text-lg leading-relaxed max-w-lg"
+          className="text-offWhite text-justify mt-6 text-lg md:text-lg leading-relaxed max-w-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -68,7 +68,7 @@ const Products = () => {
           <p className="text-2xl md:text-3xl  font-bold text-justify text-white">
             {product.name}
           </p>
-          <p className="text-gray-300 mt-2">{product.description}</p>
+          <p className="text-offWhite mt-2">{product.description}</p>
         </div>
 
         {/* Learn More Button */}

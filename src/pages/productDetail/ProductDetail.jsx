@@ -1,17 +1,35 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img1 from "/src/assets/product/Brochure_page-0001.jpg";
-import img2 from "/src/assets/product/Brochure_page-0002.jpg";
-import img3 from "/src/assets/product/Brochure_page-0003.jpg";
-import img4 from "/src/assets/product/Brochure_page-0004.jpg";
-import img5 from "/src/assets/product/Brochure_page-0005.jpg";
-import img6 from "/src/assets/product/Brochure_page-0006.jpg";
-import img7 from "/src/assets/product/Brochure_page-0007.jpg";
+import img1 from "/src/assets/product/brochure/page1/Brochure_page1.jpg";
+// brochure page 2
+import Mosaic1 from "/src/assets/product/brochure/page2/Mosaic1.jpg";
+import Mosaic2 from "/src/assets/product/brochure/page2/Mosaic2.jpg";
+import PImage from "/src/assets/product/brochure/page2/P_Image.jpg";
+import Pan from "/src/assets/product/brochure/page2/PAN.jpg";
+import PanMerge from "/src/assets/product/brochure/page2/PanMerge.jpg";
+import PixelProfile from "/src/assets/product/brochure/page2/PixelProfile2.png";
+// brochure page 3
+import AttributeManager from "/src/assets/product/brochure/page3/AttributeManager.jpg";
+import DigitalClassification1 from "/src/assets/product/brochure/page3/DigitalClassification1.jpg";
+import Intensity_Hue_Saturation from "/src/assets/product/brochure/page3/Intensity_Hue_Saturation.jpg";
+// brochure page 4
+import BufferImg from "/src/assets/product/brochure/page4/Buffer.jpg";
+import Landuse_BalupurMap from "/src/assets/product/brochure/page4/Landuse_BalupurMap.jpg";
+import Thematic_Map from "/src/assets/product/brochure/page4/Thematic_Map.jpg";
+// brochure page 5
+import GoogleEarth_Connectivity from "/src/assets/product/brochure/page5/GoogleEarth_Connectivity-2.jpg";
+import MorphometricAnalysisMap from "/src/assets/product/brochure/page5/MorphometricAnalysisMap.png";
+import Network_Analysis from "/src/assets/product/brochure/page5/Network_Analysis.jpg";
+// brochure page 7
+import Fence_Section_Diagram from "/src/assets/product/brochure/page7/Fence_Section_Diagram.jpg";
+import Litholog from "/src/assets/product/brochure/page7/Litholog.jpg";
+import Section_Diagram from "/src/assets/product/brochure/page7/Section_Diagram.jpg";
 import img8 from "/src/assets/product/Brochure_page-0008.jpg";
 import Footer from "../../components/footer/Footer";
 
 const ProductDetail = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
@@ -38,7 +56,7 @@ const ProductDetail = () => {
         "Processing: Pixel Profile, Band Combination, Spectral Profile, Spectral Plot, Inquire Cursor, Opacity, Swipe, Pixel Chart & Histogram Manipulation.",
         "Preparation: Projection, Pan Merge, Mosaic, Subset, Resize & False Colour Composite.",
       ],
-      image: img2,
+      image: [Mosaic1, Mosaic2, PImage, Pan, PixelProfile, PanMerge],
     },
     {
       name: "GIS, Terrain Analysis & Sub-Surface Mapping",
@@ -60,7 +78,11 @@ const ProductDetail = () => {
         "Change Detection",
       ],
 
-      image: img3,
+      image: [
+        AttributeManager,
+        DigitalClassification1,
+        Intensity_Hue_Saturation,
+      ],
     },
     {
       name: "The Premium Software For Remote Sensing",
@@ -78,7 +100,7 @@ const ProductDetail = () => {
         "Rezoning & Zone Statistics",
         "Vector Analysis: Buffer, Overlay",
       ],
-      image: img4,
+      image: [BufferImg, Landuse_BalupurMap, Thematic_Map],
     },
     {
       name: "GIS, Terrain Analysis & Sub-Surface Mapping",
@@ -94,7 +116,11 @@ const ProductDetail = () => {
         "Export map in BMP, JPG, PNG, TIF & WMF format controlling size and resolution",
         "Print Preview & direct Print",
       ],
-      image: img5,
+      image: [
+        GoogleEarth_Connectivity,
+        Network_Analysis,
+        MorphometricAnalysisMap,
+      ],
     },
     {
       name: "GIS, Terrain Analysis & Sub-Surface Mapping",
@@ -115,7 +141,11 @@ const ProductDetail = () => {
         "Iron Oxide, Clay Minerals, Mineral Composite, Hydrothermal Composite",
         "Change Detection",
       ],
-      image: img6,
+      image: [
+        AttributeManager,
+        DigitalClassification1,
+        Intensity_Hue_Saturation,
+      ],
     },
     {
       name: "GIS, Terrain Analysis & Sub-Surface Mapping",
@@ -132,7 +162,7 @@ const ProductDetail = () => {
         "Fence & Section Label",
         "Geological Symbols",
       ],
-      image: img7,
+      image: [Fence_Section_Diagram, Section_Diagram, Litholog],
     },
     {
       name: "21stCenturyGIS (Premium)",
@@ -190,226 +220,226 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="min-h-screen p-10 bg-offWhite mt-16">
-        <h1 className="text-4xl font-bold text-darkGreen text-center mb-16">
-          Product Details
-        </h1>
-
+      <div className="container mx-auto p-10 bg-offWhite mt-16">
         {productDetails.map((product, index) => (
           <div
             key={index}
-            className={`flex flex-col md:flex-row items-center justify-center gap-12 mb-16 ${
+            className={`flex flex-col md:flex-row items-center justify-center mb-16 ${
               index % 2 === 0 ? "" : "md:flex-row-reverse"
             }`}
           >
-            {/* Image Section with Click to Zoom */}
-            <div className="w-full md:w-1/2 flex justify-center cursor-pointer">
-              <motion.img
-                src={product.image}
-                alt={product.name}
-                className="w-[80%] rounded-lg shadow-lg mx-auto"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setSelectedProduct(product)}
-              />
-            </div>
+            {/* First Section: Background Image with Centered Content */}
+            {index === 0 ? (
+              <div
+                className="w-full h-[600px] bg-cover bg-center rounded-lg shadow-lg relative"
+                style={{
+                  backgroundImage: `url(${
+                    Array.isArray(product.image)
+                      ? product.image[0]
+                      : product.image
+                  })`,
+                }}
+              >
+                {/* Overlay with Opacity */}
+                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg" />
 
-            {/* Content Section */}
-            <div
-              className={`w-full md:w-1/2 ${
-                index % 2 === 0
-                  ? "border-l-4 border-darkGreen pl-8"
-                  : "ml-16 border-r-4 border-darkGreen pr-8"
-              }`}
-            >
-              <h2 className="text-3xl font-montserrat font-semibold text-darkGreen mb-2">
-                {product.name}
-              </h2>
-              {product.title && (
-                <>
+                {/* Content on top of the Overlay */}
+                <div className="relative flex items-center justify-center h-full p-10">
+                  <div className="p-10 rounded-lg max-w-2xl text-center">
+                    <h2 className="text-4xl font-montserrat font-semibold text-offWhite mb-4">
+                      {product.name}
+                    </h2>
+                    {product.title && (
+                      <h3 className="text-2xl font-medium text-offWhite mb-6">
+                        {product.title}
+                      </h3>
+                    )}
+                    {product.description && (
+                      <p className="text-offWhite text-lg mb-6">
+                        {product.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Standard Image and Content Layout for Other Products
+              <div className="w-full md:w-1/2 flex justify-center p-10">
+                {Array.isArray(product.image) ? (
+                  <div
+                    className={`grid gap-6 ${
+                      product.image.length === 3
+                        ? "grid-cols-2"
+                        : "grid-cols-2 md:grid-cols-3"
+                    }`}
+                  >
+                    {product.image.map((img, imgIndex) => (
+                      <motion.img
+                        key={imgIndex}
+                        src={img}
+                        alt={`${product.name}-${imgIndex}`}
+                        className={`w-full h-auto max-h-[400px] object-contain rounded-lg cursor-pointer ${
+                          product.image.length === 3 && imgIndex === 2
+                            ? "col-span-2 mx-auto"
+                            : ""
+                        }`}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        onClick={() => setSelectedImage(img)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <motion.img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-[60%] rounded-lg mx-auto h-auto max-h-[600px] cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={() => setSelectedImage(product.image)}
+                  />
+                )}
+              </div>
+            )}
+
+            {index !== 0 && (
+              <div
+                className={`w-full md:w-1/2 ${
+                  index % 2 === 0 ? "pl-8" : "ml-16 pr-8"
+                }`}
+              >
+                <h2 className="text-3xl font-montserrat font-semibold text-darkGreen mb-2">
+                  {product.name}
+                </h2>
+                {product.title && (
                   <h3 className="text-xl font-medium text-gray-600 mb-4">
                     {product.title}
                   </h3>
-                </>
-              )}
-              {product.description && (
-                <>
+                )}
+
+                {product.description && (
                   <p className="text-gray-700 text-lg mb-6">
                     {product.description}
                   </p>
-                </>
-              )}
+                )}
 
-              {product.enhancement && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2">
-                    Enhancement
-                  </h4>
-                  <ul className="text-gray-700">
-                    {product.interpretation.map((item, index) => (
-                      <li key={index}>• {item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
+                {product.enhancement && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2">
+                      Enhancement
+                    </h4>
+                    <ul className="text-gray-700">
+                      {product.enhancement.map((item, index) => (
+                        <li key={index}>• {item}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
 
-              {product.technicalSupport && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
-                    Technical Support
-                  </h4>
-                  <p className="text-gray-700">{product.technicalSupport}</p>
-                </>
-              )}
-              {product.academyInfo && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
-                    GIS Academy
-                  </h4>
-                  <p className="text-gray-700">{product.academyInfo}</p>
-                </>
-              )}
-              {product.contactInfo && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
-                    Contact Info
-                  </h4>
-                  <p className="text-gray-700">
-                    Address: {product.contactInfo.address}
-                  </p>
-                  <p className="text-gray-700">
-                    Mobile: {product.contactInfo.mobile}
-                  </p>
-                  <p className="text-gray-700">
-                    Email: {product.contactInfo.email.join(", ")}
-                  </p>
-                  <p className="text-gray-700">
-                    Website:{" "}
-                    <a
-                      href={`https://${product.contactInfo.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {product.contactInfo.website}
-                    </a>
-                  </p>
-                </>
-              )}
+                {product.classification && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                      Classification
+                    </h4>
+                    <p className="text-gray-700">{product.classification}</p>
+                  </>
+                )}
 
-              {/* Conditional Classification Section */}
-              {product.classification && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
-                    Classification
-                  </h4>
-                  <p className="text-gray-700">{product.classification}</p>
-                </>
-              )}
+                {product.interpretation && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                      Interpretation
+                    </h4>
+                    <ul className="text-gray-700">
+                      {product.interpretation.map((item, index) => (
+                        <li key={index}>• {item}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
 
-              {product.interpretation && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
-                    Interpretation
-                  </h4>
-                  <ul className="text-gray-700">
-                    {product.interpretation.map((item, index) => (
-                      <li key={index}>• {item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
+                {product.technicalSupport && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                      Technical Support
+                    </h4>
+                    <p className="text-gray-700">{product.technicalSupport}</p>
+                  </>
+                )}
 
-              {/* Key Topics Section */}
-              {product.topics && (
-                <>
-                  <h4 className="text-lg font-semibold text-darkGreen mb-2">
-                    Key Topics:
-                  </h4>
-                  <ul className="list-disc list-outside text-gray-700 pl-5">
-                    {product.topics.map((topic, idx) => (
-                      <li key={idx} className="break-words">
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </div>
+                {product.academyInfo && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                      GIS Academy
+                    </h4>
+                    <p className="text-gray-700">{product.academyInfo}</p>
+                  </>
+                )}
+
+                {product.contactInfo && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2 mt-2">
+                      Contact Info
+                    </h4>
+                    <p className="text-gray-700">
+                      Address: {product.contactInfo.address}
+                    </p>
+                    <p className="text-gray-700">
+                      Mobile: {product.contactInfo.mobile}
+                    </p>
+                    <p className="text-gray-700">
+                      Email: {product.contactInfo.email.join(", ")}
+                    </p>
+                    <p className="text-gray-700">
+                      Website:{" "}
+                      <a
+                        href={`https://${product.contactInfo.website}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-darkGreen underline"
+                      >
+                        {product.contactInfo.website}
+                      </a>
+                    </p>
+                  </>
+                )}
+
+                {product.topics && (
+                  <>
+                    <h4 className="text-lg font-semibold text-darkGreen mb-2">
+                      Key Topics:
+                    </h4>
+                    <ul className="list-disc list-outside text-gray-700 pl-5">
+                      {product.topics.map((topic, idx) => (
+                        <li key={idx} className="break-words">
+                          {topic}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         ))}
-
-        {/* Modal with Zoom Functionality */}
-        <AnimatePresence>
-          {selectedProduct && (
-            <motion.div
-              className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-lg z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => {
-                setSelectedProduct(null);
-                setIsZoomed(false);
-              }}
-            >
-              <motion.div
-                className="relative rounded-lg p-8 max-w-4xl w-full bg-white shadow-xl overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Close Button */}
-                <button
-                  className="absolute top-2 right-3 text-gray-600 hover:text-gray-800 text-2xl transition-all duration-300"
-                  onClick={() => {
-                    setSelectedProduct(null);
-                    setIsZoomed(false);
-                  }}
-                >
-                  ✕
-                </button>
-
-                {/* Zoom Toggle Button */}
-                <button
-                  className="absolute top-4 right-16 text-white text-sm bg-darkGreen z-50  px-4 py-2 rounded-lg shadow-lg transition-all duration-300"
-                  onClick={toggleZoom}
-                >
-                  {isZoomed ? "Disable Zoom" : "Enable Zoom"}
-                </button>
-
-                {/* Image Container */}
-                <div
-                  ref={containerRef}
-                  className={`relative w-full h-[80vh] overflow-hidden rounded-lg border-4 border-darkGreen shadow-lg ${
-                    isZoomed ? "cursor-zoom-in" : "cursor-default"
-                  }`}
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <img
-                    ref={imageRef}
-                    src={selectedProduct.image}
-                    alt={selectedProduct.name}
-                    className="w-full h-full object-contain transition-transform duration-300"
-                    style={{
-                      transformOrigin: "center center",
-                      transition: "transform 0.3s ease-out",
-                    }}
-                  />
-                </div>
-
-                {/* Product Info Overlay */}
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white p-6 transition-all"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                >
-                  <h2 className="text-3xl font-bold">{selectedProduct.name}</h2>
-                  <p className="mt-2 text-lg">{selectedProduct.description}</p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            onClick={() => setSelectedImage(null)} // Close on click outside
+          >
+            <motion.img
+              src={selectedImage}
+              alt="Enlarged Product"
+              className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image
+            />
+          </div>
+        )}
       </div>
+
       <Footer />
     </>
   );

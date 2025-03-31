@@ -11,7 +11,7 @@ import {
   FaProjectDiagram,
   FaTools,
 } from "react-icons/fa";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
@@ -75,7 +75,9 @@ const NavBar = () => {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 w-full ${
-        isScrolled ? "bg-white/50 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled
+          ? "bg-white/50 backdrop-blur-md shadow-md z-50"
+          : "bg-deepGreen z-50"
       } transition-all`}
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-3.5">
