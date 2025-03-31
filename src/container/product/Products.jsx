@@ -14,6 +14,7 @@ const Products = () => {
 
   const handleLearnMore = () => {
     navigate("/product-detail");
+    window.scrollTo(0, 0);
   };
 
   return (

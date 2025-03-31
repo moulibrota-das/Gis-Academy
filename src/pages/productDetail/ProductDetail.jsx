@@ -221,6 +221,12 @@ const ProductDetail = () => {
   return (
     <>
       <div className="container mx-auto p-10 bg-offWhite mt-16">
+        <button
+          onClick={() => window.history.back()}
+          className="mb-8 px-4 py-1 bg-forestGreen text-offWhite rounded-full shadow-md hover:bg-mossGreen transition-all duration-300 font-semibold text-lg"
+        >
+          ← Back
+        </button>
         {productDetails.map((product, index) => (
           <div
             key={index}
