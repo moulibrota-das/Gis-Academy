@@ -29,7 +29,7 @@ const projects = [
     id: 4,
     title: "Ground Water Potential Zone Identification & Lineament Geology",
     description:
-      "Worked for Mines &amp; Geology Department, Govt. of Jharkhand from the year 2005 to 2008 to indentify the ground water potential areas within Ranchi District from the Satellite Imagery. Cracks & Folds had been identified to find out the Lineaments of those rocky areas. Lineaments are the areas, generally ground water finds on a rocky terrain.",
+      "Worked for Mines & Geology Department, Govt. of Jharkhand from the year 2005 to 2008 to indentify the ground water potential areas within Ranchi District from the Satellite Imagery. Cracks & Folds had been identified to find out the Lineaments of those rocky areas. Lineaments are the areas, generally ground water finds on a rocky terrain.",
     client: "Mines & Geology Dept., Govt. of Jharkhand",
     duration: "2005-2008",
   },
