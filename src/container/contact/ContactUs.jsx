@@ -1,6 +1,28 @@
 import React from "react";
+import { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+
 
 const ContactUs = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current);
+
+    emailjs
+      .sendForm('service_v5a6kk7', 'template_jkfjol9', form.current, {
+        publicKey: '4wtzO7BsGSc3IxuRF',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <section
       className="min-h-[800px] container mx-auto bg-offWhite flex items-center justify-center px-6 mb-6"
@@ -26,14 +48,18 @@ const ContactUs = () => {
             <p className="text-gray-500 mb-4">You can reach us anytime</p>
 
             {/* Form Inputs */}
-            <form>
+            <form ref={form} onSubmit={sendEmail}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
+                name="firstName"
+                id="firstName"
                   type="text"
                   placeholder="First name"
                   className="border border-gray-300 rounded-lg p-3 text-gray-700"
                 />
                 <input
+                name="lastName"
+                id="lastName"
                   type="text"
                   placeholder="Last name"
                   className="border border-gray-300 rounded-lg p-3 text-gray-700"
@@ -42,6 +68,8 @@ const ContactUs = () => {
 
               <div className="mt-4">
                 <input
+                name="email_from"
+                id="email_from"
                   type="email"
                   placeholder="Your email"
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700"
@@ -49,8 +77,20 @@ const ContactUs = () => {
               </div>
               <div className="mt-4">
                 <input
+                name="education"
+                id="education"
                   type="education"
                   placeholder="Education qualification"
+                  className="w-full border border-gray-300 rounded-lg p-3 text-gray-700"
+                />
+              </div>
+
+              <div className="mt-4">
+                <input
+                name="course"
+                id="course"
+                  type="course"
+                  placeholder="Courses Interested"
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700"
                 />
               </div>
@@ -61,6 +101,8 @@ const ContactUs = () => {
                     <option value="+91">+91</option>
                   </select>
                   <input
+                    name="phone"
+                    id="phone"
                     type="text"
                     placeholder="Phone number"
                     className="flex-1 border border-gray-300 rounded-r-lg p-3 text-gray-700"
@@ -70,6 +112,8 @@ const ContactUs = () => {
 
               <div className="mt-4">
                 <textarea
+                  name="message"
+                  id="message"
                   placeholder="How can we help?"
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 resize-none"
                   rows="4"
