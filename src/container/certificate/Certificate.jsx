@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 // PDF Data
 const document_details = [
   {
-    title: "GIS Software Brochure",
+    title: "GIS Training Overview",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf1,
     imgUrl: img1,
@@ -69,10 +69,10 @@ const document_details = [
     imgUrl: img2,
   },
   {
-    title: "Udyam Certificate",
-    description: "Learn more about our GIS services and offerings.",
-    pdfUrl: pdf8,
-    imgUrl: img8,
+    title: "GST",
+    description: "A comprehensive guide to GIS mapping techniques.",
+    pdfUrl: pdf3,
+    imgUrl: img3,
   },
   {
     title: "ISO Certificate",
@@ -81,10 +81,10 @@ const document_details = [
     imgUrl: img4,
   },
   {
-    title: "GST",
+    title: "KMC Trade Licence",
     description: "A comprehensive guide to GIS mapping techniques.",
-    pdfUrl: pdf3,
-    imgUrl: img3,
+    pdfUrl: pdf5,
+    imgUrl: img5,
   },
   {
     title: "Professional Tax Certificate",
@@ -92,14 +92,12 @@ const document_details = [
     pdfUrl: pdf6,
     imgUrl: img6,
   },
-
   {
-    title: "KMC Trade Licence",
-    description: "A comprehensive guide to GIS mapping techniques.",
-    pdfUrl: pdf5,
-    imgUrl: img5,
+    title: "Udyam Certificate",
+    description: "Learn more about our GIS services and offerings.",
+    pdfUrl: pdf8,
+    imgUrl: img8,
   },
-
   {
     title: "Resume",
     description: "A comprehensive guide to GIS mapping techniques.",
@@ -109,12 +107,10 @@ const document_details = [
 ];
 
 export default function Certificate() {
-  const [selectedPdf, setSelectedPdf] = useState(null);
   const [showPdfViewer, setShowPdfViewer] = useState(false);
 
   const handleViewPdf = (pdfUrl) => {
-    setSelectedPdf(pdfUrl);
-    setShowPdfViewer(false);
+    window.open(pdfUrl, "_blank");
   };
 
   return (
@@ -139,7 +135,7 @@ export default function Certificate() {
         ></motion.div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {document_details.map((doc, index) => (
           <div
             key={index}
@@ -154,7 +150,7 @@ export default function Certificate() {
             />
 
             {/* Gradient Overlay for the Bottom 30% */}
-            <div className="absolute bottom-0 w-full h-[25%] bg-black/60" />
+            <div className="absolute bottom-0 w-full h-[30%] bg-black/50" />
 
             {/* Document Name and Button Section */}
             <div className="absolute bottom-0 w-full p-5 text-center">
@@ -165,7 +161,7 @@ export default function Certificate() {
 
               {/* View Document Button */}
               <button
-                className="bg-white text-darkGreen px-3 py-1 rounded-full text-[11px] font-semibold hover:bg-mossGreen hover:text-white transition-colors duration-300"
+                className="bg-white text-darkGreen px-5 py-2 rounded-full text-sm font-semibold hover:bg-mossGreen hover:text-white transition-colors duration-300"
                 onClick={() => handleViewPdf(doc.pdfUrl)}
               >
                 View Document
@@ -174,27 +170,6 @@ export default function Certificate() {
           </div>
         ))}
       </div>
-
-      {selectedPdf && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
-          <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold">PDF Viewer</h3>
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                onClick={() => setSelectedPdf(null)}
-              >
-                Close
-              </button>
-            </div>
-            <iframe
-              src={selectedPdf}
-              className="w-full h-[80vh]"
-              title="PDF Viewer"
-            ></iframe>
-          </div>
-        </div>
-      )}
 
       {showPdfViewer && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">

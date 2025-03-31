@@ -95,7 +95,7 @@ const Services = () => {
   const scrollLeft = () => {
     if (scrollContainerRef.current && cardRefs.current.length > 0) {
       const cardWidth =
-        cardRefs.current[0]?.current?.offsetWidth + 24 || 320 + 24;
+        cardRefs.current[0]?.current?.offsetWidth + 24 || 304;
       scrollContainerRef.current.scrollTo({
         left: scrollContainerRef.current.scrollLeft - cardWidth,
         behavior: "smooth",
@@ -106,7 +106,7 @@ const Services = () => {
   const scrollRight = () => {
     if (scrollContainerRef.current && cardRefs.current.length > 0) {
       const cardWidth =
-        cardRefs.current[0]?.current?.offsetWidth + 24 || 320 + 24;
+        cardRefs.current[0]?.current?.offsetWidth + 24 || 304;
       scrollContainerRef.current.scrollTo({
         left: scrollContainerRef.current.scrollLeft + cardWidth,
         behavior: "smooth",
@@ -121,9 +121,27 @@ const Services = () => {
   }, []);
 
   const openModal = (service, imageIndex = 0) => {
+    const isMobile = window.innerWidth < 640; // sm breakpoint
+    if (isMobile) {
+      // For mobile, open the first image in a new tab
+      window.open(service.images[0], "_blank");
+      return;
+    }
+    // For desktop, show modal
     setModalData(service);
-    setCurrentImageIndex(imageIndex); // Initialize the image index
+    setCurrentImageIndex(imageIndex);
     setModalOpen(true);
+  };
+
+  const handleCardClick = (service, e) => {
+    const isMobile = window.innerWidth < 640; // sm breakpoint
+    if (isMobile) {
+      // For mobile, open the first image in a new tab
+      window.open(service.images[0], "_blank");
+      return;
+    }
+    // For desktop, show modal
+    openModal(service);
   };
 
   const closeModal = () => {
@@ -144,7 +162,7 @@ const Services = () => {
 
   return (
     <section className="min-h-[700px] container mx-auto bg-offWhite py-4 relative" id="services">
-      <div className="m-12 sm:m-12 lg:m-16">
+      <div className="m-[2.5rem] sm:m-[2.5rem] lg:m-16">
         <div className="flex flex-col items-center mb-8">
           <motion.h2
             className="text-3xl md:text-4xl font-semibold text-darkGreen text-center relative z-[1]"
@@ -171,7 +189,7 @@ const Services = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-9 top-1/2 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
+            className="absolute left-6 top-1/2 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
           >
             <IoIosArrowBack className="h-6 w-6 text-darkGreen" />
           </motion.button>
@@ -179,13 +197,13 @@ const Services = () => {
           <div className="flex justify-center">
             <div
               ref={scrollContainerRef}
-              className="flex overflow-x-hidden space-x-6 items-start max-w-full"
+              className="flex overflow-x-hidden space-x-6 items-start max-w-full snap-x snap-mandatory"
             >
               {services.map((service, index) => (
                 <article
                   key={index}
-                  ref={(el) => (cardRefs.current[index] = React.createRef(el))}
-                  className="bg-white rounded-xl shadow-md flex-shrink-0 w-72 flex flex-col cursor-pointer"
+                  ref={(el) => (cardRefs.current[index] = { current: el })}
+                  className="bg-white rounded-xl shadow-md flex-shrink-0 w-[320px] flex flex-col cursor-pointer"
                   onClick={() => openModal(service)} // Open modal on card click
                 >
                   <div className="h-64 relative p-4">
@@ -217,8 +235,8 @@ const Services = () => {
                     <button
                       className="px-5 py-2 bg-white text-mossGreen rounded-lg hover:bg-gray-100 transition-colors"
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent card click when button is clicked.
-                        openModal(service);
+                        e.stopPropagation();
+                        handleCardClick(service, e);
                       }}
                     >
                       Expand View
@@ -235,7 +253,7 @@ const Services = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-9 top-1/2 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
+            className="absolute right-6 top-1/2 bg-white/50 backdrop-blur-md transition-colors p-3 rounded-full shadow-md z-10"
           >
             <IoIosArrowForward className="h-6 w-6 text-darkGreen" />
           </motion.button>
