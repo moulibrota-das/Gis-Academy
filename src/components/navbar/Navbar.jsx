@@ -11,7 +11,7 @@ import {
   FaProjectDiagram,
   FaTools,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import logoImage from "/src/assets/images/Logo_GISAcademy.png";
 
@@ -28,7 +28,7 @@ const navItems = [
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const location = useLocation();
   const navigate = useNavigate();
 
   // Handle scroll effect for navbar background
@@ -72,6 +72,9 @@ const NavBar = () => {
     }
   };
 
+  // Only show Home when the route is "/product-detail"
+  const shouldShowNavItems = location.pathname !== "/product-detail";
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 w-full ${
@@ -88,7 +91,7 @@ const NavBar = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center gap-3 cursor-pointer"
           href="/"
-          onClick={(e) => handleSmoothScroll(e, "#home")}
+          onClick={(e) => handleSmoothScroll(e, "/")}
         >
           <img
             src={logoImage}
@@ -107,44 +110,47 @@ const NavBar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-x-8">
-          {navItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.1,
-                ease: "easeOut",
-              }}
-            >
-              <a
-                href={item.link}
-                onClick={(e) => handleSmoothScroll(e, item.link)}
-                className={`${
-                  isScrolled
-                    ? "text-deepGreen hover:text-mossGreen"
-                    : "text-offWhite hover:text-beige"
-                }`}
+          {shouldShowNavItems &&
+            navItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
               >
-                {item.name}
-              </a>
-            </motion.div>
-          ))}
+                <a
+                  href={item.link}
+                  onClick={(e) => handleSmoothScroll(e, item.link)}
+                  className={`${
+                    isScrolled
+                      ? "text-deepGreen hover:text-mossGreen"
+                      : "text-offWhite hover:text-beige"
+                  }`}
+                >
+                  {item.name}
+                </a>
+              </motion.div>
+            ))}
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          id="hamburgerBtn"
-          className="md:hidden text-darkGreen text-2xl"
-          onClick={(e) => {
-            e.stopPropagation();
-            setMobileMenuOpen((prev) => !prev);
-          }}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        {shouldShowNavItems && (
+          <button
+            id="hamburgerBtn"
+            className="md:hidden text-darkGreen text-2xl"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMobileMenuOpen((prev) => !prev);
+            }}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        )}
       </nav>
 
       {/* Mobile Menu Dropdown */}
@@ -157,22 +163,23 @@ const NavBar = () => {
             transition={{ duration: 0.3 }}
             className="absolute top-full right-0 w-full mx-auto bg-offWhite shadow-md p-6 md:hidden"
           >
-            {navItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <a
-                  href={item.link}
-                  onClick={(e) => handleSmoothScroll(e, item.link)}
-                  className="flex items-center gap-3 text-darkGreen hover:text-mossGreen text-xl font-semibold py-2"
+            {shouldShowNavItems &&
+              navItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  {item.icon} {item.name}
-                </a>
-              </motion.div>
-            ))}
+                  <a
+                    href={item.link}
+                    onClick={(e) => handleSmoothScroll(e, item.link)}
+                    className="flex items-center gap-3 text-darkGreen hover:text-mossGreen text-xl font-semibold py-2"
+                  >
+                    {item.icon} {item.name}
+                  </a>
+                </motion.div>
+              ))}
           </motion.div>
         )}
       </AnimatePresence>
