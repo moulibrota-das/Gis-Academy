@@ -5,8 +5,11 @@ import emailjs from '@emailjs/browser';
 
 const ContactUs = () => {
   const form = useRef();
+  const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log(form.current);
 
     emailjs
@@ -16,10 +19,16 @@ const ContactUs = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          setShowPopup(true);
+          form.current.reset(); // Reset form after submission
+          setTimeout(() => setShowPopup(false), 3000);
         },
         (error) => {
           console.log('FAILED...', error.text);
         },
+      ).then(() => {
+        setLoading(false);
+      }
       );
   };
 
@@ -46,6 +55,13 @@ const ContactUs = () => {
               Get in Touch
             </h2>
             <p className="text-gray-500 mb-4">You can reach us anytime</p>
+
+            {/* Success Popup */}
+            {showPopup && (
+              <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-2/3 md:w-auto bg-mossGreen text-white px-6 py-3 rounded-lg shadow-lg ">
+                ✅ Message sent successfully!
+              </div>
+            )}
 
             {/* Form Inputs */}
             <form ref={form} onSubmit={sendEmail}>
@@ -123,7 +139,7 @@ const ContactUs = () => {
               </div>
 
               {/* Submit Button */}
-              <button className="w-full bg-forestGreen text-white py-3 rounded-lg mt-4 hover:bg-mossGreen transition">
+              <button className="w-full bg-forestGreen text-white py-3 rounded-lg mt-4 hover:bg-mossGreen transition disabled:bg-gray-400 disabled:cursor-not-allowed" disabled={loading}>
                 Submit
               </button>
 
