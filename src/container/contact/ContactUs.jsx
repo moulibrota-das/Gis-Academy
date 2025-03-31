@@ -86,7 +86,7 @@ const ContactUs = () => {
         <div className="flex-1">
           <iframe
             className="h-full w-full rounded-md border-2 shadow-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.965650243995!2d88.37930227528942!3d22.464784137294057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271156a4d7b17%3A0x2d4f6c93d70c3c4d!2s404%2C%20Baghajatin%20Pl%2C%20Kolkata%2C%20West%20Bengal%20700086!5e0!3m2!1sen!2sin!4v1711590604572!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.015796045216!2d88.3846975!3d22.4816167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDI4JzUzLjgyIiBOIDg4wrAyMycwNC45MSIgRQ!5e0!3m2!1sen!2sin!4v1711590604572!5m2!1sen!2sin"
             allowFullScreen="true"
             title="Google Map - 404, Baghajatin Place, Kolkata"
           ></iframe>

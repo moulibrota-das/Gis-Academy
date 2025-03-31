@@ -137,7 +137,13 @@ const Courses = () => {
             <motion.button
               className="bg-forestGreen text-white px-6 py-2 rounded-lg text-md font-semibold shadow-md hover:bg-deepGreen transition-all duration-300 transform hover:scale-105 mt-4"
               whileHover={{ scale: 1.05 }}
-              onClick={() => (window.location.href = "/contact")}
+              onClick={(e) => {
+              e.preventDefault(); // Prevent default behavior
+              const targetSection = document.querySelector("#contact"); // Replace with the target section's ID
+              if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
             >
               Contact
             </motion.button>
