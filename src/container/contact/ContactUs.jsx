@@ -1,7 +1,6 @@
 import React from "react";
 import { useRef, useState } from "react";
-import emailjs from '@emailjs/browser';
-
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const form = useRef();
@@ -13,23 +12,23 @@ const ContactUs = () => {
     console.log(form.current);
 
     emailjs
-      .sendForm('service_v5a6kk7', 'template_jkfjol9', form.current, {
-        publicKey: '4wtzO7BsGSc3IxuRF',
+      .sendForm("service_v5a6kk7", "template_jkfjol9", form.current, {
+        publicKey: "4wtzO7BsGSc3IxuRF",
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          console.log("SUCCESS!");
           setShowPopup(true);
           form.current.reset(); // Reset form after submission
           setTimeout(() => setShowPopup(false), 3000);
         },
         (error) => {
-          console.log('FAILED...', error.text);
-        },
-      ).then(() => {
+          console.log("FAILED...", error.text);
+        }
+      )
+      .then(() => {
         setLoading(false);
-      }
-      );
+      });
   };
 
   return (
@@ -42,7 +41,7 @@ const ContactUs = () => {
         <div className="flex-1">
           <iframe
             className="h-full w-full rounded-md border-2 shadow-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.015796045216!2d88.3846975!3d22.4816167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDI4JzUzLjgyIiBOIDg4wrAyMycwNC45MSIgRQ!5e0!3m2!1sen!2sin!4v1711590604572!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.965650243995!2d88.37930227528942!3d22.464784137294057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271156a4d7b17%3A0x2d4f6c93d70c3c4d!2s404%2C%20Baghajatin%20Pl%2C%20Kolkata%2C%20West%20Bengal%20700086!5e0!3m2!1sen!2sin!4v1711590604572!5m2!1sen!2sin"
             allowFullScreen="true"
             title="Google Map - 404, Baghajatin Place, Kolkata"
           ></iframe>
@@ -67,15 +66,15 @@ const ContactUs = () => {
             <form ref={form} onSubmit={sendEmail}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
-                name="firstName"
-                id="firstName"
+                  name="firstName"
+                  id="firstName"
                   type="text"
                   placeholder="First name"
                   className="border border-gray-300 rounded-lg p-3 text-gray-700"
                 />
                 <input
-                name="lastName"
-                id="lastName"
+                  name="lastName"
+                  id="lastName"
                   type="text"
                   placeholder="Last name"
                   className="border border-gray-300 rounded-lg p-3 text-gray-700"
@@ -84,8 +83,8 @@ const ContactUs = () => {
 
               <div className="mt-4">
                 <input
-                name="email_from"
-                id="email_from"
+                  name="email_from"
+                  id="email_from"
                   type="email"
                   placeholder="Your email"
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700"
@@ -93,8 +92,8 @@ const ContactUs = () => {
               </div>
               <div className="mt-4">
                 <input
-                name="education"
-                id="education"
+                  name="education"
+                  id="education"
                   type="education"
                   placeholder="Education qualification"
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700"
@@ -103,8 +102,8 @@ const ContactUs = () => {
 
               <div className="mt-4">
                 <input
-                name="course"
-                id="course"
+                  name="course"
+                  id="course"
                   type="course"
                   placeholder="Courses Interested"
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700"
@@ -139,7 +138,10 @@ const ContactUs = () => {
               </div>
 
               {/* Submit Button */}
-              <button className="w-full bg-forestGreen text-white py-3 rounded-lg mt-4 hover:bg-mossGreen transition disabled:bg-gray-400 disabled:cursor-not-allowed" disabled={loading}>
+              <button
+                className="w-full bg-forestGreen text-white py-3 rounded-lg mt-4 hover:bg-mossGreen transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                disabled={loading}
+              >
                 Submit
               </button>
 
