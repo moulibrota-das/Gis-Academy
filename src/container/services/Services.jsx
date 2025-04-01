@@ -34,7 +34,7 @@ import model1 from "/src/assets/images/Models/model1.png";
 import model2 from "/src/assets/images/Models/model2.png";
 import model3 from "/src/assets/images/Models/model3.png";
 
-import project1 from "/src/assets/images/Projects/project1.png";
+import project1 from "/src/assets/images/Projects/project1.jpeg";
 import project2 from "/src/assets/images/Projects/project2.png";
 import project3 from "/src/assets/images/Projects/project3.png";
 
