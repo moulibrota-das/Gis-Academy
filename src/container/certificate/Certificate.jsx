@@ -9,7 +9,7 @@ import {
   View,
   StyleSheet,
 } from "@react-pdf/renderer";
-import pdf1 from "../../assets/documents/21stcentury_gis_brochure.pdf";
+import pdf1 from "../../assets/documents/21stCenturyGIS Premium Brochure.pdf";
 import pdf2 from "../../assets/documents/company_profile.pdf";
 import pdf3 from "../../assets/documents/gst.pdf";
 import pdf4 from "../../assets/documents/iso_certificate.pdf";
@@ -17,7 +17,6 @@ import pdf5 from "../../assets/documents/kmc_trade_licence.pdf";
 import pdf6 from "../../assets/documents/professional_tax_certificate.pdf";
 import pdf7 from "../../assets/documents/resume.pdf";
 import pdf8 from "../../assets/documents/udyam_certificate.pdf";
-
 import img1 from "../../assets/images/Documents/21stcentury_gis_brochure.jpg";
 import img2 from "../../assets/images/Documents/company_profile.jpg";
 import img3 from "../../assets/images/Documents/gst.jpg";
