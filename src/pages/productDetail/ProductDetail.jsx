@@ -18,6 +18,9 @@ import Thematic_Map from "/src/assets/product/brochure/page4/Thematic_Map.jpg";
 import GoogleEarth_Connectivity from "/src/assets/product/brochure/page5/GoogleEarth_Connectivity-2.jpg";
 import MorphometricAnalysisMap from "/src/assets/product/brochure/page5/MorphometricAnalysisMap.png";
 import Network_Analysis from "/src/assets/product/brochure/page5/Network_Analysis.jpg";
+import ContourMap from "/src/assets/product/brochure/page6/ContourMap.jpg";
+import Image_3d from "/src/assets/product/brochure/page6/3DImage.jpg";
+import DEM_Contour from "/src/assets/product/brochure/page6/DEM_Contour.jpg";
 import Fence_Section_Diagram from "/src/assets/product/brochure/page7/Fence_Section_Diagram.jpg";
 import Litholog from "/src/assets/product/brochure/page7/Litholog.jpg";
 import Section_Diagram from "/src/assets/product/brochure/page7/Section_Diagram.jpg";
@@ -39,12 +42,13 @@ const productData = [
         },
         details_type: "processing_preparation",
         images: [
-          { src: Mosaic1, caption: "Mosaic Example" },
-          { src: Mosaic2, caption: "Advanced Mosaic Technique" },
-          { src: PImage, caption: "Image Processing Example" },
-          { src: Pan, caption: "Panchromatic Image" },
-          { src: PanMerge, caption: "Pan Merge Result" },
+          { src: Mosaic1, caption: "Images of Mosaic" },
+          { src: Mosaic2, caption: "Mosaic Image" },
           { src: PixelProfile, caption: "Pixel Profile Analysis" },
+
+          { src: Pan, caption: "Panchromatic Image" },
+          { src: PImage, caption: "LISS Image" },
+          { src: PanMerge, caption: "Pan Merge Result" },
         ],
       },
       {
@@ -69,6 +73,7 @@ const productData = [
             src: DigitalClassification1,
             caption: "Digital Classification Example",
           },
+          { src: AttributeManager, caption: "Attribute Manager Interface" },
         ],
       },
       {
@@ -82,9 +87,6 @@ const productData = [
           "Change Detection",
         ],
         details_type: "list",
-        images: [
-          { src: AttributeManager, caption: "Attribute Manager Interface" },
-        ],
       },
     ],
   },
@@ -165,6 +167,37 @@ const productData = [
             caption: "Google Earth Connectivity",
           },
         ],
+      },
+    ],
+  },
+  {
+    title: "Terrain Modelling & Visualization",
+    description:
+      "21st Century GIS quickly and easily converts your Point Data & DEM Raster into outstanding Contours, Flow Direction, Slope map, 3D Image and 3D Wireframe.",
+    topics: [
+      {
+        details: [
+          "Fill Contour Map from point data",
+          "Flow Direction Map",
+          "Slope Map",
+        ],
+        images: [{ src: ContourMap, caption: "Contour with Flow Direction" }],
+      },
+      {
+        details: [
+          "Creation of Digital Elevation Model",
+          "Line Contour Map from DEM",
+          "Long & Cross Profile",
+        ],
+        images: [{ src: DEM_Contour, caption: "DEM Contour" }],
+      },
+      {
+        details: [
+          "Creation of 3D Perspective view with Image Drape",
+          "Creation of 3D Wireframe",
+          "Viewing from Different Angles & Elevations",
+        ],
+        images: [{ src: Image_3d, caption: "3D Image" }],
       },
     ],
   },
@@ -250,6 +283,9 @@ const ProductDetail = () => {
     document.body.style.overflow = "auto"; // Enable scrolling again
   };
 
+  // Inside the renderData function, let's modify the first topic (Remote Sensing & Image Analysis)
+  // This will replace the existing rendering for just the first section's first topic
+
   const renderData = (data, sectionIndex) => {
     return (
       <div
@@ -271,43 +307,132 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        {data.topics.map((topic, topicIndex) => (
-          <motion.div
-            key={topicIndex}
-            className="mb-8 md:mb-16 px-1 md:px-8 lg:px-20 animate-on-scroll"
-            data-id={`topic-${sectionIndex}-${topicIndex}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              visibleElements[`topic-${sectionIndex}-${topicIndex}`]
-                ? { opacity: 1, y: 0 }
-                : {}
-            }
-            transition={{ duration: 0.5, delay: 0.1 * topicIndex }}
-          >
-            {/* Topic box with subtle gradient background - Updated */}
-            <div className="bg-gradient-to-br from-offWhite to-white rounded-xl shadow-md overflow-hidden">
-              {/* Category header (if exists) - Updated with color vars */}
-              {topic.category && (
-                <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
-                  <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
-                    {Array.isArray(topic.category)
-                      ? topic.category.join(" & ")
-                      : topic.category}
-                  </h4>
-                </div>
-              )}
-
-              {/* Content and images section with alternating layout, improved for mobile */}
-              <div
-                className={`flex flex-col md:flex-row md:items-start p-4 md:p-6 ${
-                  topicIndex % 2 === 0 ? "" : "md:flex-row-reverse"
-                }`}
+        {data.topics.map((topic, topicIndex) => {
+          // Special handling for the first topic in the first section (Remote Sensing & Image Analysis)
+          if (sectionIndex === 0 && topicIndex === 0) {
+            return (
+              <motion.div
+                key={topicIndex}
+                className="mb-8 md:mb-16 px-1 md:px-8 lg:px-20 animate-on-scroll"
+                data-id={`topic-${sectionIndex}-${topicIndex}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  visibleElements[`topic-${sectionIndex}-${topicIndex}`]
+                    ? { opacity: 1, y: 0 }
+                    : {}
+                }
+                transition={{ duration: 0.5, delay: 0.1 * topicIndex }}
               >
-                {/* Text content section with card styling */}
-                <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-4">
-                  <div className="rounded-lg p-3 md:p-5 h-full">
-                    {topic.details &&
-                      (topic.details_type === "processing_preparation" ? (
+                {/* Processing Card */}
+                <div className="bg-gradient-to-br from-offWhite to-white rounded-xl shadow-md overflow-hidden mb-8">
+                  {/* Category header */}
+                  <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
+                    <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
+                      Processing
+                    </h4>
+                  </div>
+
+                  <div className="p-4 md:p-6">
+                    {/* Top Mosaic Images with vertical MOSAIC text */}
+                    <div className="mb-6">
+                      <div className="grid grid-cols-5 gap-4">
+                        <div className="col-span-2 relative overflow-hidden rounded-lg group">
+                          <motion.div
+                            className="relative"
+                            whileHover={{
+                              scale: 1.03,
+                              boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                            }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 17,
+                            }}
+                            onClick={() =>
+                              handleImageClick(
+                                topic.images[0].src,
+                                topic.images[0].caption
+                              )
+                            }
+                          >
+                            <img
+                              src={topic.images[0].src}
+                              alt={topic.images[0].caption}
+                              className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-50 lg:h-56"
+                            />
+
+                            {/* Caption overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                              <div className="text-xs md:text-sm font-medium">
+                                {topic.images[0].caption}
+                              </div>
+                              <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                                Click to enlarge
+                              </div>
+                            </div>
+                          </motion.div>
+                        </div>
+
+                        {/* Vertical MOSAIC text in the middle */}
+                        <div className="col-span-1 flex items-center justify-center">
+                          <div className="flex flex-col items-center justify-center">
+                            {["M", "O", "S", "A", "I", "C"].map(
+                              (letter, idx) => (
+                                <div
+                                  key={idx}
+                                  className="text-[7px] md:text-[13px] font-bold text-deepGreen my-1"
+                                >
+                                  {letter}
+                                </div>
+                              )
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="col-span-2 relative overflow-hidden rounded-lg group">
+                          <motion.div
+                            className="relative"
+                            whileHover={{
+                              scale: 1.03,
+                              boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                            }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 17,
+                            }}
+                            onClick={() =>
+                              handleImageClick(
+                                topic.images[1].src,
+                                topic.images[1].caption
+                              )
+                            }
+                          >
+                            <img
+                              src={topic.images[1].src}
+                              alt={topic.images[1].caption}
+                              className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48 lg:h-56"
+                            />
+
+                            {/* Caption overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                              <div className="text-xs md:text-sm font-medium">
+                                {topic.images[1].caption}
+                              </div>
+                              <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                                Click to enlarge
+                              </div>
+                            </div>
+                          </motion.div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Processing description */}
+                    <div className="w-full mb-6">
+                      <div className="rounded-lg md:p-5">
                         <ul className="space-y-3 md:space-y-4 text-gray-600">
                           <li className="flex items-center">
                             <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
@@ -325,9 +450,6 @@ const ProductDetail = () => {
                               </svg>
                             </div>
                             <div className="flex-1 pt-0.5">
-                              <strong className="text-forestGreen">
-                                Processing:
-                              </strong>{" "}
                               <span className="text-sm md:text-base">
                                 Pixel Profile, Band Combination, Spectral
                                 Profile, Spectral Plot, Inquire Cursor, Opacity,
@@ -335,6 +457,69 @@ const ProductDetail = () => {
                               </span>
                             </div>
                           </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Pixel Profile Analysis image */}
+                    <div className="w-full">
+                      <motion.div
+                        className="relative overflow-hidden rounded-lg group"
+                        whileHover={{
+                          scale: 1.03,
+                          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                      >
+                        <div
+                          className="relative"
+                          onClick={() =>
+                            handleImageClick(
+                              topic.images[2].src, // Changed from index 5 to index 2
+                              topic.images[2].caption
+                            )
+                          }
+                        >
+                          <img
+                            src={topic.images[2].src} // Changed from index 5 to index 2
+                            alt={topic.images[2].caption}
+                            className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48 lg:h-56"
+                          />
+                          {/* Caption overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div className="text-xs md:text-sm font-medium">
+                              {topic.images[2].caption} // Changed from index 5
+                              to index 2
+                            </div>
+                            <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                              Click to enlarge
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Preparation Card */}
+                <div className="bg-gradient-to-br from-offWhite to-white rounded-xl shadow-md overflow-hidden">
+                  {/* Category header */}
+                  <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
+                    <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
+                      Preparation
+                    </h4>
+                  </div>
+
+                  <div className="p-4 md:p-6">
+                    {/* Preparation description */}
+                    <div className="w-full mb-6">
+                      <div className="rounded-lg p-3 md:p-5">
+                        <ul className="space-y-3 md:space-y-4 text-gray-600">
                           <li className="flex items-center">
                             <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
                               <svg
@@ -351,9 +536,6 @@ const ProductDetail = () => {
                               </svg>
                             </div>
                             <div className="flex-1 pt-0.5">
-                              <strong className="text-forestGreen">
-                                Preparation:
-                              </strong>{" "}
                               <span className="text-sm md:text-base">
                                 Projection, Pan Merge, Mosaic, Subset, Resize &
                                 False Colour Composite.
@@ -361,76 +543,12 @@ const ProductDetail = () => {
                             </div>
                           </li>
                         </ul>
-                      ) : Array.isArray(topic.details) ? (
-                        <ul className="space-y-2 md:space-y-3 text-gray-600">
-                          {topic.details.map((detail, detailIndex) => (
-                            <li key={detailIndex} className="flex items-center">
-                              <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="h-3 w-3 md:h-4 md:w-4"
-                                  viewBox="0 0 20 20"
-                                  fill="currentColor"
-                                >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
-                              </div>
-                              <div className="text-sm md:text-base pt-0.5">
-                                {detail}
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : typeof topic.details === "string" ? (
-                        <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                          {topic.details}
-                        </p>
-                      ) : (
-                        <div className="text-gray-600">
-                          {typeof topic.details === "object" &&
-                          !Array.isArray(topic.details) ? (
-                            Object.entries(topic.details).map(
-                              ([key, value]) => (
-                                <div
-                                  key={key}
-                                  className="mb-3 md:mb-4 pb-3 md:pb-4 border-b border-beige last:border-0"
-                                >
-                                  <h5 className="text-base md:text-lg font-medium text-deepGreen mb-1 md:mb-2">
-                                    {key}
-                                  </h5>
-                                  <p className="text-sm md:text-base text-gray-600">
-                                    {value}
-                                  </p>
-                                </div>
-                              )
-                            )
-                          ) : (
-                            <p className="text-sm md:text-base">
-                              {String(topic.details)}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                {/* Images section with improved mobile spacing */}
-                {topic.images && (
-                  <div className="w-full md:w-1/2 md:pl-4 mt-2 md:mt-0">
-                    <div
-                      className={`grid gap-3 md:gap-4 ${
-                        topic.images.length === 1
-                          ? "grid-cols-1"
-                          : topic.images.length === 2
-                          ? "grid-cols-2"
-                          : "grid-cols-2"
-                      }`}
-                    >
-                      {topic.images.map((imgObj, imgIndex) => (
+                    {/* Bottom three images */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {topic.images.slice(3, 6).map((imgObj, imgIndex) => (
                         <div key={imgIndex} className="flex flex-col">
                           <motion.div
                             className="relative overflow-hidden rounded-lg group"
@@ -453,9 +571,9 @@ const ProductDetail = () => {
                               <img
                                 src={imgObj.src}
                                 alt={imgObj.caption}
-                                className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48 lg:h-56 hover:scale-105 transition-transform duration-300 ease-in-out"
+                                className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40"
                               />
-                              {/* Enhanced caption with reveal animation */}
+                              {/* Caption overlay */}
                               <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                               <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                 <div className="text-xs md:text-sm font-medium">
@@ -471,11 +589,432 @@ const ProductDetail = () => {
                       ))}
                     </div>
                   </div>
+                </div>
+              </motion.div>
+            );
+          }
+          // Special handling for Enhancement & Classification (when sectionIndex === 0 && topicIndex === 1,2)
+          // Enhancement section (second card)
+          else if (sectionIndex === 0 && topicIndex === 1) {
+            return (
+              <motion.div
+                key={topicIndex}
+                className="mb-8 md:mb-16 px-1 md:px-8 lg:px-20 animate-on-scroll"
+                data-id={`topic-${sectionIndex}-${topicIndex}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  visibleElements[`topic-${sectionIndex}-${topicIndex}`]
+                    ? { opacity: 1, y: 0 }
+                    : {}
+                }
+                transition={{ duration: 0.5, delay: 0.1 * topicIndex }}
+              >
+                <div className="bg-gradient-to-br from-offWhite to-white rounded-xl shadow-md overflow-hidden">
+                  {/* Enhancement header */}
+                  <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
+                    <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
+                      Enhancement
+                    </h4>
+                  </div>
+
+                  <div className="p-4 md:p-6">
+                    {/* Two-section layout with description on left, images on right */}
+                    <div className="flex flex-col md:flex-row">
+                      {/* Enhancement description on left */}
+                      <div className="w-full md:w-1/2 md:pr-4 mb-6 md:mb-0">
+                        <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                          {topic.details}
+                        </p>
+                      </div>
+
+                      {/* Images on right */}
+                      <div className="w-full md:w-1/2 md:pl-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+                          {topic.images.map((imgObj, imgIndex) => (
+                            <div key={imgIndex} className="flex flex-col">
+                              <motion.div
+                                className="relative overflow-hidden rounded-lg group"
+                                whileHover={{
+                                  scale: 1.03,
+                                  boxShadow:
+                                    "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                                }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 400,
+                                  damping: 17,
+                                }}
+                              >
+                                <div
+                                  className="relative"
+                                  onClick={() =>
+                                    handleImageClick(imgObj.src, imgObj.caption)
+                                  }
+                                >
+                                  <img
+                                    src={imgObj.src}
+                                    alt={imgObj.caption}
+                                    className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48"
+                                  />
+                                  {/* Caption overlay */}
+                                  <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                    <div className="text-xs md:text-sm font-medium">
+                                      {imgObj.caption}
+                                    </div>
+                                    <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                                      Click to enlarge
+                                    </div>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          }
+
+          // Classification and Interpretation combined in one card (third card)
+          else if (sectionIndex === 0 && topicIndex === 2) {
+            // Get the interpretation data from the next topic
+            const interpretationTopic = data.topics[3];
+
+            return (
+              <motion.div
+                key={topicIndex}
+                className="mb-8 md:mb-16 px-1 md:px-8 lg:px-20 animate-on-scroll"
+                data-id={`topic-${sectionIndex}-${topicIndex}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  visibleElements[`topic-${sectionIndex}-${topicIndex}`]
+                    ? { opacity: 1, y: 0 }
+                    : {}
+                }
+                transition={{ duration: 0.5, delay: 0.1 * topicIndex }}
+              >
+                <div className="bg-gradient-to-br from-offWhite to-white rounded-xl shadow-md overflow-hidden">
+                  {/* Combined header */}
+                  <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
+                    <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
+                      Classification & Interpretation
+                    </h4>
+                  </div>
+
+                  <div className="p-4 md:p-6">
+                    {/* Classification section with images */}
+                    <div className="flex flex-col md:flex-row mb-8">
+                      {/* Classification details */}
+                      <div className="w-full md:w-1/2 md:pr-4 mb-6 md:mb-0">
+                        <h5 className="text-base md:text-lg font-medium text-deepGreen mb-2 md:mb-3">
+                          Classification
+                        </h5>
+                        <p className="text-gray-600 leading-relaxed text-sm md:text-base mb-6">
+                          {topic.details}
+                        </p>
+                      </div>
+
+                      {/* Classification images */}
+                      <div className="w-full md:w-1/2 md:pl-4">
+                        <div className="grid grid-cols-2 gap-4">
+                          {topic.images.map((imgObj, imgIndex) => (
+                            <div key={imgIndex} className="flex flex-col">
+                              <motion.div
+                                className="relative overflow-hidden rounded-lg group"
+                                whileHover={{
+                                  scale: 1.03,
+                                  boxShadow:
+                                    "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                                }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 400,
+                                  damping: 17,
+                                }}
+                              >
+                                <div
+                                  className="relative"
+                                  onClick={() =>
+                                    handleImageClick(imgObj.src, imgObj.caption)
+                                  }
+                                >
+                                  <img
+                                    src={imgObj.src}
+                                    alt={imgObj.caption}
+                                    className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48"
+                                  />
+                                  {/* Caption overlay */}
+                                  <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                    <div className="text-xs md:text-sm font-medium">
+                                      {imgObj.caption}
+                                    </div>
+                                    <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                                      Click to enlarge
+                                    </div>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Interpretation section */}
+                    <div className="w-full pt-4 border-t border-beige">
+                      <h5 className="text-base md:text-lg font-medium text-deepGreen mb-2 md:mb-3">
+                        Interpretation
+                      </h5>
+                      <ul className="space-y-2 md:space-y-3 text-gray-600">
+                        {interpretationTopic.details.map(
+                          (detail, detailIndex) => (
+                            <li key={detailIndex} className="flex items-center">
+                              <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-3 w-3 md:h-4 md:w-4"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                              <div className="text-sm md:text-base pt-0.5">
+                                {detail}
+                              </div>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          }
+
+          // Skip rendering the Interpretation topic separately since we've already combined it
+          else if (sectionIndex === 0 && topicIndex === 3) {
+            return null;
+          }
+
+          // Standard rendering for all other topics
+          return (
+            <motion.div
+              key={topicIndex}
+              className="mb-8 md:mb-16 px-1 md:px-8 lg:px-20 animate-on-scroll"
+              data-id={`topic-${sectionIndex}-${topicIndex}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                visibleElements[`topic-${sectionIndex}-${topicIndex}`]
+                  ? { opacity: 1, y: 0 }
+                  : {}
+              }
+              transition={{ duration: 0.5, delay: 0.1 * topicIndex }}
+            >
+              {/* Rest of your original code for other topics */}
+              <div className="bg-gradient-to-br from-offWhite to-white rounded-xl shadow-md overflow-hidden">
+                {/* Category header (if exists) */}
+                {topic.category && (
+                  <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
+                    <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
+                      {Array.isArray(topic.category)
+                        ? topic.category.join(" & ")
+                        : topic.category}
+                    </h4>
+                  </div>
                 )}
+
+                {/* Content and images section with alternating layout */}
+                <div
+                  className={`flex flex-col md:flex-row md:items-start p-4 md:p-6 ${
+                    topicIndex % 2 !== 0 ? "" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Text content section */}
+                  <div className="w-full md:w-1/2 mb-6 md:mb-0 md:pr-4">
+                    <div className="rounded-lg p-3 md:p-5 h-full">
+                      {topic.details &&
+                        (topic.details_type === "processing_preparation" ? (
+                          <ul className="space-y-3 md:space-y-4 text-gray-600">
+                            <li className="flex items-center">
+                              <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-3 w-3 md:h-4 md:w-4"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                              <div className="flex-1 pt-0.5">
+                                <strong className="text-forestGreen">
+                                  Processing:
+                                </strong>{" "}
+                                <span className="text-sm md:text-base">
+                                  {topic.details.Processing}
+                                </span>
+                              </div>
+                            </li>
+                            <li className="flex items-center">
+                              <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-3 w-3 md:h-4 md:w-4"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                              <div className="flex-1 pt-0.5">
+                                <strong className="text-forestGreen">
+                                  Preparation:
+                                </strong>{" "}
+                                <span className="text-sm md:text-base">
+                                  {topic.details.Preparation}
+                                </span>
+                              </div>
+                            </li>
+                          </ul>
+                        ) : Array.isArray(topic.details) ? (
+                          <ul className="space-y-2 md:space-y-3 text-gray-600">
+                            {topic.details.map((detail, detailIndex) => (
+                              <li
+                                key={detailIndex}
+                                className="flex items-center"
+                              >
+                                <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-3 w-3 md:h-4 md:w-4"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
+                                </div>
+                                <div className="text-sm md:text-base pt-0.5">
+                                  {detail}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : typeof topic.details === "string" ? (
+                          <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                            {topic.details}
+                          </p>
+                        ) : (
+                          <div className="text-gray-600">
+                            {typeof topic.details === "object" &&
+                            !Array.isArray(topic.details) ? (
+                              Object.entries(topic.details).map(
+                                ([key, value]) => (
+                                  <div
+                                    key={key}
+                                    className="mb-3 md:mb-4 pb-3 md:pb-4 border-b border-beige last:border-0"
+                                  >
+                                    <h5 className="text-base md:text-lg font-medium text-deepGreen mb-1 md:mb-2">
+                                      {key}
+                                    </h5>
+                                    <p className="text-sm md:text-base text-gray-600">
+                                      {value}
+                                    </p>
+                                  </div>
+                                )
+                              )
+                            ) : (
+                              <p className="text-sm md:text-base">
+                                {String(topic.details)}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+
+                  {/* Images section */}
+                  {topic.images && (
+                    <div className="w-full md:w-1/2 md:pl-4 mt-2 md:mt-0">
+                      <div
+                        className={`grid gap-3 md:gap-4 ${
+                          topic.images.length === 1
+                            ? "grid-cols-1"
+                            : topic.images.length === 2
+                            ? "grid-cols-2"
+                            : "grid-cols-2"
+                        }`}
+                      >
+                        {topic.images.map((imgObj, imgIndex) => (
+                          <div key={imgIndex} className="flex flex-col">
+                            <motion.div
+                              className="relative overflow-hidden rounded-lg group"
+                              whileHover={{
+                                scale: 1.03,
+                                boxShadow:
+                                  "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                              }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 17,
+                              }}
+                            >
+                              <div
+                                className="relative"
+                                onClick={() =>
+                                  handleImageClick(imgObj.src, imgObj.caption)
+                                }
+                              >
+                                <img
+                                  src={imgObj.src}
+                                  alt={imgObj.caption}
+                                  className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48 lg:h-56 hover:scale-105 transition-transform duration-300 ease-in-out"
+                                />
+                                {/* Caption overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                  <div className="text-xs md:text-sm font-medium">
+                                    {imgObj.caption}
+                                  </div>
+                                  <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                                    Click to enlarge
+                                  </div>
+                                </div>
+                              </div>
+                            </motion.div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
     );
   };

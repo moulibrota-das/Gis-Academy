@@ -5,7 +5,7 @@ import img2 from "/src/assets/product/Brochure_page-0002.jpg";
 import img3 from "/src/assets/product/Brochure_page-0003.jpg";
 import img4 from "/src/assets/product/Brochure_page-0004.jpg";
 import img5 from "/src/assets/product/Brochure_page-0005.jpg";
-import img6 from "/src/assets/product/Brochure_page-0006.jpg";
+import img6 from "/src/assets/product/Brochure_page-0006.jpeg";
 import img7 from "/src/assets/product/Brochure_page-0007.jpg";
 import img8 from "/src/assets/product/Brochure_page-0008.jpg";
 
