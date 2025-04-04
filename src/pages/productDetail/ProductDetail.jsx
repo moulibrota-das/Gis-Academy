@@ -24,16 +24,17 @@ import DEM_Contour from "/src/assets/product/brochure/page6/DEM_Contour.jpg";
 import Fence_Section_Diagram from "/src/assets/product/brochure/page7/Fence_Section_Diagram.jpg";
 import Litholog from "/src/assets/product/brochure/page7/Litholog.jpg";
 import Section_Diagram from "/src/assets/product/brochure/page7/Section_Diagram.jpg";
+import NoralisedDifference from "/src/assets/product/brochure/page3/Normalised_Difference_Vegetation_Index.jpeg";
 
 // Product data (Maintained from original)
 const productData = [
   {
     title: "Remote Sensing & Image Analysis",
     description:
-      "21stCenturyGIS simplifies image processing and interpretation, while maintaining the integrity of geo-spatial data.",
+      "21stCenturyGIS simplifies image processing and interpretation, while maintaining the integrity of  Geo-Spatial data.",
     topics: [
       {
-        category: ["Processing", "Preparation"],
+        category: ["Image Processing", "Preparation"],
         details: {
           Processing:
             "Pixel Profile, Band Combination, Spectral Profile, Spectral Plot, Inquire Cursor, Opacity, Swipe, Pixel Chart & Histogram Manipulation.",
@@ -71,7 +72,7 @@ const productData = [
         images: [
           {
             src: DigitalClassification1,
-            caption: "Digital Classification Example",
+            caption: "Digital Classification ",
           },
           { src: AttributeManager, caption: "Attribute Manager Interface" },
         ],
@@ -87,6 +88,12 @@ const productData = [
           "Change Detection",
         ],
         details_type: "list",
+        images: [
+          {
+            src: NoralisedDifference,
+            caption: "Normalised Difference Vegetation Index",
+          },
+        ],
       },
     ],
   },
@@ -113,7 +120,7 @@ const productData = [
           "Input or Import attribute data & Photograph in table for Query & Statistics",
           "Thematic Map: Choropleth, Chorochromatic, Unique Value, Dot Density, Sphere, Circle, Square, Triangle Diagram",
         ],
-        images: [{ src: Thematic_Map, caption: "Thematic Map Example" }],
+        images: [{ src: Thematic_Map, caption: "Thematic Map" }],
       },
       {
         details: [
@@ -125,7 +132,7 @@ const productData = [
         images: [
           {
             src: BufferImg,
-            caption: "Buffer Analysis Example",
+            caption: "Buffer Analysis ",
           },
         ],
       },
@@ -133,33 +140,33 @@ const productData = [
         details: [
           "Network Analysis: Shortest Path, Closest Facility, Dynamic Segmentation",
           "Feature Density Analysis",
-          "Morphometric Analysis: Relative Relief, Dissection Index, Ruggedness Index",
         ],
         images: [
           {
             src: Network_Analysis,
-            caption: "Network Analysis Example",
+            caption: "Network Analysis",
           },
         ],
       },
       {
         details: [
+          "Morphometric Analysis: Relative Relief, Dissection Index, Ruggedness Index",
           "Geo-coding of Tables",
           "Plotting of GPS Waypoints & Track lines",
-          "Overlaying maps on Google Earth for comparison and updating",
         ],
         images: [
           {
             src: MorphometricAnalysisMap,
-            caption: "Morphometric Analysis Map",
+            caption: "Dissection Index",
           },
         ],
       },
       {
         details: [
+          "Overlaying maps on Google Earth for comparison and updating",
           "Single & Multiple map Layout with Scale bar, Legend, North Arrow, Graticule",
           "Export map in BMP, JPG, PNG, TIF & WMF format controlling size and resolution",
-          "Print Preview & direct Print",
+          "Print Preview & Print",
         ],
         images: [
           {
@@ -173,7 +180,7 @@ const productData = [
   {
     title: "Terrain Modelling & Visualization",
     description:
-      "21st Century GIS quickly and easily converts your Point Data & DEM Raster into outstanding Contours, Flow Direction, Slope map, 3D Image and 3D Wireframe.",
+      "21stCenturyGIS quickly and easily converts your Point Data & DEM Raster into outstanding Contours, Flow Direction, Slope map, 3D Image and 3D Wireframe.",
     topics: [
       {
         details: [
@@ -230,7 +237,7 @@ const productData = [
           "Geological Symbols",
         ],
         images: [
-          { src: Fence_Section_Diagram, caption: "Fence Section Diagram" },
+          { src: Fence_Section_Diagram, caption: "Fence & Section Diagram" },
         ],
       },
     ],
@@ -328,7 +335,7 @@ const ProductDetail = () => {
                   {/* Category header */}
                   <div className="bg-oliveGreen bg-opacity-20 px-4 md:px-6 py-2 md:py-3 border-b border-oliveGreen border-opacity-30">
                     <h4 className="text-lg md:text-2xl font-semibold text-deepGreen">
-                      Processing
+                      Image Processing
                     </h4>
                   </div>
 
@@ -485,7 +492,7 @@ const ProductDetail = () => {
                           }
                         >
                           <img
-                            src={topic.images[2].src} 
+                            src={topic.images[2].src}
                             alt={topic.images[2].caption}
                             className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48 lg:h-56"
                           />
@@ -494,7 +501,6 @@ const ProductDetail = () => {
                           <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                             <div className="text-xs md:text-sm font-medium">
                               {topic.images[2].caption}
-                              to index 2
                             </div>
                             <div className="text-xs text-gray-200 mt-1 hidden md:block">
                               Click to enlarge
@@ -770,31 +776,110 @@ const ProductDetail = () => {
                       <h5 className="text-base md:text-lg font-medium text-deepGreen mb-2 md:mb-3">
                         Interpretation
                       </h5>
-                      <ul className="space-y-2 md:space-y-3 text-gray-600">
-                        {interpretationTopic.details.map(
-                          (detail, detailIndex) => (
-                            <li key={detailIndex} className="flex items-center">
-                              <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="h-3 w-3 md:h-4 md:w-4"
-                                  viewBox="0 0 20 20"
-                                  fill="currentColor"
+                      <div className="flex flex-col md:flex-row gap-4">
+                        {/* Left side - List of interpretation topics */}
+                        <div className="md:w-1/2">
+                          <ul className="space-y-2 md:space-y-3 text-gray-600">
+                            {interpretationTopic.details.map(
+                              (detail, detailIndex) => (
+                                <li
+                                  key={detailIndex}
+                                  className="flex items-center"
                                 >
-                                  <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clipRule="evenodd"
-                                  />
-                                </svg>
+                                  <div className="bg-oliveGreen text-darkGreen p-1 rounded-full mr-3 flex-shrink-0 flex items-center justify-center">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-3 w-3 md:h-4 md:w-4"
+                                      viewBox="0 0 20 20"
+                                      fill="currentColor"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <div className="text-sm md:text-base pt-0.5">
+                                    {detail}
+                                  </div>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+
+                        {/* Right side - Image */}
+                        {/* <div className="md:w-1/2 flex items-center justify-center">
+                          {interpretationTopic.images &&
+                            interpretationTopic.images.length > 0 && (
+                              <div className="rounded-lg overflow-hidden shadow-md">
+                                <img
+                                  src={interpretationTopic.images[0].src}
+                                  alt={interpretationTopic.images[0].caption}
+                                  className="w-full h-auto object-cover"
+                                />
+                                <p className="text-xs md:text-sm text-center p-2 bg-gray-50 text-gray-600">
+                                  {interpretationTopic.images[0].caption}
+                                </p>
                               </div>
-                              <div className="text-sm md:text-base pt-0.5">
-                                {detail}
-                              </div>
-                            </li>
-                          )
-                        )}
-                      </ul>
+                            )}
+                        </div> */}
+                        {/* Images on right */}
+                        <div className="w-full md:w-1/2 md:pl-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+                            {interpretationTopic.images &&
+                              interpretationTopic.images.length > 0 && (
+                                <div className="flex flex-col">
+                                  <motion.div
+                                    className="relative overflow-hidden rounded-lg group"
+                                    whileHover={{
+                                      scale: 1.03,
+                                      boxShadow:
+                                        "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                                    }}
+                                    transition={{
+                                      type: "spring",
+                                      stiffness: 400,
+                                      damping: 17,
+                                    }}
+                                  >
+                                    <div
+                                      className="relative"
+                                      onClick={() =>
+                                        handleImageClick(
+                                          interpretationTopic.images[0].src,
+                                          interpretationTopic.images[0].caption
+                                        )
+                                      }
+                                    >
+                                      <img
+                                        src={interpretationTopic.images[0].src}
+                                        alt={
+                                          interpretationTopic.images[0].caption
+                                        }
+                                        className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48"
+                                      />
+                                      {/* Caption overlay */}
+                                      <div className="absolute inset-0 bg-gradient-to-t from-darkGreen via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                      <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <div className="text-xs md:text-sm font-medium">
+                                          {
+                                            interpretationTopic.images[0]
+                                              .caption
+                                          }
+                                        </div>
+                                        <div className="text-xs text-gray-200 mt-1 hidden md:block">
+                                          Click to enlarge
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </motion.div>
+                                </div>
+                              )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

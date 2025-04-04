@@ -72,8 +72,11 @@ const NavBar = () => {
     }
   };
 
-  // Only show Home when the route is "/product-detail"
-  const shouldShowNavItems = location.pathname !== "/product-detail";
+  // Filter nav items based on location path
+  const filteredNavItems =
+    location.pathname === "/product-detail"
+      ? navItems.filter((item) => item.name === "Home")
+      : navItems;
 
   return (
     <header
@@ -110,8 +113,8 @@ const NavBar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-x-8">
-          {shouldShowNavItems &&
-            navItems.map((item, index) => (
+          {filteredNavItems &&
+            filteredNavItems.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: -10 }}
@@ -138,7 +141,7 @@ const NavBar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        {shouldShowNavItems && (
+        {filteredNavItems && (
           <button
             id="hamburgerBtn"
             className="md:hidden text-darkGreen text-2xl"
@@ -163,8 +166,8 @@ const NavBar = () => {
             transition={{ duration: 0.3 }}
             className="absolute top-full right-0 w-full mx-auto bg-offWhite shadow-md p-6 md:hidden"
           >
-            {shouldShowNavItems &&
-              navItems.map((item, index) => (
+            {filteredNavItems &&
+              filteredNavItems.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: 20 }}
