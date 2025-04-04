@@ -492,7 +492,7 @@ const ProductDetail = () => {
                           }
                         >
                           <img
-                            src={topic.images[2].src} 
+                            src={topic.images[2].src}
                             alt={topic.images[2].caption}
                             className="rounded-lg cursor-pointer w-full object-contain h-32 sm:h-40 md:h-48 lg:h-56"
                           />
@@ -501,7 +501,6 @@ const ProductDetail = () => {
                           <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                             <div className="text-xs md:text-sm font-medium">
                               {topic.images[2].caption}
-                              to index 2
                             </div>
                             <div className="text-xs text-gray-200 mt-1 hidden md:block">
                               Click to enlarge
