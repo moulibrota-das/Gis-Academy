@@ -87,7 +87,7 @@ const Courses = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false }}
       ></motion.div>
-      <div className="text-sm text-gray-300 mt-4 italic text-left w-full">
+      <div className="text-sm text-offWhite font-bold mt-4 italic text-center w-full">
         *Theory and Practical classes for all courses are twice in a week and 1½
         hours per day
       </div>
@@ -214,7 +214,10 @@ const Courses = () => {
                   <ul className="mt-2 text-sm text-justify">
                     {Array.isArray(selectedCourse.topics)
                       ? selectedCourse.topics.map((topic, i) => (
-                          <li key={i} className="mt-1 list-disc items-center gap-2 text-justify">
+                          <li
+                            key={i}
+                            className="mt-1 list-disc items-center gap-2 text-justify"
+                          >
                             {/* <span className="w-1 h-1 bg-forestGreen rounded-full"></span>{" "} */}
                             {topic}
                           </li>
