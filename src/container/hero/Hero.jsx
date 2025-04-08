@@ -48,14 +48,13 @@ const Hero = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-3xl sm:text-2xl md:text-4xl font-bold text-white leading-tight"
+          className="text-3xl sm:text-2xl md:text-[2.5rem] font-bold text-white leading-tight"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
         >
           Mapping the Future of Geospatial Intelligence
         </motion.h1>
-
         <motion.p
           className="text-sm sm:text-xl md:text-sm text-white max-w-2xl leading-relaxed"
           initial={{ opacity: 0, y: -10 }}
@@ -70,6 +69,47 @@ const Hero = () => {
           interactive maps, and shape the future in the era of cutting-edge
           geospatial technology.
         </motion.p>
+
+        <motion.div
+          className="bg-white/50 backdrop-blur-md text-darkGreen text-sm sm:text-base font-semibold leading-relaxed space-y-3 w-full max-w-2xl px-4 sm:px-6 py-3 sm:py-4 rounded-lg shadow-md mt-3 text-center sm:text-center"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
+          <p>
+            <strong>
+              An ISO 9001 : 2015 Organisation <br />
+              <span className="font-normal">
+                Registration Number - 0430Q202724{" "}
+                <a
+                  href="https://www.otabucert.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-deepGreen transition"
+                >
+                  www.otabucert.com
+                </a>
+              </span>
+            </strong>
+          </p>
+          <p>
+            <strong>
+              An Organisation registered under Ministry of Micro, Small and
+              Medium Enterprises, Government of India <br />
+              <span className="font-normal">
+                Registration Number - UDYAM-WB-10-0019052{" "}
+                <a
+                  href="https://www.msme.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-deepGreen transition"
+                >
+                  www.msme.gov.in
+                </a>
+              </span>
+            </strong>
+          </p>
+        </motion.div>
 
         <div className="flex space-x-4">
           <motion.button
