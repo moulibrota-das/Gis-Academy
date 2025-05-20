@@ -31,7 +31,7 @@ const MyDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
-        <Text>Section #1 - GIS Training Overview</Text>
+        <Text>Section #1 - GIS Software Overview</Text>
       </View>
       <View style={styles.section}>
         <Text>Section #2 - Company Brochure Overview</Text>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 // PDF Data
 const document_details = [
   {
-    title: "GIS Training Overview",
+    title: "GIS Software Overview",
     description: "A comprehensive guide to GIS mapping techniques.",
     pdfUrl: pdf1,
     imgUrl: img1,
