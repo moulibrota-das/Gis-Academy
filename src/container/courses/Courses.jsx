@@ -124,7 +124,7 @@ const Courses = () => {
         ))}
 
         {/* Contact Us Card */}
-        {(!isMobile || showAll) && (
+        {/* {(!isMobile || showAll) && (
           <motion.div
             className="relative bg-white/30 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 flex flex-col justify-between"
             whileHover={{ scale: 1.05 }}
@@ -152,7 +152,7 @@ const Courses = () => {
               Contact
             </motion.button>
           </motion.div>
-        )}
+        )} */}
       </div>
 
       {courses.length > 3 && isMobile && (

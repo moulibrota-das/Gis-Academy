@@ -127,58 +127,6 @@
       }
     },
     {
-      "courseName": "Advance Study on HEC-RAS software",
-      "courseType": "Certificate",
-      "durationMonths": 2,
-      "topics": [
-        "Flow / Sediment Transport Model",
-        "Flood Risk Assessment",
-        "Urban Flood Modeling",
-        "Embankment Breaching Study",
-        "Dam and Reservoir Study",
-        "Effects of Hydraulic Construction Analysis, 1D and 2D River Model"
-      ]
-    },
-    {
-      "courseName": "Advance Study on HEC-HMS software",
-      "courseType": "Certificate",
-      "durationMonths": 1,
-      "topics": [
-        "Flood analysis",
-        "Rainfall - Runoff Analysis",
-        "Water availability study through Climatic impact and Soil erosion"
-      ]
-    },
-    {
-      "courseName": "Integrated Machine Learning Analysis on Hydrodynamic Study",
-      "courseType": "Certificate",
-      "durationMonths": 3,
-      "topics": [
-        "Future formation and utilizing different aspect of Machine Learning",
-        "Hydrodynamic analysis of catchment through SWAT",
-        "SWAT-CUP simulation by using predictive data"
-      ]
-    },
-    {
-      "courseName": "Statistical Approach using Excel, SPSS, Origin & R software",
-      "courseType": "Certificate",
-      "durationMonths": 4
-    },
-    {
-      "courseName": "Research Methodology",
-      "courseType": "Certificate",
-      "durationMonths": 1,
-      "topics": [
-        "Bibliometric Analysis through Vos Viewer and R",
-        "Qualitative data analysis and Modeling through NVIVO"
-      ]
-    },
-    {
-      "courseName": "Python programming on Statistical Technique and Spatial Mapping",
-      "courseType": "Certificate",
-      "durationMonths": 6
-    },
-    {
       "courseName": "Diploma in GIS and Remote Sensing",
       "courseType": "Diploma",
       "durationMonths": 12,
@@ -262,6 +210,74 @@
             "Preparation of Maps, Graphs & Excel Table",
             "Project Report Writing",
             "PowerPoint Presentation of Project"
+          ]
+        }
+      }
+    },
+    {
+      "courseName": "Advance Study on HEC-RAS software",
+      "courseType": "Certificate",
+      "durationMonths": 2,
+      "topics": [
+        "Flow / Sediment Transport Model",
+        "Flood Risk Assessment",
+        "Urban Flood Modeling",
+        "Embankment Breaching Study",
+        "Dam and Reservoir Study",
+        "Effects of Hydraulic Construction Analysis, 1D and 2D River Model"
+      ]
+    },
+    {
+      "courseName": "Advance Study on HEC-HMS software",
+      "courseType": "Certificate",
+      "durationMonths": 1,
+      "topics": [
+        "Flood analysis",
+        "Rainfall - Runoff Analysis",
+        "Water availability study through Climatic impact and Soil erosion"
+      ]
+    },
+    {
+      "courseName": "Integrated Machine Learning Analysis on Hydrodynamic Study",
+      "courseType": "Certificate",
+      "durationMonths": 3,
+      "topics": [
+        "Future formation and utilizing different aspect of Machine Learning",
+        "Hydrodynamic analysis of catchment through SWAT",
+        "SWAT-CUP simulation by using predictive data"
+      ]
+    },
+    {
+      "courseName": "Statistical Approach using Excel, SPSS, Origin & R software",
+      "courseType": "Certificate",
+      "durationMonths": 4
+    },
+    {
+      "courseName": "Research Methodology",
+      "courseType": "Certificate",
+      "durationMonths": 1,
+      "topics": [
+        "Bibliometric Analysis through Vos Viewer and R",
+        "Qualitative data analysis and Modeling through NVIVO"
+      ]
+    },
+    {
+      "courseName": "Python programming on Statistical Technique and Spatial Mapping",
+      "courseType": "Certificate",
+      "durationMonths": 6
+    },
+    {
+      "courseName": "Advanced Python Programming",
+      "durationMonths": 2,
+      "topics": {
+        "Chapter 1: Introduction to RS & GIS in python": {
+          "topics": [
+            "Dual Axis Reports, Blended Axis, Individual Axis, Add Reference Lines, Reference Bands, Reference Distributions, Basic Maps, Symbol Map, Use Google Maps, Mapbox Maps as a Background Map, WMS Server Map as a Background Map, Geospatial Data Science and Object Geometric."
+          ]
+        },
+        "Chapter 2: Advanced GIS & Climate modelling in Python": {
+          "topics": [
+            "AI & Machine Learning for Evapotranspiration Prediction, Big Data Approaches to Precipitation Analysis Using Python, Choropleth Mapping, Precipitation prediction through GCM, Mean rainfall, Urban Air Pollution, Noise level mapping, Soil Moisture Estimation Using Landsat-8 and TOTRAM Algorithm, Python-Based Evapotranspiration Estimation Using Multiple Methods, Statistical Data Validation and Hydrological Modeling."
           ]
         }
       }
