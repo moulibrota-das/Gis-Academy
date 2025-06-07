@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { FaArrowUp } from "react-icons/fa";
 import Introduction from "./container/introduction/Introduction";
 import Hero from "./container/hero/Hero";
@@ -14,9 +14,20 @@ import Client from "./container/client/ClientsPage";
 import ProjectsPage from "./container/project/ProjectsPage";
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import Services from "./container/services/Services";
+import AnnouncementModal from "./components/AnnouncementModal";
+import AnnouncementImage from "./assets/announcement/image.png"
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
+  const [showAnnouncement, setShowAnnouncement] = useState(false);
+  const imageUrl = AnnouncementImage;
+  
+
+  // Show announcement after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAnnouncement(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Check scroll position to show/hide button
   useEffect(() => {
@@ -36,7 +47,15 @@ function App() {
 
   return (
     <Router>
-      <main className=" min-h-screen ">
+      <main className="min-h-screen ">
+        <AnnouncementModal
+          open={showAnnouncement}
+          onClose={() => setShowAnnouncement(false)}
+          message="A batch of Diploma / Professional / Fundamental course in Remote Sensing and GIS course is going to start from 21st June 2025. Interested candidates are informed to register themselves by 15th June 2025."
+          ctaText={"I'm Interested"}
+          imageUrl={imageUrl}
+          
+        />
         <NavBar />
         <Routes>
           <Route
@@ -59,6 +78,7 @@ function App() {
             }
           />
           <Route path="/product-detail" element={<ProductDetail />} />
+          <Route path="/contact" element={<ContactUs showMap={false}/>} />
         </Routes>
 
         {/* Back to Top Button */}
