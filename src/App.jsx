@@ -24,10 +24,11 @@ function App() {
   
 
   // Show announcement after 3 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => setShowAnnouncement(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+  // turn 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setShowAnnouncement(true), 3000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   // Check scroll position to show/hide button
   useEffect(() => {
