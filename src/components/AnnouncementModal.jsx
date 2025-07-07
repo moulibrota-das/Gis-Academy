@@ -91,7 +91,8 @@ export default function AnnouncementModal({ open, onClose, message, imageUrl, ct
             <button
               onClick={() => {
                 onClose();
-                navigate("/contact");
+                const el = document.getElementById("courses");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               style={{
                 background: "#4ade80",
