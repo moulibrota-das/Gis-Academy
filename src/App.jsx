@@ -25,10 +25,10 @@ function App() {
 
   // Show announcement after 3 seconds
   // turn 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setShowAnnouncement(true), 3000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAnnouncement(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Check scroll position to show/hide button
   useEffect(() => {
@@ -52,8 +52,9 @@ function App() {
         <AnnouncementModal
           open={showAnnouncement}
           onClose={() => setShowAnnouncement(false)}
-          message="A batch of Diploma / Professional / Fundamental course in Remote Sensing and GIS course is going to start from 21st June 2025. Interested candidates are informed to register themselves by 15th June 2025."
-          ctaText={"I'm Interested"}
+          message="A batch for Diploma in Remote Sensing and GIS starting from 26th July 2025. Last for enrollment 19/07/2025."
+          ctaText={"View Courses"}
+          ctaLink={"/"}
           imageUrl={imageUrl}
           
         />

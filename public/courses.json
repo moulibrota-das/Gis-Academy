@@ -264,7 +264,106 @@
     {
       "courseName": "Python programming on Statistical Technique and Spatial Mapping",
       "courseType": "Certificate",
-      "durationMonths": 6
+      "durationMonths": 6,
+      "topics": {
+        "Chapter 1: Introduction to Data Science": {
+          "topics": [
+            "Selecting rows/observations",
+            "Rounding Number",
+            "Selecting columns/fields",
+            "Merging data",
+            "Data aggregation",
+            "Data munging techniques"
+          ]
+        },
+        "Chapter 2: Introduction to Python": {
+          "topics": [
+            "What is Python",
+            "Why Python",
+            "Installing Python",
+            "Python IDEs",
+            "Jupyter Notebook Overview"
+          ]
+        },
+        "Chapter 3: Python Basics": {
+          "topics": [
+            "Python Basic Data types",
+            "Lists",
+            "Slicing",
+            "IF statements",
+            "Loops",
+            "Dictionaries",
+            "Tuples",
+            "Functions",
+            "Array",
+            "Selection by position & Labels"
+          ]
+        },
+        "Chapter 4: Python Packages": {
+          "topics": [
+            "Pandas",
+            "Numpy",
+            "Sci-kit Learn",
+            "Mat-plot library"
+          ]
+        },
+        "Chapter 5: Importing Data": {
+          "topics": [
+            "Reading CSV files",
+            "Saving in Python data",
+            "Loading Python data objects",
+            "Writing data to CSV file"
+          ]
+        },
+        "Chapter 6: Manipulating Data": {
+          "topics": [
+            "Selecting rows/observations",
+            "Rounding Number",
+            "Selecting columns/fields",
+            "Merging data",
+            "Data aggregation",
+            "Data munging techniques"
+          ]
+        },
+        "Chapter 7: Basic of Statistics": {
+          "topics": [
+            "Central Tendency (Mean, Median, Mode, Skewness, Normal Distribution)",
+            "Probability Basics (What does it mean by probability, Types of Probability, ODDS Ratio)",
+            "Standard Deviation (Data deviation & distribution, Variance)",
+            "Bias variance Tradeoff (Underfitting, Overfitting)",
+            "Distance metrics (Euclidean Distance, Manhattan Distance)",
+            "Outlier analysis (What is an Outlier, Inter Quartile Range, Box & whisker plot, Upper Whisker, Lower Whisker, Scatter plot, Cook’s Distance)",
+            "Missing Value treatment (What is NA, Central Imputation, KNN imputation, Domification)",
+            "Correlation (Pearson correlation, positive & Negative correlation)"
+          ]
+        },
+        "Chapter 8: Error Metrics": {
+          "topics": [
+            "Classification (Confusion Matrix, Precision, Recall, Specificity, F1 Score)",
+            "Regression (MSE, RMSE, MAPE)"
+          ]
+        },
+        "Chapter 9: Statistical Chart Formation": {
+          "topics": [
+            "Area Chart", "Bar Chart", "Box Plot", "Bubble Chart", "Bump Chart", "Bullet Graph", "Circle Views",
+            "Dual Combination Chart", "Dual Lines Chart", "Funnel Chart", "Traditional Funnel Charts", "Gantt Chart",
+            "Grouped Bar or Side by Side Bars Chart", "Heatmap", "Highlight Table", "Histogram", "Cumulative Histogram",
+            "Line Chart", "Lollipop Chart", "Pareto Chart", "Pie Chart", "Scatter Plot", "Stacked Bar Chart",
+            "Text Label", "Tree Map", "Word Cloud", "Waterfall Chart"
+          ]
+        },
+        "Chapter 10: Basic to Advanced Machine learning and Deep learning Algorithm": {
+          "topics": [
+            "Supervised Learning (Linear Regression; Logistic Regression)",
+            "Unsupervised Learning (K-Means, K-Means ++, Hierarchical Clustering)",
+            "SVM (Support Vectors, Hyperplanes, 2-D Case, Linear Hyperplane)",
+            "SVM Kernel (Linear, Radial, Polynomial)",
+            "Other Machine Learning Algorithms (K – Nearest Neighbour, Naïve Bayes Classifier, Decision Tree – CART, Decision Tree – C50, Random Forest)",
+            "AI Introduction (Perceptron, Multi-Layer perceptron, Markov Decision Process, Logical Agent & First Order Logic, AL Applications)",
+            "Deep Learning Algorithms (CNN – Convolutional Neural Network, RNN – Recurrent Neural Network, ANN – Artificial Neural Network)"
+          ]
+        }
+      }
     },
     {
       "courseName": "Advanced Python Programming",
